@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2612436901498072985
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -6075792471547691126, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: enemyTowerTag
+      value: BlueTower
+      objectReference: {fileID: 0}
+    - target: {fileID: -6075792471547691126, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: enemyMinionTag
+      value: BlueMinion
+      objectReference: {fileID: 0}
+    - target: {fileID: -6075792471547691126, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: enemyPlayerTag
+      value: BluePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475113608713735522, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2076a4eb547e49c4d9c3597c0e144a8e, type: 2}
+    - target: {fileID: 3263970021542850834, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Name
+      value: RedMinion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263970021542850834, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_TagString
+      value: RedMinion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378943925416519116, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 6967812809914671001, guid: dc3dd6a296c82aa479e3d3064cd806df, type: 3}
+    - target: {fileID: 6453507034145773629, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1059942625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972166971976457378, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: AuthorityMode
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
