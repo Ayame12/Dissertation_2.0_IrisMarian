@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -90,10 +89,10 @@ public class PlayerInputScript : MonoBehaviour
         }
         else
         {
-            float up = Mathf.Abs(Handles.GetMainGameViewSize().y - 1 - mousePos.y);
+            float up = Mathf.Abs(Screen.height - 1 - mousePos.y);
             float down = Mathf.Abs(mousePos.y);
             float left = Mathf.Abs(mousePos.x);
-            float right = Mathf.Abs(Handles.GetMainGameViewSize().x - 1 - mousePos.x);
+            float right = Mathf.Abs(Screen.width - 1 - mousePos.x);
 
             int smallestDir = 1;
             float smallest = up;
@@ -136,7 +135,7 @@ public class PlayerInputScript : MonoBehaviour
     public bool mouseOnScreen(Vector2 mouse)
     {
 #if UNITY_EDITOR
-        if (mouse.x <= 0 || mouse.y <= 0 || mouse.x >= Handles.GetMainGameViewSize().x - 1 || mouse.y >= Handles.GetMainGameViewSize().y - 1)
+        if (mouse.x <= 0 || mouse.y <= 0 || mouse.x >= Screen.width - 1 || mouse.y >= Screen.height - 1)
         {
             return false;
         }
