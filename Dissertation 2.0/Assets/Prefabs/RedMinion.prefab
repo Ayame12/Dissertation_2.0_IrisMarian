@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: enemyPlayerTag
       value: BluePlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 1231548668741195936, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1463142308834054370, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -69,6 +73,10 @@ PrefabInstance:
       value: RedMinion
       objectReference: {fileID: 0}
     - target: {fileID: 3263970021542850834, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263970021542850834, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: m_TagString
       value: RedMinion
       objectReference: {fileID: 0}
@@ -76,6 +84,10 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 6967812809914671001, guid: dc3dd6a296c82aa479e3d3064cd806df, type: 3}
+    - target: {fileID: 5043897954918148948, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6453507034145773629, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1059942625
@@ -83,6 +95,10 @@ PrefabInstance:
     - target: {fileID: 6972166971976457378, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: AuthorityMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594173611492622790, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

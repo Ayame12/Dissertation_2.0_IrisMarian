@@ -9,6 +9,7 @@ public class PlayerInputScript : MonoBehaviour
 
     private Vector2 mousePos;
     public Vector3 mousePosInGame;
+    public Vector3 lastRightClick;
 
     public int lastDirection = 0;
 
@@ -57,35 +58,41 @@ public class PlayerInputScript : MonoBehaviour
 
             mousePos = currentMousePos;
 
-            if (Mouse.current.rightButton.isPressed || Mouse.current.rightButton.wasPressedThisFrame)
+            
+            RaycastHit hit;
+
+            GameObject tempTarget = null;
+
+            if (Physics.Raycast(cam.ScreenPointToRay(mousePos), out hit, Mathf.Infinity))
             {
-                RaycastHit hit;
-
-                if (Physics.Raycast(cam.ScreenPointToRay(mousePos), out hit, Mathf.Infinity))
+                if (hit.collider.gameObject.layer == 8)
                 {
-                    if (hit.collider.gameObject.layer == 8)
-                    {
-                        move = true;
-                    }
-                    else if (hit.collider.gameObject.layer == 10)
-                    {
-                        attack = true;
+                    move = true;
+                }
+                else if (hit.collider.gameObject.layer == 10)
+                {
+                    attack = true;
 
-                        if (hit.transform.parent)
-                        {
-                            target = hit.transform.parent.gameObject;
-                        }
-                        else if (hit.collider.gameObject != null)
-                        {
-                            target = hit.transform.gameObject;
-                        }
+                    if (hit.transform.parent)
+                    {
+                        tempTarget = hit.transform.parent.gameObject;
                     }
+                    else if (hit.collider.gameObject != null)
+                    {
+                        tempTarget = hit.transform.gameObject;
+                    }
+                }
 
-                    mousePosInGame = hit.point;
+                mousePosInGame = hit.point;
+
+                if (Mouse.current.rightButton.isPressed || Mouse.current.rightButton.wasPressedThisFrame)
+                {
+                    lastRightClick = mousePosInGame;
+                    target = tempTarget;
+                }
 
                     //Debug.Log(mousePos.ToString() + "  :  " + mousePosInGame.ToString());
                 }
-            }
         }
         else
         {

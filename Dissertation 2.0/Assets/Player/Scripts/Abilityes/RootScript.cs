@@ -13,21 +13,17 @@ public class RootScript : AbilityScript
 
     private int targetsHit = 0;
 
-    GameObject[] alreadyHitTargets = { null };
+    private GameObject alreadyHitTarget;
 
     private float radius;
 
     public GameObject sphere;
 
-    new void Start()
-    {
-        base.Start();
-
-        radius = GetComponentInChildren<SphereCollider>().radius;
-    }
-
     new void Update()
     {
+        if (!IsOwner)
+        { return; }
+
         base.Update();
 
         if (isActive)
@@ -53,6 +49,7 @@ public class RootScript : AbilityScript
                 //}
 
                 sphere.SetActive(false);
+                alreadyHitTarget = null;
             }
 
             float distanceTraveled = Vector3.Distance(initialPosition, gameObject.transform.position);
@@ -70,8 +67,17 @@ public class RootScript : AbilityScript
                 //    gameObject.GetComponentInChildren<SphereCollider>().enabled = false;
                 //}
                 sphere.SetActive(false);
+                alreadyHitTarget = null;
             }
         }
+    }
+
+    public override void initialize(GameObject playerObj)
+    {
+        base.initialize(playerObj);
+
+        sphere.SetActive(false);
+        radius = sphere.GetComponent<SphereCollider>().radius;
     }
 
     public override void action()
@@ -79,7 +85,7 @@ public class RootScript : AbilityScript
         cooldownTimer = cooldown;
         targetsHit = 0;
         isActive = true;
-        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        sphere.SetActive(true);
 
         initialPosition = player.GetComponent<Transform>().position;
         targetPosition = getMousePos();
@@ -99,18 +105,26 @@ public class RootScript : AbilityScript
 
         foreach (Collider collider in hitColliders)
         {
-            if (collider.gameObject != gameObject && collider.gameObject != alreadyHitTargets[0])
+            if (collider.gameObject != gameObject)
             {
-                if (collider.gameObject.layer == enemyLayer && collider.gameObject.tag != enemyTowerTag)
+                if (collider.gameObject.layer == enemyLayer)
                 {
-                    if (collider.gameObject.GetComponent<AgentStats>())
+                    if (collider.gameObject.tag != enemyTowerTag)
                     {
-                        collider.gameObject.GetComponent<AgentStats>().takeDamage(damage, 1);
-                        collider.gameObject.GetComponent<AgentStats>().applyStun(rootDuration);
+                        GameObject parentHit = collider.gameObject.transform.root.gameObject;
 
-                        alreadyHitTargets[0] = collider.gameObject;
+                        if (parentHit != alreadyHitTarget)
+                        {
+                            if (collider.gameObject.GetComponentInParent<AgentStats>())
+                            {
+                                collider.gameObject.GetComponentInParent<AgentStats>().takeDamage(damage, 1);
+                                collider.gameObject.GetComponentInParent<AgentStats>().applyStun(rootDuration);
 
-                        targetsHit++;
+                                alreadyHitTarget = parentHit;
+
+                                targetsHit++;
+                            }
+                        }
                     }
                 }
             }

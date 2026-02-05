@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 149589465666105607, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 384195864005179949, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48,6 +52,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1801475423487755223, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172224270236479971, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197349327230923290, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057932449702762148, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: ability1Tag
+      value: RedRoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057932449702762148, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: ability2Tag
+      value: RedDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057932449702762148, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: ability3Tag
+      value: RedUlt
+      objectReference: {fileID: 0}
     - target: {fileID: 3057932449702762148, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
       propertyPath: ability1Prefab
       value: 
@@ -60,6 +88,18 @@ PrefabInstance:
       propertyPath: ability3Prefab
       value: 
       objectReference: {fileID: 2133417383101489491, guid: 8649a8e41a10e824c83af014e8990a9d, type: 3}
+    - target: {fileID: 5116006566902431921, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766455455942004389, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766455455942004389, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6043881707658365075, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2427792542
@@ -68,16 +108,41 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2076a4eb547e49c4d9c3597c0e144a8e, type: 2}
+    - target: {fileID: 6167239588452312717, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: enemyLayer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167239588452312717, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: friendlyLayer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6296563048441669386, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
       propertyPath: m_Name
       value: RedPlayerPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 6296563048441669386, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296563048441669386, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
       propertyPath: m_TagString
       value: RedPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 6989754713591230871, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051708359022090079, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 3001443394247142628}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+--- !u!223 &3001443394247142628 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6912566996042309168, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+  m_PrefabInstance: {fileID: 8523374365557650132}
+  m_PrefabAsset: {fileID: 0}

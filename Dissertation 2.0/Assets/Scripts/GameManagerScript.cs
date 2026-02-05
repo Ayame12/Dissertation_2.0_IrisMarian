@@ -21,7 +21,11 @@ public class GameManagerScript : NetworkBehaviour
     public GameObject bluePlayerPrefab;
     public GameObject redPlayerPrefab;
 
+    public GameObject blueRootPrefab;
+    public GameObject redRootPrefab;
+
     public CinemachineCamera cineCam;
+
     private GameObject bluePlayer;
     private GameObject redPlayer;
 
@@ -131,11 +135,17 @@ public class GameManagerScript : NetworkBehaviour
         {
             if(NetworkManager.Singleton.LocalClientId == clientId && NetworkManager.Singleton.IsHost)
             {
+                GameObject blueRoot = Instantiate(blueRootPrefab);
+                blueRoot.GetComponent<NetworkObject>().SpawnWithOwnership(clientId, true);
+
                 bluePlayer = Instantiate(bluePlayerPrefab);
                 bluePlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
             }
             else
             {
+                GameObject redRoot = Instantiate(redRootPrefab);
+                redRoot.GetComponent<NetworkObject>().SpawnWithOwnership(clientId, true);
+
                 redPlayer = Instantiate(redPlayerPrefab);
                 redPlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
             }  

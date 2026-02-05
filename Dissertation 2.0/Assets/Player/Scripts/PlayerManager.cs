@@ -10,22 +10,24 @@ public class PlayerManager : NetworkBehaviour
     public bool isAI = false;
     //public bool isLocal = true;
 
-    private int groundLayer = 8;
-    private int enemyLayer;
-    private int friendlyLayer;
+    //private int groundLayer = 8;
+    //private int enemyLayer;
+    //private int friendlyLayer;
 
-    private GameObject enemyPlayer;
-    private GameObject enemyTower;
+    //private GameObject enemyPlayer;
+    //private GameObject enemyTower;
 
-    private string enemyTowerTag;
-    private string enemyMinionTag;
-    private string enemyPlayerTag;
+    //private string enemyTowerTag;
+    //private string enemyMinionTag;
+    //private string enemyPlayerTag;
 
     private PlayerInputScript playerInput;
     private PlayerMovement playerMovement;
-    //private PlayerAttackManager playerAttackManager;
+    private PlayerAttackScript playerAttack;
 
     public int creepScore = 0;
+
+    public Canvas uiCanvas;
 
     //public override void OnNetworkSpawn()
     //{
@@ -37,7 +39,14 @@ public class PlayerManager : NetworkBehaviour
     {
         playerInput = GetComponent<PlayerInputScript>();
         playerMovement = GetComponent<PlayerMovement>();
-        //playerAttackManager = GetComponent<PlayerAttackManager>();
+        playerAttack = GetComponent<PlayerAttackScript>();
+
+        if(IsOwner)
+        {
+            uiCanvas.gameObject.SetActive(true);
+
+            playerAttack.initialize();
+        }
     }
 
     // Update is called once per frame
@@ -50,6 +59,7 @@ public class PlayerManager : NetworkBehaviour
         }
         playerInput.tickUpdate();
         playerMovement.tickUpdate();
+        playerAttack.tickUpdate();
 
     }
 }

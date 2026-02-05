@@ -12,8 +12,12 @@ TagManager:
   - BlueTower
   - RedTower
   - CinemachineCamera
-  - blueRoot
-  - redRoot
+  - BlueRoot
+  - RedRoot
+  - BlueDash
+  - RedDash
+  - BlueUlt
+  - RedUlt
   layers:
   - Default
   - TransparentFX
@@ -24,8 +28,8 @@ TagManager:
   - 
   - 
   - groundLayer
-  - 
-  - 
+  - BlueLayer
+  - RedLayer
   - 
   - 
   - 

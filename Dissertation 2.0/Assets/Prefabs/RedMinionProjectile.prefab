@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedMinionProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 2883693858307114729, guid: 95b9134dd2431134196a423b22c1ecd6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784304028225707804, guid: 95b9134dd2431134196a423b22c1ecd6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -19,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 6730067164620807041, guid: 95b9134dd2431134196a423b22c1ecd6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2709997017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895390863740844861, guid: 95b9134dd2431134196a423b22c1ecd6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9117610090195268234, guid: 95b9134dd2431134196a423b22c1ecd6, type: 3}
       propertyPath: m_LocalPosition.x

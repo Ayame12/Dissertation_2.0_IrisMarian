@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7908499168328814231}
   - component: {fileID: 5762561421360239034}
   - component: {fileID: 4374333508084347537}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 2288567615551797722}
   - component: {fileID: -6075792471547691126}
   - component: {fileID: 4378943925416519116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BlueMinion
   m_TagString: BlueMinion
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4908434728924755202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 2449870841617401476}
   - component: {fileID: 1475113608713735522}
   - component: {fileID: 2746555209470631496}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

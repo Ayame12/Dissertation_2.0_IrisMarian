@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
 
-    public float rotateSpeedMovement = 0.05f;
-    private float rotateVelocity;
+    //public float rotateSpeedMovement = 0.05f;
+    //private float rotateVelocity;
     public float stopDistance;
 
     public GameObject targetEnemy;
@@ -52,21 +52,27 @@ public class PlayerMovement : MonoBehaviour
         {
             if (playerInput.move)
             {
-                moveToPosition(playerInput.mousePosInGame);
+                moveToPosition(playerInput.lastRightClick);
 
                 //move icon
-                Vector3 offset = new Vector3(playerInput.mousePosInGame.x, playerInput.mousePosInGame.y + 0.05f, playerInput.mousePosInGame.z);
+                Vector3 offset = new Vector3(playerInput.lastRightClick.x, playerInput.lastRightClick.y + 0.05f, playerInput.lastRightClick.z);
                 moveIcon.SetActive(true);
                 moveIcon.transform.position = offset;
                 //moveIcon.GetComponent<Animator>().Play("MoveIconAnim", -1, 0f);
 
                 moveIconTimer = moveIconTimerMax;
+
+                //potentialy remove this?????????????????????????
+                targetEnemy = null;
             }
             if (playerInput.attack)
             {
                 targetEnemy = playerInput.target;
 
-                moveToEnemy(targetEnemy);
+                if (targetEnemy != null)
+                {
+                    moveToEnemy(targetEnemy);
+                }
             }
 
             if (targetEnemy != null)
@@ -126,8 +132,10 @@ public class PlayerMovement : MonoBehaviour
     {
         //ROTATION
         Quaternion rotationToLookAt = Quaternion.LookRotation(lookAtPosition - transform.position);
-        float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
-
+        //float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
+        float rotationY = rotationToLookAt.eulerAngles.y;
+        //transform.rotation = Quaternion.Euler(transform.rotation.x, rotationToLookAt.y, transform.rotation.z);
+        //transform.rotation = rotationToLookAt;
     }
 
     public void castBasicAttack()
