@@ -23,8 +23,8 @@ public class AbilityScript : MonoBehaviour
     protected Vector3 targetPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //public void Start()
-    //{
+    public void Start()
+    {
     //    stats = GetComponent<AgentStats>();
     //    //playerScript = player.GetComponent<PlayerManager>();
 
@@ -34,7 +34,7 @@ public class AbilityScript : MonoBehaviour
     //    enemyMinionTag = stats.enemyMinionTag;
     //    enemyPlayerTag = stats.enemyPlayerTag;
     //    enemyTowerTag = stats.enemyTowerTag;
-    //}
+    }
 
     public void Update()
     {

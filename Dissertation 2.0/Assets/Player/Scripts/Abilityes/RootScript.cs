@@ -17,11 +17,13 @@ public class RootScript : AbilityScript
 
     private float radius;
 
+    public GameObject sphere;
+
     new void Start()
     {
         base.Start();
 
-        radius = GetComponent<SphereCollider>().radius;
+        radius = GetComponentInChildren<SphereCollider>().radius;
     }
 
     new void Update()
@@ -41,14 +43,16 @@ public class RootScript : AbilityScript
             {
                 isActive = false;
 
-                if (gameObject.GetComponent<MeshRenderer>())
-                {
-                    gameObject.GetComponent<MeshRenderer>().enabled = false;
-                }
-                if (gameObject.GetComponent<SphereCollider>())
-                {
-                    gameObject.GetComponent<SphereCollider>().enabled = false;
-                }
+                //if (gameObject.GetComponentInChildren<MeshRenderer>())
+                //{
+                //    gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+                //}
+                //if (gameObject.GetComponentInChildren<SphereCollider>())
+                //{
+                //    gameObject.GetComponentInChildren<SphereCollider>().enabled = false;
+                //}
+
+                sphere.SetActive(false);
             }
 
             float distanceTraveled = Vector3.Distance(initialPosition, gameObject.transform.position);
@@ -57,14 +61,15 @@ public class RootScript : AbilityScript
             {
                 isActive = false;
 
-                if (gameObject.GetComponent<MeshRenderer>())
-                {
-                    gameObject.GetComponent<MeshRenderer>().enabled = false;
-                }
-                if (gameObject.GetComponent<SphereCollider>())
-                {
-                    gameObject.GetComponent<SphereCollider>().enabled = false;
-                }
+                //if (gameObject.GetComponentInChildren<MeshRenderer>())
+                //{
+                //    gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+                //}
+                //if (gameObject.GetComponentInChildren<SphereCollider>())
+                //{
+                //    gameObject.GetComponentInChildren<SphereCollider>().enabled = false;
+                //}
+                sphere.SetActive(false);
             }
         }
     }
@@ -74,7 +79,7 @@ public class RootScript : AbilityScript
         cooldownTimer = cooldown;
         targetsHit = 0;
         isActive = true;
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
 
         initialPosition = player.GetComponent<Transform>().position;
         targetPosition = getMousePos();
