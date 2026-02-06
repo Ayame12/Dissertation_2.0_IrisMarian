@@ -1,3 +1,6 @@
+using TMPro;
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +8,8 @@ public class MenuSceneManager : MonoBehaviour
 {
     public Button hostGameButton;
     public Button joinGameButton;
+
+    public TMP_Text text;
 
     private void Awake()
     {
@@ -14,7 +19,14 @@ public class MenuSceneManager : MonoBehaviour
         });
 
         joinGameButton.onClick.AddListener(() => {
+
+            if (text.text != "")
+            {
+                NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = text.text;
+                NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Port = 7777;
+            }
             GameManagerScript.Instance.StartClient();
+
         });
     }
 
