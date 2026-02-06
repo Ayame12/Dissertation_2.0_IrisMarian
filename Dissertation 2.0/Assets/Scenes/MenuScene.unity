@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MenuSceneManager
   hostGameButton: {fileID: 681341429}
   joinGameButton: {fileID: 1030840014}
-  text: {fileID: 1613382330}
+  input: {fileID: 1457657396}
 --- !u!4 &1321924894
 Transform:
   m_ObjectHideFlags: 0

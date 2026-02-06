@@ -9,7 +9,7 @@ public class MenuSceneManager : MonoBehaviour
     public Button hostGameButton;
     public Button joinGameButton;
 
-    public TMP_Text text;
+    public TMP_InputField input;
 
     private void Awake()
     {
@@ -20,12 +20,15 @@ public class MenuSceneManager : MonoBehaviour
 
         joinGameButton.onClick.AddListener(() => {
 
-            if (text.text != "")
+            string ipString = input.text;
+
+            if (string.IsNullOrEmpty(ipString))
             {
-                NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = text.text;
+                NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = ipString;
                 NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Port = 7777;
             }
-            GameManagerScript.Instance.StartClient();
+
+            bool clientStarted = NetworkManager.Singleton.StartClient();
 
         });
     }
