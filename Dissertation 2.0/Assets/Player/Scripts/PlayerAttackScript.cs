@@ -1,7 +1,5 @@
 using Unity.Netcode;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerAttackScript : NetworkBehaviour
