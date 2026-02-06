@@ -22,7 +22,7 @@ public class MenuSceneManager : MonoBehaviour
 
             string ipString = input.text;
 
-            if (string.IsNullOrEmpty(ipString))
+            if (!string.IsNullOrEmpty(ipString))
             {
                 NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = ipString;
                 NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Port = 7777;
