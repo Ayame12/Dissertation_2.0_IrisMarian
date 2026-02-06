@@ -1223,8 +1223,8 @@ MonoBehaviour:
   redPlayerTag: RedPlayer
   bluePlayerPrefab: {fileID: 6296563048441669386, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
   redPlayerPrefab: {fileID: 2389433830655956446, guid: 09540ae950471ae44b5d991de8c90420, type: 3}
-  blueRootPrefab: {fileID: 9200604260509847365, guid: a5d5fca90c04a7a4db54667eefdc5f73, type: 3}
-  redRootPrefab: {fileID: 6837904240166468931, guid: c83ff4e33e494f14eb3537383eef731c, type: 3}
+  blueRootPrefab: {fileID: 1847516130853427010, guid: 27fe42185dee4d945861927c0c8d2f82, type: 3}
+  redRootPrefab: {fileID: 6952792959677793919, guid: 9675a74cfbb80f743bf7584374dcdef1, type: 3}
   cineCam: {fileID: 0}
 --- !u!1 &1030840012
 GameObject:

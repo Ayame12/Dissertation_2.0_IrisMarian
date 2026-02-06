@@ -65,6 +65,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3057932449702762148, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
+      propertyPath: RootPrefab
+      value: 
+      objectReference: {fileID: 8132920732243823324, guid: 6a9eb5325548243418f8bd4969b0c82c, type: 3}
+    - target: {fileID: 3057932449702762148, guid: 570db5e8c56f99841a2a905e6776fa2d, type: 3}
       propertyPath: ability1Tag
       value: RedRoot
       objectReference: {fileID: 0}

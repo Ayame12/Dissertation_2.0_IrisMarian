@@ -45,7 +45,7 @@ public class PlayerManager : NetworkBehaviour
         {
             uiCanvas.gameObject.SetActive(true);
 
-            playerAttack.initialize();
+            //playerAttack.initialize();
         }
     }
 

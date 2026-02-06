@@ -978,7 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1763201246
+  GlobalObjectIdHash: 3084814090
   InScenePlacedSourceGlobalObjectIdHash: 1763201246
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1138,9 +1138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackSript
   ShowTopMostFoldoutHeaderGroup: 1
-  ability1Image: {fileID: 722879515169804492}
-  ability1Text: {fileID: 1955983081683820003}
-  ability1Tag: BlueRoot
+  RootPrefab: {fileID: 4504308139281211255, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
+  rootCooldown: 2
 --- !u!1 &6390459731872925217
 GameObject:
   m_ObjectHideFlags: 0
