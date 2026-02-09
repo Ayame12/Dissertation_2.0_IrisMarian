@@ -118,7 +118,8 @@ public class AgentStats : NetworkBehaviour
         }
     }
 
-    public void applySlow(float slow, float slowDuration = 0)
+    [Rpc(SendTo.Everyone)]
+    public void applySlowRpc(float slow, float slowDuration = 0)
     {
         if (!isStunned)
         {

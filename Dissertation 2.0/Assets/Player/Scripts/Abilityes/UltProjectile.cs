@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using Unity.VisualScripting;
@@ -14,7 +15,7 @@ public class UltProjectile : NetworkBehaviour
     public float slowPercentage;
     public float lingerDuration;
 
-    public bool recast = false;
+    private bool recast = false;
     private bool isMoving = true;
 
     private Vector3 targetPosition;
@@ -87,12 +88,28 @@ public class UltProjectile : NetworkBehaviour
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 
+        List<GameObject> hitObjects = new List<GameObject>();
+
         foreach (Collider collider in hitColliders)
         {
             GameObject parentHit = collider.gameObject.transform.root.gameObject;
 
             if (parentHit != gameObject)
             {
+                bool alreadyHit = false;
+                foreach (GameObject obj in hitObjects)
+                {
+                    if (obj == parentHit)
+                    {
+                        alreadyHit = true;
+                        break;
+                    }
+                }
+                if(alreadyHit)
+                {
+                    continue;
+                }
+                
                 if (parentHit.layer == enemyLayer)
                 {
                     if (parentHit.tag != enemyTowerTag)
@@ -105,7 +122,7 @@ public class UltProjectile : NetworkBehaviour
                             }
                             else
                             {
-                                collider.gameObject.GetComponentInParent<AgentStats>().applySlow(slowPercentage);
+                                collider.gameObject.GetComponentInParent<AgentStats>().applySlowRpc(slowPercentage);
                             }
 
                         }

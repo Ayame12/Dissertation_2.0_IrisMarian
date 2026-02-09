@@ -124,7 +124,7 @@ MonoBehaviour:
   speed: 10
   damage: 150
   range: 10
-  slowPercentage: 30
+  slowPercentage: 70
   lingerDuration: 5
   recast: 0
 --- !u!1 &5378325419540474334
