@@ -44,7 +44,7 @@ public class MinionProjectile : NetworkBehaviour
     {
         if (target.GetComponent<AgentStats>())
         {
-            target.GetComponent<AgentStats>().takeDamage(damage, damageType);
+            target.GetComponent<AgentStats>().takeDamageRpc(damage, damageType);
         }
     }
 }

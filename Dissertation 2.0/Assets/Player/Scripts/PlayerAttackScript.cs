@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
@@ -7,10 +8,16 @@ public class PlayerAttackScript : NetworkBehaviour
 {
     private PlayerInputScript playerInput;
 
-    public GameObject RootPrefab;
+    public GameObject rootPrefab;
     public float rootCooldown;
     private float rootCooldownTimer = 0;
     private bool rootIsAvailable = true;
+
+    public GameObject ultPrefab;
+    public string ultTag;
+    public float ultCooldown;
+    private float ultCooldownTimer = 0;
+    private bool ultIsAvailable = true;
 
     private void Start()
     {
@@ -21,7 +28,7 @@ public class PlayerAttackScript : NetworkBehaviour
     {
         if (playerInput.ability1 && rootIsAvailable)
         {
-            spawnAbilityRpc(NetworkManager.Singleton.LocalClientId);
+            spawnAbilityRpc(NetworkManager.Singleton.LocalClientId, 1, transform.position, playerInput.mousePosInGame);
             rootCooldownTimer = rootCooldown;
             rootIsAvailable = false;
         }
@@ -33,6 +40,33 @@ public class PlayerAttackScript : NetworkBehaviour
             {
                 rootCooldownTimer = 0;
                 rootIsAvailable = true;
+            }
+        }
+
+        if (playerInput.ability2)
+        {
+            if(ultIsAvailable)
+            {
+                spawnAbilityRpc(NetworkManager.Singleton.LocalClientId, 2, transform.position, playerInput.mousePosInGame);
+                ultCooldownTimer = ultCooldown;
+                ultIsAvailable = false;
+            }
+            else
+            {
+                if(GameObject.FindGameObjectWithTag(ultTag))
+                {
+                    GameObject.FindGameObjectWithTag(ultTag).GetComponent<UltProjectile>().RecastRpc();
+                }
+            }
+        }
+
+        if (ultCooldownTimer > 0)
+        {
+            ultCooldownTimer -= Time.deltaTime;
+            if (ultCooldownTimer <= 0)
+            {
+                ultCooldownTimer = 0;
+                ultIsAvailable = true;
             }
         }
 
@@ -51,12 +85,47 @@ public class PlayerAttackScript : NetworkBehaviour
     }
 
     [Rpc(SendTo.Server)]
-    private void spawnAbilityRpc( ulong cliendId)
+    private void spawnAbilityRpc( ulong cliendId, int abilityId, Vector3 initialPos, Vector3 targetPos)
     {
-        Debug.Log("ROOT SPAWNING");
+        ulong debugId = NetworkManager.Singleton.LocalClientId;
 
-        GameObject ability = Instantiate(RootPrefab, gameObject.transform);
-        ability.GetComponent<NetworkObject>().SpawnWithOwnership(cliendId, true);
+        GameObject ability = null;
+
+        //Quaternion rotation = Quaternion.LookRotation(playerInput.mousePosInGame - transform.position);
+
+        if (abilityId == 1)
+        {
+            Vector3 initRootPos = new Vector3(initialPos.x, -0.5f, initialPos.z);
+            Vector3 targetRootPos = new Vector3(targetPos.x, -0.5f, targetPos.z);
+
+            Vector3 direction = (targetRootPos - initRootPos).normalized;
+            float rot = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+
+
+            ability = Instantiate(rootPrefab, initRootPos, Quaternion.Euler(0, rot, 0));
+            ability.GetComponent<NetworkObject>().SpawnWithOwnership(cliendId, true);
+            ability.GetComponent<RootProjectile>().initializeRpc(initRootPos, targetRootPos, rot);
+        }
+        else if(abilityId == 2)
+        {
+            Vector3 initUltPos = new Vector3(initialPos.x, -0.5f, initialPos.z);
+            Vector3 targetUltPos = new Vector3(targetPos.x, -0.5f, targetPos.z);
+
+            Vector3 direction = (targetUltPos - initUltPos).normalized;
+            float rot = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+
+
+            ability = Instantiate(ultPrefab, initUltPos, Quaternion.Euler(0, rot, 0));
+            ability.GetComponent<NetworkObject>().SpawnWithOwnership(cliendId, true);
+            ability.GetComponent<UltProjectile>().initializeRpc(initUltPos, targetUltPos, rot);
+        }
+        else
+        {
+            Debug.Log("Invalid Ability ID");
+            return;
+        }
+
+        
     }
 
 

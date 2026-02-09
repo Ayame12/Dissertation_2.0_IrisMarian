@@ -33,8 +33,10 @@ public class AbilityScript : NetworkBehaviour
 
     public void Update()
     {
-        if (!IsOwner)
-        { return; }
+        if(!IsOwner)
+        {
+            return;
+        }
 
         if (cooldownTimer > 0)
         {

@@ -1,8 +1,9 @@
 using TMPro;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class RootProjectile : NetworkBehaviour
+public class UltProjectile : NetworkBehaviour
 {
     public int enemyLayer;
     public string enemyTowerTag;
@@ -10,14 +11,15 @@ public class RootProjectile : NetworkBehaviour
     public float speed;
     public float damage;
     public float range;
-    public float rootDuration;
-    public int targetNumber;
+    public float slowPercentage;
+    public float lingerDuration;
 
-    private GameObject hitTarget = null;
-    private int targetsHit = 0;
+    public bool recast = false;
+    private bool isMoving = true;
 
     private Vector3 targetPosition;
     private Vector3 initialPosition;
+    private float distanceToTravel;
 
     private float radius;
 
@@ -26,6 +28,11 @@ public class RootProjectile : NetworkBehaviour
     {
         initialPosition = initialPos;
         targetPosition = targetPos;
+        distanceToTravel = Vector3.Distance(initialPosition, targetPosition);
+        if(distanceToTravel > range)
+        {
+            distanceToTravel = range;
+        }
 
         transform.position = initialPosition;
         transform.rotation = Quaternion.Euler(0, yRot, 0);
@@ -36,32 +43,44 @@ public class RootProjectile : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!IsOwner)
+        if (!IsOwner)
         {
             return;
         }
 
-        transform.Translate(0, 0, speed * Time.deltaTime);
-
-        checkAndStunTarget();
-
-        if (targetsHit >= targetNumber)
+        if (Vector3.Distance(initialPosition, gameObject.transform.position) >= distanceToTravel)
         {
-            destroyProjectileRpc(/*IsHost, false, initialPosition, targetPosition*/);
+            gameObject.transform.position = targetPosition;
+            isMoving = false;
+        }
+        if(recast)
+        {
+            isMoving = false;
         }
 
-        float distanceTraveled = Vector3.Distance(initialPosition, gameObject.transform.position);
-
-        if (distanceTraveled > range)
+        if (isMoving)
         {
+            transform.Translate(0, 0, speed * Time.deltaTime);
+        }
+        else
+        {
+            lingerDuration -= Time.deltaTime;
+        }
+
+        if (lingerDuration <= 0 || recast)
+        {
+            checkAndSlowTarget(true);
             destroyProjectileRpc(/*IsHost, true, initialPosition, targetPosition*/);
         }
-
+        else
+        {
+            checkAndSlowTarget(false);
+        }
     }
 
-    private void checkAndStunTarget()
+    private void checkAndSlowTarget(bool dealDamage)
     {
-        if(!IsOwner)
+        if (!IsOwner || isMoving)
         {
             return;
         }
@@ -78,17 +97,17 @@ public class RootProjectile : NetworkBehaviour
                 {
                     if (parentHit.tag != enemyTowerTag)
                     {
-                        if (parentHit != hitTarget)
+                        if (collider.gameObject.GetComponentInParent<AgentStats>())
                         {
-                            if (collider.gameObject.GetComponentInParent<AgentStats>())
+                            if(dealDamage)
                             {
-                                collider.gameObject.GetComponentInParent<AgentStats>().takeDamageRpc(damage, 1);
-                                collider.gameObject.GetComponentInParent<AgentStats>().applyStunRpc(rootDuration);
-
-                                hitTarget = parentHit;
-
-                                targetsHit++;
+                                collider.gameObject.GetComponentInParent<AgentStats>().takeDamageRpc(damage,1);
                             }
+                            else
+                            {
+                                collider.gameObject.GetComponentInParent<AgentStats>().applySlow(slowPercentage);
+                            }
+
                         }
                     }
                 }
@@ -101,4 +120,11 @@ public class RootProjectile : NetworkBehaviour
     {
         Destroy(gameObject);
     }
+
+    [Rpc(SendTo.Everyone)]
+    public void RecastRpc()
+    {
+        recast = true;
+    }
 }
+

@@ -8,9 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2084491475663154550, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
+      propertyPath: enemyLayer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084491475663154550, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
+      propertyPath: enemyTowerTag
+      value: BlueTower
+      objectReference: {fileID: 0}
     - target: {fileID: 3411213427264936051, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2848056721
+      value: 1212230219
       objectReference: {fileID: 0}
     - target: {fileID: 3411213427264936051, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -18,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4092012061081218525, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 188.56163
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092012061081218525, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4092012061081218525, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092012061081218525, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -770.6865
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4092012061081218525, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4504308139281211255, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
       propertyPath: m_Name
-      value: BlueRoot Variant
+      value: RedRoot
       objectReference: {fileID: 0}
     - target: {fileID: 8657696997215494128, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

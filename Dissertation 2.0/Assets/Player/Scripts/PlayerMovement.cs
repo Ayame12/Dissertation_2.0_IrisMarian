@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         //ROTATION
         Quaternion rotationToLookAt = Quaternion.LookRotation(lookAtPosition - transform.position);
         //float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
-        float rotationY = rotationToLookAt.eulerAngles.y;
+        //float rotationY = rotationToLookAt.eulerAngles.y;
         //transform.rotation = Quaternion.Euler(transform.rotation.x, rotationToLookAt.y, transform.rotation.z);
         //transform.rotation = rotationToLookAt;
     }

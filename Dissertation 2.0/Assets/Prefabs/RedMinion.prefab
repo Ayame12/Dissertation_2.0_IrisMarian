@@ -94,13 +94,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972166971976457378, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: AuthorityMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8594173611492622790, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7943524792692815808, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

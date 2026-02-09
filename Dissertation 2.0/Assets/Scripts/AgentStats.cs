@@ -1,7 +1,8 @@
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 
-public class AgentStats : MonoBehaviour
+public class AgentStats : NetworkBehaviour
 {
     public float health;
     public float damage;
@@ -79,7 +80,8 @@ public class AgentStats : MonoBehaviour
 
     }
 
-    public void takeDamage(float damage, int damageType)
+    [Rpc(SendTo.Owner)]
+    public void takeDamageRpc(float damage, int damageType)
     {
         targetHealth -= damage;
 
@@ -128,8 +130,11 @@ public class AgentStats : MonoBehaviour
         slowPercentage = slow;
     }
 
-    public void applyStun(float stunDuration)
+    [Rpc(SendTo.Everyone)]
+    public void applyStunRpc(float stunDuration)
     {
+        Debug.Log("stunning");
+
         isStunned = true;
         stunTimer = stunDuration;
         currentSpeed = 0;
