@@ -47,6 +47,8 @@ public class PlayerManager : NetworkBehaviour
 
             //playerAttack.initialize();
         }
+
+        GameManagerScript.Instance.setupPlayerReferences(gameObject);
     }
 
     // Update is called once per frame
@@ -61,5 +63,10 @@ public class PlayerManager : NetworkBehaviour
         playerMovement.tickUpdate();
         playerAttack.tickUpdate();
 
+    }
+
+    public void resetPlayerComponents()
+    {
+        playerInput.resetComponent();
     }
 }

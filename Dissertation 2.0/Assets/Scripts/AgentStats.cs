@@ -14,7 +14,7 @@ public class AgentStats : NetworkBehaviour
     private float targetHealth;
     private Coroutine damageCoroutine;
 
-    //HealthUI healthUI;
+    private HealthUI healthUI;
 
     public int groundLayer = 8;
     public int enemyLayer;
@@ -43,6 +43,9 @@ public class AgentStats : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner)
+        { return; }
+
         if (slowTimer > 0)
         {
             slowTimer -= Time.deltaTime;
@@ -72,11 +75,11 @@ public class AgentStats : NetworkBehaviour
 
     private void Awake()
     {
-        //healthUI = GetComponent<HealthUI>();
+        healthUI = GetComponentInChildren<HealthUI>();
         currentHealth = health;
         targetHealth = health;
 
-        //healthUI.Start3DSlider(health);
+        healthUI.Start3DSlider(health);
 
     }
 
@@ -98,7 +101,7 @@ public class AgentStats : NetworkBehaviour
             //}
         }
 
-        if (targetHealth <= 0 && (gameObject.CompareTag("BlueMinion") || gameObject.CompareTag("RedMinion")))
+        if (targetHealth <= 0 )
         {
             if (GetComponent<MinionManager>())
             {
@@ -107,9 +110,22 @@ public class AgentStats : NetworkBehaviour
                     PlayerManager playerScr = GameObject.FindGameObjectWithTag(GetComponent<MinionManager>().enemyPlayerTag).GetComponent<PlayerManager>();
                     playerScr.creepScore++;
                 }
+                Destroy(gameObject);
             }
-
-            Destroy(gameObject);
+            else if(GetComponent<PlayerManager>())
+            {
+                bool isblueplayer = false;
+                if(gameObject.tag == "BluePlayer")
+                {
+                    isblueplayer = true;
+                }
+                currentHealth = health;
+                targetHealth = health;
+                GetComponent<PlayerManager>().resetPlayerComponents();
+                updateHealthUI();
+                GameManagerScript.Instance.handlePlayerDeathRpc(isblueplayer);
+            }
+            
         }
         else
         {
@@ -119,8 +135,11 @@ public class AgentStats : NetworkBehaviour
     }
 
     [Rpc(SendTo.Everyone)]
-    public void applySlowRpc(float slow, float slowDuration = 0)
+    public void applySlowRpc(float slow, float slowDuration = 0.2f)
     {
+        if (!IsOwner)
+        { return; }
+
         if (!isStunned)
         {
             currentSpeed = speed * slow;
@@ -134,8 +153,6 @@ public class AgentStats : NetworkBehaviour
     [Rpc(SendTo.Everyone)]
     public void applyStunRpc(float stunDuration)
     {
-        Debug.Log("stunning");
-
         isStunned = true;
         stunTimer = stunDuration;
         currentSpeed = 0;
@@ -199,6 +216,18 @@ public class AgentStats : NetworkBehaviour
 
     private void updateHealthUI()
     {
-        //healthUI.Update3DSlider(currentHealth);
+        healthUI.Update3DSliderRpc(currentHealth);
     }
+
+    //[Rpc(SendTo.Everyone)]
+    //private void resetStatsRpc()
+    //{
+    //    //if(GetComponent<PlayerManager>())
+    //    //{
+    //    //    currentHealth = health;
+    //    //    updateHealthUI();
+    //    //    GetComponent<PlayerManager>().resetPlayerComponents();
+    //    //}
+        
+    //}
 }

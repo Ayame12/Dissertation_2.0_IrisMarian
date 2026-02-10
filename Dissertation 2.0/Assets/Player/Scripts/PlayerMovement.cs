@@ -1,7 +1,10 @@
+using TMPro;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +13,12 @@ public class PlayerMovement : MonoBehaviour
     //public float rotateSpeedMovement = 0.05f;
     //private float rotateVelocity;
     public float stopDistance;
+
+    private bool isDashing = false;
+    private Vector3 initialPosDash;
+    private Vector3 targetPosDash;
+    private float dashRange;
+    private float dashSpeed;
 
     public GameObject targetEnemy;
 
@@ -34,62 +43,87 @@ public class PlayerMovement : MonoBehaviour
         stats = GetComponent<AgentStats>();
 
         agent.speed = stats.speed;
+        agent.SetDestination(transform.position);
 
         playerInput = GetComponent<PlayerInputScript>();
+
+        dashRange = GetComponent<PlayerAttackScript>().dashRange;
+        dashSpeed = GetComponent<PlayerAttackScript>().dashSpeed;
     }
 
     // Update is called once per frame
     public void tickUpdate()
     {
-        agent.speed = stats.currentSpeed;
-
-        if (basicAttackCooldownTimer > 0)
+        if(!isDashing)
         {
-            basicAttackCooldownTimer -= Time.deltaTime;
-        }
+            agent.speed = stats.currentSpeed;
 
-        if (hasControl)
-        {
-            if (playerInput.move)
+            if (basicAttackCooldownTimer > 0)
             {
-                moveToPosition(playerInput.lastRightClick);
-
-                //move icon
-                Vector3 offset = new Vector3(playerInput.lastRightClick.x, playerInput.lastRightClick.y + 0.05f, playerInput.lastRightClick.z);
-                moveIcon.SetActive(true);
-                moveIcon.transform.position = offset;
-                //moveIcon.GetComponent<Animator>().Play("MoveIconAnim", -1, 0f);
-
-                moveIconTimer = moveIconTimerMax;
-
-                //potentialy remove this?????????????????????????
-                targetEnemy = null;
+                basicAttackCooldownTimer -= Time.deltaTime;
             }
-            if (playerInput.attack)
+
+            if (hasControl)
             {
-                targetEnemy = playerInput.target;
+                if (playerInput.move)
+                {
+                    moveToPosition(playerInput.lastRightClick);
+
+                    //move icon
+                    Vector3 offset = new Vector3(playerInput.lastRightClick.x, playerInput.lastRightClick.y + 0.05f, playerInput.lastRightClick.z);
+                    moveIcon.SetActive(true);
+                    moveIcon.transform.position = offset;
+                    //moveIcon.GetComponent<Animator>().Play("MoveIconAnim", -1, 0f);
+
+                    moveIconTimer = moveIconTimerMax;
+
+                    //potentialy remove this?????????????????????????
+                    targetEnemy = null;
+                }
+                if (playerInput.attack)
+                {
+                    targetEnemy = playerInput.target;
+
+                    if (targetEnemy != null)
+                    {
+                        moveToEnemy(targetEnemy);
+                    }
+                }
 
                 if (targetEnemy != null)
                 {
-                    moveToEnemy(targetEnemy);
-                }
-            }
+                    float dis = Vector3.Distance(transform.position, targetEnemy.transform.position);
+                    if (dis < stopDistance + 1.5f)
+                    {
+                        castBasicAttack();
+                        agent.SetDestination(transform.position);
+                    }
+                    else
+                    {
+                        agent.SetDestination(targetEnemy.transform.position);
+                    }
 
-            if (targetEnemy != null)
-            {
-                float dis = Vector3.Distance(transform.position, targetEnemy.transform.position);
-                if (dis < stopDistance + 1.5f)
-                {
-                    castBasicAttack();
-                    agent.SetDestination(transform.position);
                 }
-                else
-                {
-                    agent.SetDestination(targetEnemy.transform.position);
-                }
-
             }
         }
+        else
+        {
+            transform.Translate(0, 0, dashSpeed * Time.deltaTime);
+
+            float distanceDashed = Vector3.Distance(transform.position, initialPosDash);
+
+            if (distanceDashed >= dashRange)
+            {
+                transform.position = targetPosDash;
+
+                hasControl = true;
+
+                isDashing = false;
+
+                GetComponent<NavMeshAgent>().enabled = true;
+            }
+        }
+
 
         if (moveIconTimer > 0f)
         {
@@ -155,5 +189,18 @@ public class PlayerMovement : MonoBehaviour
         //        //gameObject.GetComponent<PlayerManager>().aggroAllInRange();
         //    }
         //}
+    }
+
+    public void startDash(Vector3 initialPos,Vector3 targetPos, float yRotation)
+    {
+        hasControl = false;
+        isDashing = true;
+        initialPosDash = initialPos;
+        targetPosDash = targetPos;
+
+        GetComponent<NavMeshAgent>().SetDestination(targetPosDash);
+        GetComponent<NavMeshAgent>().enabled = false;
+
+        transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using TMPro;
 using Unity.Netcode;
 using UnityEditor;
@@ -7,12 +8,32 @@ using UnityEngine.UI;
 public class PlayerAttackScript : NetworkBehaviour
 {
     private PlayerInputScript playerInput;
+    private PlayerMovement playerMovement;
+
+    [Header("Ability 1")]
+    public Image ability1Image;
+    public Text ability1Text;
 
     public GameObject rootPrefab;
     public float rootCooldown;
     private float rootCooldownTimer = 0;
     private bool rootIsAvailable = true;
 
+    [Header("Ability 2")]
+    public Image ability2Image;
+    public Text ability2Text;
+
+    public float dashRange;
+    public float dashSpeed;
+    public float dashCooldown;
+    private float dashCooldownTimer;
+    private bool dashIsAvailable = true;
+
+
+    [Header("Ability 3")]
+    public Image ability3Image;
+    public Text ability3Text;
+    
     public GameObject ultPrefab;
     public string ultTag;
     public float ultCooldown;
@@ -22,6 +43,7 @@ public class PlayerAttackScript : NetworkBehaviour
     private void Start()
     {
         playerInput = GetComponent<PlayerInputScript>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     public void tickUpdate()
@@ -31,6 +53,37 @@ public class PlayerAttackScript : NetworkBehaviour
             spawnAbilityRpc(NetworkManager.Singleton.LocalClientId, 1, transform.position, playerInput.mousePosInGame);
             rootCooldownTimer = rootCooldown;
             rootIsAvailable = false;
+        }
+
+        if(playerInput.ability2 && dashIsAvailable)
+        {
+            Vector3 initPos = transform.position;
+
+            Vector3 direction = (playerInput.mousePosInGame - initPos).normalized;
+            float rotY = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            Vector3 targetPos = initPos + direction * dashRange;
+
+            playerMovement.startDash(initPos, targetPos, rotY);
+
+            dashCooldownTimer = dashCooldown;
+            dashIsAvailable = false;
+        }
+
+        if (playerInput.ability3)
+        {
+            if(ultIsAvailable)
+            {
+                spawnAbilityRpc(NetworkManager.Singleton.LocalClientId, 3, transform.position, playerInput.mousePosInGame);
+                ultCooldownTimer = ultCooldown;
+                ultIsAvailable = false;
+            }
+            else
+            {
+                if(GameObject.FindGameObjectWithTag(ultTag))
+                {
+                    GameObject.FindGameObjectWithTag(ultTag).GetComponent<UltProjectile>().RecastRpc();
+                }
+            }
         }
 
         if (rootCooldownTimer > 0)
@@ -43,20 +96,13 @@ public class PlayerAttackScript : NetworkBehaviour
             }
         }
 
-        if (playerInput.ability2)
+        if (dashCooldownTimer > 0)
         {
-            if(ultIsAvailable)
+            dashCooldownTimer -= Time.deltaTime;
+            if (dashCooldownTimer <= 0)
             {
-                spawnAbilityRpc(NetworkManager.Singleton.LocalClientId, 2, transform.position, playerInput.mousePosInGame);
-                ultCooldownTimer = ultCooldown;
-                ultIsAvailable = false;
-            }
-            else
-            {
-                if(GameObject.FindGameObjectWithTag(ultTag))
-                {
-                    GameObject.FindGameObjectWithTag(ultTag).GetComponent<UltProjectile>().RecastRpc();
-                }
+                dashCooldownTimer = 0;
+                dashIsAvailable = true;
             }
         }
 
@@ -70,17 +116,37 @@ public class PlayerAttackScript : NetworkBehaviour
             }
         }
 
-        //ui stuff
+        //UI stuff
 
-        //if (!ability1Script.isAvailable)
-        //{
-        //    ability1Image.fillAmount = ability1Script.cooldownTimer / ability1Script.cooldown;
-        //    ability1Text.text = Mathf.Ceil(ability1Script.cooldownTimer).ToString();
-        //}
-        //else
-        //{
-        //    ability1Text.text = "";
-        //}
+        if (!rootIsAvailable)
+        {
+            ability1Image.fillAmount = rootCooldownTimer / rootCooldown;
+            ability1Text.text = Mathf.Ceil(rootCooldownTimer).ToString();
+        }
+        else
+        {
+            ability1Text.text = "";
+        }
+
+        if (!dashIsAvailable)
+        {
+            ability2Image.fillAmount = dashCooldownTimer / dashCooldown;
+            ability2Text.text = Mathf.Ceil(dashCooldownTimer).ToString();
+        }
+        else
+        {
+            ability2Text.text = "";
+        }
+
+        if (!ultIsAvailable)
+        {
+            ability3Image.fillAmount = ultCooldownTimer / ultCooldown;
+            ability3Text.text = Mathf.Ceil(ultCooldownTimer).ToString();
+        }
+        else
+        {
+            ability3Text.text = "";
+        }
 
     }
 
@@ -106,7 +172,7 @@ public class PlayerAttackScript : NetworkBehaviour
             ability.GetComponent<NetworkObject>().SpawnWithOwnership(cliendId, true);
             ability.GetComponent<RootProjectile>().initializeRpc(initRootPos, targetRootPos, rot);
         }
-        else if(abilityId == 2)
+        else if(abilityId == 3)
         {
             Vector3 initUltPos = new Vector3(initialPos.x, -0.5f, initialPos.z);
             Vector3 targetUltPos = new Vector3(targetPos.x, -0.5f, targetPos.z);
@@ -125,9 +191,7 @@ public class PlayerAttackScript : NetworkBehaviour
             return;
         }
 
-        
     }
-
 
     //old script --------------------------------------------------------------------------------------------------------
 

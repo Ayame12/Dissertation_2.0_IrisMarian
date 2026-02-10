@@ -24,6 +24,8 @@ public class UltProjectile : NetworkBehaviour
 
     private float radius;
 
+    private bool objectDestroyed = false;
+
     [Rpc(SendTo.Owner)]
     public void initializeRpc(Vector3 initialPos, Vector3 targetPos, float yRot)
     {
@@ -45,6 +47,11 @@ public class UltProjectile : NetworkBehaviour
     void Update()
     {
         if (!IsOwner)
+        {
+            return;
+        }
+
+        if (objectDestroyed)
         {
             return;
         }
@@ -72,6 +79,7 @@ public class UltProjectile : NetworkBehaviour
         {
             checkAndSlowTarget(true);
             destroyProjectileRpc(/*IsHost, true, initialPosition, targetPosition*/);
+            objectDestroyed = true;
         }
         else
         {
@@ -81,7 +89,7 @@ public class UltProjectile : NetworkBehaviour
 
     private void checkAndSlowTarget(bool dealDamage)
     {
-        if (!IsOwner || isMoving)
+        if (!IsOwner && !isMoving)
         {
             return;
         }
@@ -116,9 +124,10 @@ public class UltProjectile : NetworkBehaviour
                     {
                         if (collider.gameObject.GetComponentInParent<AgentStats>())
                         {
-                            if(dealDamage)
+                            hitObjects.Add(parentHit);
+                            if (dealDamage)
                             {
-                                collider.gameObject.GetComponentInParent<AgentStats>().takeDamageRpc(damage,1);
+                                parentHit.GetComponent<AgentStats>().takeDamageRpc(damage,1);
                             }
                             else
                             {

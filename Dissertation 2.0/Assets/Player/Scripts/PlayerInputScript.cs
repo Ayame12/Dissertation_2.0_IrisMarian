@@ -65,28 +65,28 @@ public class PlayerInputScript : MonoBehaviour
 
             if (Physics.Raycast(cam.ScreenPointToRay(mousePos), out hit, Mathf.Infinity))
             {
-                if (hit.collider.gameObject.layer == 8)
-                {
-                    move = true;
-                }
-                else if (hit.collider.gameObject.layer == 10)
-                {
-                    attack = true;
-
-                    if (hit.transform.parent)
-                    {
-                        tempTarget = hit.transform.parent.gameObject;
-                    }
-                    else if (hit.collider.gameObject != null)
-                    {
-                        tempTarget = hit.transform.gameObject;
-                    }
-                }
-
                 mousePosInGame = hit.point;
 
                 if (Mouse.current.rightButton.isPressed || Mouse.current.rightButton.wasPressedThisFrame)
                 {
+                    if (hit.collider.gameObject.layer == 8)
+                    {
+                        move = true;
+                    }
+                    else if (hit.collider.gameObject.layer == 10)
+                    {
+                        attack = true;
+
+                        if (hit.transform.parent)
+                        {
+                            tempTarget = hit.transform.parent.gameObject;
+                        }
+                        else if (hit.collider.gameObject != null)
+                        {
+                            tempTarget = hit.transform.gameObject;
+                        }
+                    }
+
                     lastRightClick = mousePosInGame;
                     target = tempTarget;
                 }
@@ -155,6 +155,15 @@ public class PlayerInputScript : MonoBehaviour
         {
             return true;
         }
+    }
+
+    public void resetComponent()
+    {
+        move = false;
+        attack = false;
+        ability1 = false;
+        ability2 = false;
+        ability3 = false;
     }
 }
 

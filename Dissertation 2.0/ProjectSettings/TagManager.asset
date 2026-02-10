@@ -18,6 +18,8 @@ TagManager:
   - RedDash
   - BlueUlt
   - RedUlt
+  - BluePlayerSpawn
+  - RedPlayerSpawn
   layers:
   - Default
   - TransparentFX

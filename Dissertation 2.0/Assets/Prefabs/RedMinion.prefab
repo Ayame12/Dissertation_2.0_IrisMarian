@@ -80,10 +80,30 @@ PrefabInstance:
       propertyPath: m_TagString
       value: RedMinion
       objectReference: {fileID: 0}
+    - target: {fileID: 3454711294556211385, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18836774
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454711294556211385, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2926806
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454711294556211385, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7830189
+      objectReference: {fileID: 0}
     - target: {fileID: 4378943925416519116, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 6967812809914671001, guid: dc3dd6a296c82aa479e3d3064cd806df, type: 3}
+    - target: {fileID: 4437731706513663687, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437731706513663687, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5043897954918148948, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -94,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972166971976457378, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: AuthorityMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8594173611492622790, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: m_Layer
