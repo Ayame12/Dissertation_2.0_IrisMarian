@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI.Table;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     private NavMeshAgent agent;
 
@@ -174,21 +175,31 @@ public class PlayerMovement : MonoBehaviour
 
     public void castBasicAttack()
     {
-        //if (basicAttackCooldownTimer <= 0)
-        //{
-        //    AgentStats stats = GetComponent<AgentStats>();
-        //    stats.applyStun(basicAttackCastDuration);
+        if (basicAttackCooldownTimer <= 0)
+        {
+            int targetIdentifier = -1;
+            if(targetEnemy.GetComponent<PlayerManager>())
+            {
+                targetIdentifier = 0;
+            }
+            if(targetEnemy.GetComponent<TowerScript>())
+            {
+                targetIdentifier = 1;
+            }
+            else if(targetEnemy.GetComponent<MinionManager>())
+            {
+                targetIdentifier = targetEnemy.GetComponent<MinionManager>().uniqueIdentifier;
+            }
 
-        //    basicAttackCooldownTimer = basicAttackCooldown;
-
-        //    GameObject projectile = Instantiate(basicAttackPrefab, transform.position, Quaternion.identity);
-        //    projectile.GetComponent<BasicProjectile>().setTarget(targetEnemy, stats.damage);
-
-        //    if (targetEnemy.GetComponent<PlayerManager>() != null)
-        //    {
-        //        //gameObject.GetComponent<PlayerManager>().aggroAllInRange();
-        //    }
-        //}
+            if(targetIdentifier != -1)
+            {
+                spawnBasicAttackRpc(targetIdentifier);
+            }
+            else
+            {
+                targetEnemy = null;
+            }
+        }
     }
 
     public void startDash(Vector3 initialPos,Vector3 targetPos, float yRotation)
@@ -202,5 +213,49 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = false;
 
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    [Rpc(SendTo.Server)]
+    private void spawnBasicAttackRpc(int identifier)
+    {
+        //if(!)
+
+        AgentStats stats = GetComponent<AgentStats>();
+        stats.applyStunRpc(basicAttackCastDuration);
+
+        basicAttackCooldownTimer = basicAttackCooldown;
+
+        GameObject projectile = Instantiate(basicAttackPrefab, transform.position, Quaternion.identity);
+
+        GameObject basicAttackTarget = null;
+
+        if(identifier == 0)
+        {
+            basicAttackTarget = GameObject.FindGameObjectWithTag(stats.enemyPlayerTag);
+        }
+        else if(identifier == 1)
+        {
+            basicAttackTarget = GameObject.FindGameObjectWithTag(stats.enemyTowerTag);
+        }
+        else
+        {
+            GameObject[] enemyMinions = GameObject.FindGameObjectsWithTag(stats.enemyMinionTag);
+
+            foreach(GameObject minion in enemyMinions)
+            {
+                if(identifier == minion.GetComponent<MinionManager>().uniqueIdentifier)
+                {
+                    basicAttackTarget = minion;
+                    break;
+                }
+            }
+        }
+        projectile.GetComponent<BasicProjectile>().setTarget(basicAttackTarget, stats.damage);
+        projectile.GetComponent<NetworkObject>().Spawn(true);
+
+        if (targetEnemy.GetComponent<PlayerManager>() != null)
+        {
+            //gameObject.GetComponent<PlayerManager>().aggroAllInRange();
+        }
     }
 }

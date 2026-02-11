@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: defafd8a4b427d04b9ab77c16937eaf5, type: 2}
+  - {fileID: 2100000, guid: bf6ef1f29a04ccf409c1dc3be6d24240, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,8 +120,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8637151251812688477}
-  - component: {fileID: 6266155686182174377}
   - component: {fileID: 3880997927170983593}
+  - component: {fileID: 6266155686182174377}
   - component: {fileID: 3896761864621904011}
   m_Layer: 0
   m_Name: BlueTowerProjectile
@@ -146,20 +146,6 @@ Transform:
   - {fileID: 7281153322890034080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6266155686182174377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4781685695025374406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd668626a6e3f0645ae0ef1b2b261ac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerProjectileScript
-  speed: 8
-  damage: 100
 --- !u!114 &3880997927170983593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1559615932
+  GlobalObjectIdHash: 748897461
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -185,6 +171,21 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &6266155686182174377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781685695025374406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd668626a6e3f0645ae0ef1b2b261ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerProjectileScript
+  ShowTopMostFoldoutHeaderGroup: 1
+  speed: 8
+  damage: 100
 --- !u!114 &3896761864621904011
 MonoBehaviour:
   m_ObjectHideFlags: 0

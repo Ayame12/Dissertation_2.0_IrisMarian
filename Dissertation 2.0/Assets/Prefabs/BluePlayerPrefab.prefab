@@ -597,11 +597,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300836d0f4af8544584d4d2796453aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  stopDistance: 0
+  stopDistance: 5
   targetEnemy: {fileID: 0}
   moveIcon: {fileID: 584784692437756930, guid: 985241fd0c35bc840b38e4faad9c069b, type: 3}
   moveIconTimerMax: 1
-  basicAttackPrefab: {fileID: 0}
+  basicAttackPrefab: {fileID: 8968110312773352385, guid: d0f842e3332bdf9408e5da0fc38aa56c, type: 3}
   basicAttackCastDuration: 0.2
   basicAttackCooldown: 1
   hasControl: 1
@@ -673,7 +673,7 @@ MonoBehaviour:
   enemyLayer: 10
   friendlyLayer: 9
   enemyTowerTag: RedTower
-  enemyMinionTag: RedMnion
+  enemyMinionTag: RedMinion
   enemyPlayerTag: RedPlayer
   isStunned: 0
   stunTimer: 0

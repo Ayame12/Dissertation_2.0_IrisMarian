@@ -12,18 +12,16 @@ public class TowerProjectileScript : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("projectile start func");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
+        if (target == null || target.activeInHierarchy == false)
         {
             if(IsServer)
             {
-                Debug.Log("destroy on lost target");
-                Destroy(gameObject);
+                destroyProjectileRpc();
             }
             return;
         }
@@ -51,8 +49,7 @@ public class TowerProjectileScript : NetworkBehaviour
         {
             if(IsServer)
             {
-                Debug.Log("destroy on hit");
-                Destroy(gameObject); 
+                destroyProjectileRpc();
             }
 
             if (target.GetComponent<AgentStats>())
@@ -68,5 +65,11 @@ public class TowerProjectileScript : NetworkBehaviour
         {
             hitTarget();
         }
+    }
+
+    [Rpc(SendTo.Server)]
+    private void destroyProjectileRpc()
+    {
+        Destroy(gameObject);
     }
 }

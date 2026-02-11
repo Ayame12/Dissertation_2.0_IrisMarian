@@ -28,6 +28,8 @@ public class MinionManager : NetworkBehaviour
 
     private AgentStats stats;
 
+    public int uniqueIdentifier;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //public override void OnNetworkSpawn()
     void Awake()
@@ -178,5 +180,11 @@ public class MinionManager : NetworkBehaviour
         }
 
         return closestEnemy;
+    }
+
+    [Rpc(SendTo.Everyone)]
+    public void setIdentifierRpc(int identifier)
+    {
+        uniqueIdentifier = identifier;
     }
 }

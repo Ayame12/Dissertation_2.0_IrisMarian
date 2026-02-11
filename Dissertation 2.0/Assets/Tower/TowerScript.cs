@@ -7,15 +7,13 @@ public class TowerScript : NetworkBehaviour
     public float cooldown;
     public GameObject projectileprefab;
     public Transform spawnPoint;
-    //public LineRenderer lineRenderer;
-
-    public int enemyLayer;
-    public int allyLayer;
+    private Transform lineSpawnPoint;
+    public LineRenderer lineRenderer;
 
     private GameObject enemyPlayer;
     private string enemyMinionTag;
 
-    private float attackTimer;
+    private float attackTimer = 0;
     public GameObject currentTarget;
 
     private bool done = false;
@@ -23,12 +21,18 @@ public class TowerScript : NetworkBehaviour
     private void Start()
     {
         enemyMinionTag = GetComponent<AgentStats>().enemyMinionTag;
+        lineSpawnPoint = spawnPoint;
+        lineSpawnPoint.position = new Vector3(spawnPoint.position.x , spawnPoint.position.y - 2, spawnPoint.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!done)
+        {
+            return;
+        }
+        if(!IsServer)
         {
             return;
         }
@@ -41,13 +45,19 @@ public class TowerScript : NetworkBehaviour
         {
             findAndSetTarget();
         }
+        if(currentTarget != null)
+        {
+            updateLineRpc(true, currentTarget.transform.position);
+        }
+        else
+        {
+            updateLineRpc(false, Vector3.zero);
+        }
 
-        updateLine();
-
-        if (currentTarget != null)
+        if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
-            if (attackTimer <= 0)
+            if (currentTarget != null && attackTimer <= 0)
             {
                 spawnAttackRpc();
                 attackTimer = cooldown;
@@ -68,12 +78,15 @@ public class TowerScript : NetworkBehaviour
         }
         else
         {
-            float distance = Vector3.Distance(gameObject.transform.position, enemyPlayer.transform.position);
-
-            if (distance <= range)
+            if (enemyPlayer != null)
             {
-                currentTarget = enemyPlayer;
-                attackTimer = cooldown;
+                float distance = Vector3.Distance(gameObject.transform.position, enemyPlayer.transform.position);
+
+                if (distance <= range)
+                {
+                    currentTarget = enemyPlayer;
+                    attackTimer = cooldown;
+                }
             }
         }
     }
@@ -97,18 +110,20 @@ public class TowerScript : NetworkBehaviour
         return closestEnemy;
     }
 
-    private void updateLine()
+    [Rpc(SendTo.Everyone)]
+    private void updateLineRpc(bool lineEnabled, Vector3 targetPos)
     {
-        //if (currentTarget != null)
-        //{
-        //    lineRenderer.enabled = true;
-        //    lineRenderer.SetPosition(0, spawnPoint.transform.position);
-        //    lineRenderer.SetPosition(1, currentTarget.transform.position);
-        //}
-        //else
-        //{
-        //    lineRenderer.enabled = false;
-        //}
+        if (lineEnabled)
+        {
+            lineRenderer.enabled = true;
+
+            lineRenderer.SetPosition(0, lineSpawnPoint.transform.position);
+            lineRenderer.SetPosition(1, targetPos);
+        }
+        else
+        {
+            lineRenderer.enabled = false;
+        }
     }
 
     [Rpc(SendTo.Server)]

@@ -243,7 +243,7 @@ public class GameManagerScript : NetworkBehaviour
         if (player.tag == bluePlayerTag)
         {
             bluePlayer = player;
-            //GameObject.FindGameObjectWithTag("RedTower").GetComponent<TowerScript>().setupPlayerRef(bluePlayer);
+            GameObject.FindGameObjectWithTag("RedTower").GetComponent<TowerScript>().setupPlayerRef(bluePlayer);
         }
         else
         {

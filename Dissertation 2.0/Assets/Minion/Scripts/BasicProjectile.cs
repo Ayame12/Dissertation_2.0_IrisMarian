@@ -2,7 +2,7 @@ using Unity.Netcode;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public class MinionProjectile : NetworkBehaviour
+public class BasicProjectile : NetworkBehaviour
 {
     private GameObject target;
     private float damage;

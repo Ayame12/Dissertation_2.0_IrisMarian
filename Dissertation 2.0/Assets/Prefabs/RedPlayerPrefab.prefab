@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5052290202309406829, guid: 1730bccf22c781149abbc730489f9b7e, type: 3}
+      propertyPath: basicAttackPrefab
+      value: 
+      objectReference: {fileID: 8717466788006190937, guid: 99a7d0f4e3fbe634282beb5ddede057c, type: 3}
     - target: {fileID: 5145171129254478666, guid: 1730bccf22c781149abbc730489f9b7e, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -138,11 +142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6752534967610300472, guid: 1730bccf22c781149abbc730489f9b7e, type: 3}
       propertyPath: m_Color.b
-      value: 0.1745283
+      value: 0.17647058
       objectReference: {fileID: 0}
     - target: {fileID: 6752534967610300472, guid: 1730bccf22c781149abbc730489f9b7e, type: 3}
       propertyPath: m_Color.g
-      value: 0.3184341
+      value: 0.39219397
       objectReference: {fileID: 0}
     - target: {fileID: 6752534967610300472, guid: 1730bccf22c781149abbc730489f9b7e, type: 3}
       propertyPath: m_Color.r

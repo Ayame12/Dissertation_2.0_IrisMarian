@@ -11,7 +11,7 @@ public class MinionSpawnerScript : NetworkBehaviour
     public int minionsperWave;
     public float firstWaveDelay;
 
-    private int waveCount;
+    private int minionIdentifier = 2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void OnNetworkSpawn()
@@ -34,11 +34,15 @@ public class MinionSpawnerScript : NetworkBehaviour
         yield return new WaitForSeconds(firstWaveDelay);
         while (true)
         {
-            ++waveCount;
-
             for (int i = 0; i < minionsperWave; i++)
             {
                 spawnMinion();
+
+                ++minionIdentifier;
+                if(minionIdentifier >= 100)
+                {
+                    minionIdentifier = 2;
+                }
                 yield return new WaitForSeconds(minionSpawnInterval);
             }
 
@@ -50,5 +54,7 @@ public class MinionSpawnerScript : NetworkBehaviour
     {
         GameObject minion = Instantiate(minionPrefab, gameObject.transform.position, gameObject.transform.rotation);
         minion.GetComponent<NetworkObject>().Spawn(true);
+        
+        minion.GetComponent<MinionManager>().setIdentifierRpc(minionIdentifier);
     }
 }

@@ -74,7 +74,7 @@ public class MinionRangedCombat : NetworkBehaviour
         isAttacking = true;
 
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-        projectile.GetComponent<MinionProjectile>().setTarget(minionScript.currentTarget, attackDamage);
+        projectile.GetComponent<BasicProjectile>().setTarget(minionScript.currentTarget, attackDamage);
         projectile.GetComponent<NetworkObject>().Spawn(true);
 
         targetSwitchTimer = targetSwitchInterval;
