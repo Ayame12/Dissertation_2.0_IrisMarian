@@ -21,6 +21,7 @@ TagManager:
   - BluePlayerSpawn
   - RedPlayerSpawn
   - HighlightManager
+  - winnerText
   layers:
   - Default
   - TransparentFX

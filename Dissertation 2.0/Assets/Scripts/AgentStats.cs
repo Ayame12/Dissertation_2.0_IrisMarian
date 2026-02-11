@@ -129,7 +129,21 @@ public class AgentStats : NetworkBehaviour
                 updateHealthUI();
                 GameManagerScript.Instance.handlePlayerDeathRpc(isblueplayer);
             }
-            
+            else if(GetComponent<TowerScript>())
+            {
+                GameManagerScript.LoadNetwork(GameManagerScript.Scene.GameEnd);
+
+                if (friendlyLayer == 9)
+                {
+                    GameManagerScript.Instance.blueWins = true;
+                }
+                else
+                {
+                    GameManagerScript.Instance.blueWins = false;
+                }
+                GameManagerScript.Instance.gameDone = true;
+                
+            }
         }
         else
         {

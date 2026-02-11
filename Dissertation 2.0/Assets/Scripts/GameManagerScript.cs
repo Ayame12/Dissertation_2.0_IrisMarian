@@ -4,6 +4,8 @@ using Unity.Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameManagerScript : NetworkBehaviour
 {
@@ -12,6 +14,7 @@ public class GameManagerScript : NetworkBehaviour
         MenuScene,
         GameSetupScene,
         GameScene,
+        GameEnd,
     }
 
 
@@ -36,6 +39,10 @@ public class GameManagerScript : NetworkBehaviour
     private float bluePlayerRespawnTimer;
     private float redPlayerRespawnTimer;
     public float respawnIncrement;
+
+    public bool blueWins;
+    public bool gameDone;
+    public Text winnerText;
 
     //public bool isHost;
     //public bool waitingToLoadGame = true;
@@ -89,6 +96,21 @@ public class GameManagerScript : NetworkBehaviour
                 redPlayerRespawnTimer = 0;
                 handlePlayerRespawnRpc(false);
             }
+        }
+
+        if(gameDone)
+        {
+            //GameObject textObj = GameObject.FindGameObjectWithTag("winnerText");
+            //winnerText = textObj.GetComponent<Text>();
+
+            //if(blueWins)
+            //{
+            //    winnerText.text = "Blue Wins!";
+            //}
+            //else
+            //{
+            //    winnerText.text = "Red Wins!";
+            //}
         }
 
         //if(playersSpauned && !setupDone)
