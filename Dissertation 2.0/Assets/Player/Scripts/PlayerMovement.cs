@@ -193,6 +193,10 @@ public class PlayerMovement : NetworkBehaviour
 
             if(targetIdentifier != -1)
             {
+                stats.applyStunRpc(basicAttackCastDuration);
+
+                basicAttackCooldownTimer = basicAttackCooldown;
+
                 spawnBasicAttackRpc(targetIdentifier);
             }
             else
@@ -218,13 +222,6 @@ public class PlayerMovement : NetworkBehaviour
     [Rpc(SendTo.Server)]
     private void spawnBasicAttackRpc(int identifier)
     {
-        //if(!)
-
-        AgentStats stats = GetComponent<AgentStats>();
-        stats.applyStunRpc(basicAttackCastDuration);
-
-        basicAttackCooldownTimer = basicAttackCooldown;
-
         GameObject projectile = Instantiate(basicAttackPrefab, transform.position, Quaternion.identity);
 
         GameObject basicAttackTarget = null;
@@ -232,6 +229,7 @@ public class PlayerMovement : NetworkBehaviour
         if(identifier == 0)
         {
             basicAttackTarget = GameObject.FindGameObjectWithTag(stats.enemyPlayerTag);
+            gameObject.GetComponent<PlayerManager>().aggroAllInRangeRpc();
         }
         else if(identifier == 1)
         {
@@ -252,10 +250,5 @@ public class PlayerMovement : NetworkBehaviour
         }
         projectile.GetComponent<BasicProjectile>().setTarget(basicAttackTarget, stats.damage);
         projectile.GetComponent<NetworkObject>().Spawn(true);
-
-        if (targetEnemy.GetComponent<PlayerManager>() != null)
-        {
-            //gameObject.GetComponent<PlayerManager>().aggroAllInRange();
-        }
     }
 }

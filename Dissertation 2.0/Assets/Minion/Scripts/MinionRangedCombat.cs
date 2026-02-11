@@ -11,7 +11,7 @@ public class MinionRangedCombat : NetworkBehaviour
     private float attackDamage = 10;
     public float attackCooldown = 2;
 
-    private float attackTimer = 0;
+    public float attackTimer = 0;
     private bool isAttacking = false;
 
     private AgentStats stats;

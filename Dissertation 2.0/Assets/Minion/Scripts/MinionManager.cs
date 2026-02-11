@@ -12,7 +12,7 @@ public class MinionManager : NetworkBehaviour
     //private int friendlyLayer;
     private string enemyTowerTag;
     private string enemyMinionTag;
-    public string enemyPlayerTag;
+    private string enemyPlayerTag;
     //private GameObject enemyTower;
     //private GameObject enemyPlayer;
 

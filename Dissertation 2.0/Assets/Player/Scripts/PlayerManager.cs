@@ -2,6 +2,7 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerManager : NetworkBehaviour
 {
@@ -24,8 +25,11 @@ public class PlayerManager : NetworkBehaviour
     private PlayerInputScript playerInput;
     private PlayerMovement playerMovement;
     private PlayerAttackScript playerAttack;
+    private AgentStats stats;
 
     public int creepScore = 0;
+
+    public Text creepScoreUi;
 
     public Canvas uiCanvas;
 
@@ -40,10 +44,13 @@ public class PlayerManager : NetworkBehaviour
         playerInput = GetComponent<PlayerInputScript>();
         playerMovement = GetComponent<PlayerMovement>();
         playerAttack = GetComponent<PlayerAttackScript>();
+        stats = GetComponent<AgentStats>();
 
         if(IsOwner)
         {
             uiCanvas.gameObject.SetActive(true);
+
+            GameObject.FindGameObjectWithTag("HighlightManager").GetComponent<HighlightManager>().setup(stats.enemyLayer);
 
             //playerAttack.initialize();
         }
@@ -63,10 +70,41 @@ public class PlayerManager : NetworkBehaviour
         playerMovement.tickUpdate();
         playerAttack.tickUpdate();
 
+        creepScoreUi.text = "CS: "+creepScore.ToString();
+
     }
 
     public void resetPlayerComponents()
     {
         playerInput.resetComponent();
+    }
+
+    [Rpc(SendTo.Server)]
+    public void aggroAllInRangeRpc()
+    {
+        GameObject[] enemyMinions = GameObject.FindGameObjectsWithTag(stats.enemyMinionTag);
+
+        if (enemyMinions.Length > 0)
+        {
+            float minionAggroRange = enemyMinions[0].GetComponent<MinionManager>().aggroDistance;
+
+            foreach (GameObject minion in enemyMinions)
+            {
+                float distance = Vector3.Distance(gameObject.transform.position, minion.transform.position);
+
+                if (distance < minionAggroRange)
+                {
+                    minion.GetComponent<MinionManager>().currentTarget = gameObject;
+                    minion.GetComponent<MinionManager>().targetSwitchTimer = 3;
+                }
+            }
+        }
+        GameObject enemyTower = GameObject.FindGameObjectWithTag(stats.enemyTowerTag);
+
+        float distanceToTower = Vector3.Distance(gameObject.transform.position, enemyTower.transform.position);
+        if (distanceToTower < enemyTower.GetComponent<TowerScript>().range)
+        {
+            enemyTower.GetComponent<TowerScript>().currentTarget = gameObject;
+        }
     }
 }

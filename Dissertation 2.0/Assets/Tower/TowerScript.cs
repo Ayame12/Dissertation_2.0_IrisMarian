@@ -129,7 +129,6 @@ public class TowerScript : NetworkBehaviour
     [Rpc(SendTo.Server)]
     private void spawnAttackRpc()
     {
-        Debug.Log("spawning projectile");
         GameObject projectile = Instantiate(projectileprefab, spawnPoint.transform.position, Quaternion.identity);
         projectile.GetComponent<NetworkObject>().Spawn(true);
         projectile.GetComponent<TowerProjectileScript>().setTarget(currentTarget);

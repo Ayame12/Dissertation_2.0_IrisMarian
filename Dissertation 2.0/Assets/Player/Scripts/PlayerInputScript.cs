@@ -10,6 +10,7 @@ public class PlayerInputScript : MonoBehaviour
     private Vector2 mousePos;
     public Vector3 mousePosInGame;
     public Vector3 lastRightClick;
+    public GameObject hoveredObject;
 
     public int lastDirection = 0;
 
@@ -25,12 +26,16 @@ public class PlayerInputScript : MonoBehaviour
 
     public GameObject target;
 
+    private AgentStats stats;
+
     void Start()
     {
         mousePos = new Vector2(0, 0);
         mousePosInGame = new Vector3(0, 0, 0);
 
         cam = Camera.main;
+
+        stats = GetComponent<AgentStats>();
     }
 
     // Update is called once per frame
@@ -69,13 +74,15 @@ public class PlayerInputScript : MonoBehaviour
 
                 if (Mouse.current.rightButton.isPressed || Mouse.current.rightButton.wasPressedThisFrame)
                 {
-                    if (hit.collider.gameObject.layer == 8)
+                    if (hit.collider.gameObject.layer == stats.groundLayer)
                     {
                         move = true;
+                        attack = false;
                     }
-                    else if (hit.collider.gameObject.layer == 10)
+                    else if (hit.collider.gameObject.layer == stats.enemyLayer)
                     {
                         attack = true;
+                        move = false;
 
                         if (hit.transform.parent)
                         {

@@ -92,13 +92,14 @@ public class AgentStats : NetworkBehaviour
         {
             if (GetComponent<PlayerManager>())
             {
-                //enemyPlayer.GetComponent<PlayerManager>().aggroAllInRange();
+                GameObject enemyPlayer = GameObject.FindGameObjectWithTag(enemyPlayerTag);
+                enemyPlayer.GetComponent<PlayerManager>().aggroAllInRangeRpc();
             }
-            //else if (GetComponent<MinionScript>())
-            //{
-            //    MinionScript minion = GetComponent<MinionScript>();
-            //    minion.targetSwitchTimer = minion.CSTimerThreshhold;
-            //}
+            else if (GetComponent<MinionManager>())
+            {
+                MinionManager minion = GetComponent<MinionManager>();
+                minion.targetSwitchTimer = minion.CSTimerThreshhold;
+            }
         }
 
         if (targetHealth <= 0 )
@@ -107,8 +108,11 @@ public class AgentStats : NetworkBehaviour
             {
                 if (GetComponent<MinionManager>().targetSwitchTimer > 0)
                 {
-                    PlayerManager playerScr = GameObject.FindGameObjectWithTag(GetComponent<MinionManager>().enemyPlayerTag).GetComponent<PlayerManager>();
-                    playerScr.creepScore++;
+                    if (damageType == 1)
+                    {
+                        PlayerManager playerScr = GameObject.FindGameObjectWithTag(GetComponent<AgentStats>().enemyPlayerTag).GetComponent<PlayerManager>();
+                        playerScr.creepScore++;
+                    }
                 }
                 Destroy(gameObject);
             }
