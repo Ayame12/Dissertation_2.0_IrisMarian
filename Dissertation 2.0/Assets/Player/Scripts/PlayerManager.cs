@@ -1,11 +1,30 @@
+using System;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+[Serializable]
+public class PlayerSerializedData
+{
+    public bool isBlue = false;
+    public float health;
+    public Vector3 position = new Vector3(0, 0, 0);
+    public bool ability1 = true;
+    public bool ability2 = true;
+    public bool ability3 = true;
+    public float ability1CD = 0;
+    public float ability2CD = 0;
+    public float ability3CD = 0;
+    public int creepScore = 0;
+
+}
+
 public class PlayerManager : NetworkBehaviour
 {
+    public PlayerSerializedData serializedPlayer;
+
     //public GameObject gameInfo;
 
     public bool isAI = false;
@@ -52,8 +71,18 @@ public class PlayerManager : NetworkBehaviour
 
             GameObject.FindGameObjectWithTag("HighlightManager").GetComponent<HighlightManager>().setup(stats.enemyLayer);
 
-            //playerAttack.initialize();
         }
+
+        if (gameObject.layer == 9)
+        {
+            serializedPlayer.isBlue = true;
+        }
+        else
+        {
+            serializedPlayer.isBlue = false;
+        }
+        serializedPlayer.position = transform.position;
+        serializedPlayer.health = stats.health;
 
         GameManagerScript.Instance.setupPlayerReferences(gameObject);
     }
@@ -61,8 +90,18 @@ public class PlayerManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        serializedPlayer.health = stats.targetHealth;
+        serializedPlayer.position = transform.position;
+        serializedPlayer.ability1 = playerAttack.rootIsAvailable;
+        serializedPlayer.ability2 = playerAttack.dashIsAvailable;
+        serializedPlayer.ability3 = playerAttack.ultIsAvailable;
+        serializedPlayer.ability1CD = playerAttack.rootCooldownTimer;
+        serializedPlayer.ability2CD = playerAttack.dashCooldownTimer;
+        serializedPlayer.ability3CD = playerAttack.ultCooldownTimer;
+        serializedPlayer.creepScore = creepScore;
+
         //ai input
-        if(!IsOwner)
+        if (!IsOwner)
         {
             return;
         }
@@ -71,7 +110,6 @@ public class PlayerManager : NetworkBehaviour
         playerAttack.tickUpdate();
 
         creepScoreUi.text = "CS: "+creepScore.ToString();
-
     }
 
     public void resetPlayerComponents()

@@ -1,11 +1,23 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.Cinemachine;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+
+[Serializable]
+class currentTimestamp
+{
+    public int minutesElapsed = 0;
+    public int secondsElapsed = 0;
+    public int milisecondsElapsed = 0;
+}
 
 public class GameManagerScript : NetworkBehaviour
 {
@@ -16,7 +28,6 @@ public class GameManagerScript : NetworkBehaviour
         GameScene,
         GameEnd,
     }
-
 
     public string bluePlayerTag;
     public string redPlayerTag;
@@ -44,6 +55,20 @@ public class GameManagerScript : NetworkBehaviour
     public bool gameDone;
     public Text winnerText;
 
+    bool logGame = true;
+    bool logHostOnly = true;
+    public string saveFilePath;
+    string json;
+    public float writeFrequency;
+    private float writeTimer;
+    public float serializeLogFrequency;
+    private float serializeLogTimer;
+    private bool startLogging = false;
+    public System.Diagnostics.Stopwatch stopwatch;
+
+    currentTimestamp timestamp;
+    
+
     //public bool isHost;
     //public bool waitingToLoadGame = true;
 
@@ -57,8 +82,9 @@ public class GameManagerScript : NetworkBehaviour
     private void Awake()
     {
         Instance = this;
-
         DontDestroyOnLoad(gameObject);
+
+        
     }
 
     public static void LoadNetwork(Scene targetScene)
@@ -71,17 +97,29 @@ public class GameManagerScript : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        //cineCam.Target = 
+        string docPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        int m = System.DateTime.Now.Month;
+        int d = System.DateTime.Now.Day;
+        int h = System.DateTime.Now.Hour;
+        int s = System.DateTime.Now.Minute;
+
+        string dateAndTimeOfGame = m.ToString() +"."+ d.ToString() + "_" + h.ToString() + "." + s.ToString();
+
+        saveFilePath = Path.Combine(Application.persistentDataPath, docPath + "\\DissertationData\\iris_gameData_" + dateAndTimeOfGame + ".json");
+
+        stopwatch = new System.Diagnostics.Stopwatch();
+        timestamp = new currentTimestamp();
+        //saveFilePath = "C:\\Users\\2200147\\Documents\\DissertationData\\iris_playerData.json";
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (bluePlayerRespawnTimer > 0)
         {
             bluePlayerRespawnTimer -= Time.deltaTime;
-            if(bluePlayerRespawnTimer <= 0)
+            if (bluePlayerRespawnTimer <= 0)
             {
                 bluePlayerRespawnTimer = 0;
                 handlePlayerRespawnRpc(true);
@@ -98,55 +136,58 @@ public class GameManagerScript : NetworkBehaviour
             }
         }
 
-        if(gameDone)
-        {
-            //GameObject textObj = GameObject.FindGameObjectWithTag("winnerText");
-            //winnerText = textObj.GetComponent<Text>();
 
-            //if(blueWins)
-            //{
-            //    winnerText.text = "Blue Wins!";
-            //}
-            //else
-            //{
-            //    winnerText.text = "Red Wins!";
-            //}
+        if (startLogging)
+        {
+            if (logGame)
+            {
+                if ((logHostOnly && IsHost) || !logHostOnly)
+                {
+                    serializeLogTimer -= Time.deltaTime;
+                    writeTimer -= Time.deltaTime;
+
+                    if (serializeLogTimer <= 0)
+                    {
+                        serializeLogTimer = serializeLogFrequency;
+                        serializeGameState();
+                    }
+                    else if (gameDone)
+                    {
+                        //int seconds = stopwatch.Elapsed.Seconds;
+
+                        timestamp.minutesElapsed = stopwatch.Elapsed.Minutes;
+                        timestamp.secondsElapsed = stopwatch.Elapsed.Seconds;
+                        timestamp.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
+
+                        json += JsonUtility.ToJson(timestamp, true);
+                        json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, true);
+                        json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, true);
+
+                        writeToFile(json, saveFilePath);
+                    }
+
+                }
+            }
         }
 
-        //if(playersSpauned && !setupDone)
-        //{
-        //    cineCam = GameObject.FindGameObjectWithTag("CinemachineCamera").GetComponent<CinemachineCamera>();
+        if (gameDone)
+        {
+            if(false)
+            {
+                GameObject textObj = GameObject.FindGameObjectWithTag("winnerText");
+                winnerText = textObj.GetComponent<Text>();
 
-        //    if (NetworkManager.Singleton.IsHost)
-        //    {
-        //        cineCam.Target.TrackingTarget = bluePlayer.transform;
-        //    }
-        //    else
-        //    {
-        //        cineCam.Target.TrackingTarget = redPlayer.transform;
-        //    }
-
-        //    setupDone = true;
-        //}
-
-
-        //OnLevelWasLoaded(1);
+                if (blueWins)
+                {
+                    winnerText.text = "Blue Wins!";
+                }
+                else
+                {
+                    winnerText.text = "Red Wins!";
+                }
+            }
+        }
     }
-
-    //void fuc(int level)
-    //{
-    //    bluePlayer = GameObject.FindGameObjectWithTag(bluePlayerTag);
-    //    redPlayer = GameObject.FindGameObjectWithTag(redPlayerTag);
-
-    //    if(isHost)
-    //    {
-    //        cineCam.Target.TrackingTarget = bluePlayer.transform;
-    //    }
-    //    else
-    //    {
-    //        cineCam.Target.TrackingTarget = redPlayer.transform;
-    //    }
-    //}
 
     public void StartHost()
     {
@@ -166,12 +207,8 @@ public class GameManagerScript : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        //state.OnValueChanged += State_OnValueChanged;
-        //isGamePaused.OnValueChanged += IsGamePaused_OnValueChanged;
-
         if (IsServer)
         {
-            //NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
         }
     }
@@ -199,8 +236,6 @@ public class GameManagerScript : NetworkBehaviour
                 redPlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
             }  
         }
-
-        //playersSpawned = true;
     }
 
     [Rpc(SendTo.Everyone)]
@@ -238,26 +273,6 @@ public class GameManagerScript : NetworkBehaviour
         {
             redPlayer.SetActive(true);
         }
-
-        //if(IsOwner)
-        //{
-        //    if (player == bluePlayer)
-        //    {
-        //        bluePlayerRespawnTimer = bluePlayerRespawnCooldown;
-        //        bluePlayerRespawnCooldown += respawnIncrement;
-
-        //        player.transform.position = bluePlayerSpawnPoint.position;
-        //        player.transform.rotation = bluePlayerSpawnPoint.rotation;
-        //    }
-        //    else
-        //    {
-        //        redPlayerRespawnTimer = redPlayerRespawnCooldown;
-        //        redPlayerRespawnCooldown += respawnIncrement;
-
-        //        player.transform.position = redPlayerSpawnPoint.position;
-        //        player.transform.rotation = redPlayerSpawnPoint.rotation;
-        //    }
-        //}
     }
 
     public void setupPlayerReferences(GameObject player)
@@ -272,6 +287,12 @@ public class GameManagerScript : NetworkBehaviour
             redPlayer = player;
             GameObject.FindGameObjectWithTag("BlueTower").GetComponent<TowerScript>().setupPlayerRef(redPlayer);
         }
+
+        if(bluePlayer != null && redPlayer != null)
+        {
+            startLogging = true;
+            stopwatch.Start();
+        }
     }
 
     public void setupPlayerSpawnPointTransforms(bool isBlueSpawn, Transform spawnPoint)
@@ -284,5 +305,40 @@ public class GameManagerScript : NetworkBehaviour
         {
             redPlayerSpawnPoint = spawnPoint;
         }
+    }
+
+    private void serializeGameState()
+    {
+        timestamp.minutesElapsed = stopwatch.Elapsed.Minutes;
+        timestamp.secondsElapsed = stopwatch.Elapsed.Seconds;
+        timestamp.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
+
+        json += JsonUtility.ToJson(timestamp, true);
+        json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, true);
+        json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, true);
+
+        if(writeTimer <= 0 )
+        {
+            writeTimer = writeFrequency;
+            if(writeToFile(json, saveFilePath))
+            {
+                json = string.Empty;
+            }
+
+        }
+    }
+    private bool writeToFile(string data, string filePath)
+    {
+        try
+        {
+            File.AppendAllText(filePath, data);
+            Debug.Log("Players saved to" + filePath);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Error saving player position");
+        }
+        return false;
     }
 }

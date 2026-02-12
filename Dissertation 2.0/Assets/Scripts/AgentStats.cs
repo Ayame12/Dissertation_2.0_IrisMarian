@@ -11,7 +11,7 @@ public class AgentStats : NetworkBehaviour
 
     public float damageLerpDuration;
     private float currentHealth;
-    private float targetHealth;
+    public float targetHealth;
     private Coroutine damageCoroutine;
 
     private HealthUI healthUI;

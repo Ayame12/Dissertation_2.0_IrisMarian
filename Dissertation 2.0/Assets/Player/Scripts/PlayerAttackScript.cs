@@ -16,8 +16,8 @@ public class PlayerAttackScript : NetworkBehaviour
 
     public GameObject rootPrefab;
     public float rootCooldown;
-    private float rootCooldownTimer = 0;
-    private bool rootIsAvailable = true;
+    public float rootCooldownTimer = 0;
+    public bool rootIsAvailable = true;
 
     [Header("Ability 2")]
     public Image ability2Image;
@@ -26,8 +26,8 @@ public class PlayerAttackScript : NetworkBehaviour
     public float dashRange;
     public float dashSpeed;
     public float dashCooldown;
-    private float dashCooldownTimer;
-    private bool dashIsAvailable = true;
+    public float dashCooldownTimer;
+    public bool dashIsAvailable = true;
 
 
     [Header("Ability 3")]
@@ -37,8 +37,8 @@ public class PlayerAttackScript : NetworkBehaviour
     public GameObject ultPrefab;
     public string ultTag;
     public float ultCooldown;
-    private float ultCooldownTimer = 0;
-    private bool ultIsAvailable = true;
+    public float ultCooldownTimer = 0;
+    public bool ultIsAvailable = true;
 
     private void Start()
     {

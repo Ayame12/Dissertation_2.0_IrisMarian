@@ -1227,6 +1227,12 @@ MonoBehaviour:
   bluePlayerRespawnCooldown: 5
   redPlayerRespawnCooldown: 5
   respawnIncrement: 2
+  blueWins: 0
+  gameDone: 0
+  winnerText: {fileID: 0}
+  saveFilePath: 
+  writeFrequency: 10
+  serializeLogFrequency: 1
 --- !u!1 &1030840012
 GameObject:
   m_ObjectHideFlags: 0
