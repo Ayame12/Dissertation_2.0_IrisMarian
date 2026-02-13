@@ -41,7 +41,7 @@ public class PlayerInputScript : MonoBehaviour
 
     private AgentStats stats;
 
-    public PlayerInputSerializedData serializedData;
+    //public PlayerInputSerializedData serializedData;
 
     void Start()
     {
@@ -51,14 +51,14 @@ public class PlayerInputScript : MonoBehaviour
         cam = Camera.main;
 
         stats = GetComponent<AgentStats>();
-        if(stats.friendlyLayer == 9)
-        {
-            serializedData.isBlue = true;
-        }
-        else
-        {
-            serializedData.isBlue = false;
-        }
+        //if(stats.friendlyLayer == 9)
+        //{
+        //    serializedData.isBlue = true;
+        //}
+        //else
+        //{
+        //    serializedData.isBlue = false;
+        //}
     }
 
     // Update is called once per frame
@@ -176,15 +176,16 @@ public class PlayerInputScript : MonoBehaviour
             newInput = true;
         }
 
-        if(newInput)
-        {
-            serializedData.move = move;
-            serializedData.attack = attack;
-            serializedData.ability1 = ability1;
-            serializedData.ability2 = ability2;
-            serializedData.ability3 = ability3;
-            serializedData.mousePosInGame = mousePosInGame;
-        }
+        //if(newInput)
+        //{
+        //    serializedData.move = move;
+
+        //    serializedData.attack = attack;
+        //    serializedData.ability1 = ability1;
+        //    serializedData.ability2 = ability2;
+        //    serializedData.ability3 = ability3;
+        //    serializedData.mousePosInGame = mousePosInGame;
+        //}
     }
 
     public bool mouseOnScreen(Vector2 mouse)

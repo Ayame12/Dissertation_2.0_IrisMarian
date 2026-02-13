@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3056977775
+  GlobalObjectIdHash: 3256520520
   InScenePlacedSourceGlobalObjectIdHash: 1763201246
   DeferredDespawnTick: 0
   Ownership: 1
@@ -560,6 +560,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
   ShowTopMostFoldoutHeaderGroup: 1
+  serializedPlayer:
+    objectType: player
+    isBlue: 0
+    health: 0
+    position: {x: 0, y: 0, z: 0}
+    ability1: 1
+    ability2: 1
+    ability3: 1
+    ability1CD: 0
+    ability2CD: 0
+    ability3CD: 0
+    creepScore: 0
   isAI: 0
   creepScore: 0
   creepScoreUi: {fileID: 5180114173188804606}
@@ -588,6 +600,7 @@ MonoBehaviour:
   ability1: 0
   ability2: 0
   ability3: 0
+  newInput: 0
   target: {fileID: 0}
 --- !u!114 &5052290202309406829
 MonoBehaviour:
@@ -670,10 +683,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AgentStats
   ShowTopMostFoldoutHeaderGroup: 1
   health: 700
+  passiveHealing: 5
   damage: 40
   speed: 5
   currentSpeed: 0
   damageLerpDuration: 0.25
+  targetHealth: 0
   groundLayer: 8
   enemyLayer: 10
   friendlyLayer: 9
@@ -701,17 +716,23 @@ MonoBehaviour:
   ability1Image: {fileID: 3920098489333585611}
   ability1Text: {fileID: 2080605561716030730}
   rootPrefab: {fileID: 4504308139281211255, guid: 12951359c0f2e8a4786d6e0812537a45, type: 3}
-  rootCooldown: 3
+  rootCooldown: 5
+  rootCooldownTimer: 0
+  rootIsAvailable: 1
   ability2Image: {fileID: 1713196789018204999}
   ability2Text: {fileID: 3490785991442860964}
   dashRange: 6
   dashSpeed: 22
-  dashCooldown: 6
+  dashCooldown: 10
+  dashCooldownTimer: 0
+  dashIsAvailable: 1
   ability3Image: {fileID: 8482194614704105591}
   ability3Text: {fileID: 6184589154111875969}
   ultPrefab: {fileID: 5214066533966359712, guid: e66768bfe3ff6744aad4d2d30789c003, type: 3}
   ultTag: BlueUlt
-  ultCooldown: 15
+  ultCooldown: 50
+  ultCooldownTimer: 0
+  ultIsAvailable: 1
 --- !u!136 &1512109773403391289
 CapsuleCollider:
   m_ObjectHideFlags: 0

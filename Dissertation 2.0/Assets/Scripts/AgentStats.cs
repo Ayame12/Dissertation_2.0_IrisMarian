@@ -1,13 +1,17 @@
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AgentStats : NetworkBehaviour
 {
     public float health;
+    public float passiveHealing;
     public float damage;
     public float speed;
     public float currentSpeed;
+
+    private float healingTimer = 1;
 
     public float damageLerpDuration;
     private float currentHealth;
@@ -70,6 +74,18 @@ public class AgentStats : NetworkBehaviour
         else if (stunTimer < 0)
         {
             removeStun();
+        }
+
+        healingTimer -= Time.deltaTime;
+        if (healingTimer <= 0)
+        {
+            healingTimer = 1;
+            targetHealth += passiveHealing;
+            if (targetHealth>health)
+            {
+                targetHealth = health;
+            }
+            updateHealthUI();
         }
     }
 

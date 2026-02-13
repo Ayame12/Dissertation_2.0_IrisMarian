@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1724615414
+  GlobalObjectIdHash: 3216415801
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -461,6 +461,12 @@ MonoBehaviour:
   targetSwitchTimer: 0
   CSTimerThreshhold: 0.2
   uniqueIdentifier: 0
+  serializedMinion:
+    objectType: minion
+    isBlue: 0
+    health: 0
+    isTargetingPlayer: 0
+    position: {x: 0, y: 0, z: 0}
 --- !u!114 &-6075792471547691126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,10 +481,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AgentStats
   ShowTopMostFoldoutHeaderGroup: 1
   health: 240
+  passiveHealing: 0
   damage: 20
   speed: 3.5
   currentSpeed: 0
   damageLerpDuration: 0.25
+  targetHealth: 0
   groundLayer: 8
   enemyLayer: 10
   friendlyLayer: 9
@@ -522,7 +530,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1028,5 +1036,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3, y: 1, z: 1.3}
+  m_Size: {x: 1.1, y: 1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}

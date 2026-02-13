@@ -403,11 +403,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerScript
   ShowTopMostFoldoutHeaderGroup: 1
   range: 10
-  cooldown: 3
+  cooldown: 2
   projectileprefab: {fileID: 4781685695025374406, guid: 3a4b72036bdf1b041ac4bb82f213156d, type: 3}
   spawnPoint: {fileID: 1611586061187325224}
   lineRenderer: {fileID: 1353919264822568864}
   currentTarget: {fileID: 0}
+  serializedTower:
+    objectType: tower
+    isBlue: 0
+    health: 0
+    isFiring: 0
+    isTargetingPlayer: 0
 --- !u!114 &8263799750514163099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +432,7 @@ MonoBehaviour:
   speed: 0
   currentSpeed: 0
   damageLerpDuration: 0.25
+  targetHealth: 0
   groundLayer: 8
   enemyLayer: 10
   friendlyLayer: 9

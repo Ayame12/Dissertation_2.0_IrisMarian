@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerProjectileScript
   ShowTopMostFoldoutHeaderGroup: 1
   speed: 8
-  damage: 100
+  damage: 150
 --- !u!114 &3896761864621904011
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2076a4eb547e49c4d9c3597c0e144a8e, type: 2}
+    - target: {fileID: 2746555209470631496, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746555209470631496, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: m_Size.z
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3263970021542850834, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: m_Name
       value: RedMinion
