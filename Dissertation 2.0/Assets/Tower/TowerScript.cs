@@ -1,5 +1,16 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
+
+[Serializable]
+public class TowerSerializationData
+{
+    public string objectType = "tower";
+    public bool isBlue = false;
+    public float health;
+    public bool isFiring = false;
+    public bool isTargetingPlayer = false;
+}
 
 public class TowerScript : NetworkBehaviour
 {
@@ -16,11 +27,16 @@ public class TowerScript : NetworkBehaviour
     private float attackTimer = 0;
     public GameObject currentTarget;
 
+    public TowerSerializationData serializedTower;
+
+    AgentStats stats;
+
     private bool done = false;
 
     private void Start()
     {
-        enemyMinionTag = GetComponent<AgentStats>().enemyMinionTag;
+        stats = GetComponent<AgentStats>();
+        enemyMinionTag = stats.enemyMinionTag;
         lineSpawnPoint = spawnPoint;
         lineSpawnPoint.position = new Vector3(spawnPoint.position.x , spawnPoint.position.y - 2, spawnPoint.position.z);
     }
@@ -63,6 +79,25 @@ public class TowerScript : NetworkBehaviour
                 attackTimer = cooldown;
             }
         }
+
+        if(currentTarget==null)
+        {
+            serializedTower.isFiring = false;
+            serializedTower.isTargetingPlayer = false;
+        }
+        else
+        {
+            serializedTower.isFiring = true;
+            if(currentTarget == enemyPlayer)
+            {
+                serializedTower.isTargetingPlayer = true;
+            }
+            else
+            {
+                serializedTower.isTargetingPlayer = false;
+            }
+        }
+        serializedTower.health = stats.targetHealth;
     }
 
     private void findAndSetTarget()

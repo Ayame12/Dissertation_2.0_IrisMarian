@@ -1,6 +1,17 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public class PlayerInputSerializedData
+{
+    public bool isBlue = false;
+    public bool move = false;
+    public bool attack = false;
+    public bool ability1 = false;
+    public bool ability2 = false;
+    public bool ability3 = false;
+    public Vector3 mousePosInGame = Vector3.zero;
+}
 public class PlayerInputScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,9 +35,13 @@ public class PlayerInputScript : MonoBehaviour
     public bool ability2 = false;
     public bool ability3 = false;
 
+    public bool newInput = false;
+
     public GameObject target;
 
     private AgentStats stats;
+
+    public PlayerInputSerializedData serializedData;
 
     void Start()
     {
@@ -36,6 +51,14 @@ public class PlayerInputScript : MonoBehaviour
         cam = Camera.main;
 
         stats = GetComponent<AgentStats>();
+        if(stats.friendlyLayer == 9)
+        {
+            serializedData.isBlue = true;
+        }
+        else
+        {
+            serializedData.isBlue = false;
+        }
     }
 
     // Update is called once per frame
@@ -52,6 +75,10 @@ public class PlayerInputScript : MonoBehaviour
         if (ability3)
         {
             ability3 = false;
+        }
+        if(newInput)
+        {
+            newInput = false;
         }
 
         Vector2 currentMousePos = Mouse.current.position.ReadValue();
@@ -96,6 +123,7 @@ public class PlayerInputScript : MonoBehaviour
 
                     lastRightClick = mousePosInGame;
                     target = tempTarget;
+                    newInput = true;
                 }
 
                     //Debug.Log(mousePos.ToString() + "  :  " + mousePosInGame.ToString());
@@ -133,16 +161,29 @@ public class PlayerInputScript : MonoBehaviour
         if (Input.GetKeyDown(ability1Key))
         {
             ability1 = true;
+            newInput = true;
         }
 
         if (Input.GetKeyDown(ability2Key))
         {
             ability2 = true;
+            newInput = true;
         }
 
         if (Input.GetKeyDown(ability3Key))
         {
             ability3 = true;
+            newInput = true;
+        }
+
+        if(newInput)
+        {
+            serializedData.move = move;
+            serializedData.attack = attack;
+            serializedData.ability1 = ability1;
+            serializedData.ability2 = ability2;
+            serializedData.ability3 = ability3;
+            serializedData.mousePosInGame = mousePosInGame;
         }
     }
 

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 [Serializable]
 public class PlayerSerializedData
 {
+    public string objectType = "player";
     public bool isBlue = false;
     public float health;
     public Vector3 position = new Vector3(0, 0, 0);

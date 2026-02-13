@@ -14,9 +14,13 @@ using UnityEngine.UIElements;
 [Serializable]
 class currentTimestamp
 {
+    public string logType = "log";
     public int minutesElapsed = 0;
     public int secondsElapsed = 0;
     public int milisecondsElapsed = 0;
+
+    public int blueMinionsAlive = 0;
+    public int redMinionsAlive = 0;
 }
 
 public class GameManagerScript : NetworkBehaviour
@@ -42,6 +46,8 @@ public class GameManagerScript : NetworkBehaviour
 
     private GameObject bluePlayer;
     private GameObject redPlayer;
+    private GameObject blueTower;
+    private GameObject redTower;
 
     private Transform bluePlayerSpawnPoint;
     private Transform redPlayerSpawnPoint;
@@ -63,6 +69,7 @@ public class GameManagerScript : NetworkBehaviour
     private float writeTimer;
     public float serializeLogFrequency;
     private float serializeLogTimer;
+    private bool serializeAll = true;
     private bool startLogging = false;
     public System.Diagnostics.Stopwatch stopwatch;
 
@@ -148,6 +155,7 @@ public class GameManagerScript : NetworkBehaviour
 
                     if (serializeLogTimer <= 0)
                     {
+                        timestamp.logType = "log";
                         serializeLogTimer = serializeLogFrequency;
                         serializeGameState();
                     }
@@ -280,12 +288,14 @@ public class GameManagerScript : NetworkBehaviour
         if (player.tag == bluePlayerTag)
         {
             bluePlayer = player;
-            GameObject.FindGameObjectWithTag("RedTower").GetComponent<TowerScript>().setupPlayerRef(bluePlayer);
+            redTower = GameObject.FindGameObjectWithTag("RedTower");
+            redTower.GetComponent<TowerScript>().setupPlayerRef(bluePlayer);
         }
         else
         {
             redPlayer = player;
-            GameObject.FindGameObjectWithTag("BlueTower").GetComponent<TowerScript>().setupPlayerRef(redPlayer);
+            blueTower = GameObject.FindGameObjectWithTag("BlueTower");
+            blueTower.GetComponent<TowerScript>().setupPlayerRef(redPlayer);
         }
 
         if(bluePlayer != null && redPlayer != null)
@@ -313,11 +323,34 @@ public class GameManagerScript : NetworkBehaviour
         timestamp.secondsElapsed = stopwatch.Elapsed.Seconds;
         timestamp.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
 
+        GameObject[] blueMinions = GameObject.FindGameObjectsWithTag("BlueMinion");
+        GameObject[] redMinions = GameObject.FindGameObjectsWithTag("RedMinion");
+
+        timestamp.blueMinionsAlive = blueMinions.Length;
+        timestamp.redMinionsAlive = redMinions.Length;
+
         json += JsonUtility.ToJson(timestamp, true);
         json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, true);
         json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, true);
 
-        if(writeTimer <= 0 )
+        if(serializeAll)
+        {
+            json += JsonUtility.ToJson(blueTower.GetComponent<TowerScript>().serializedTower, true);
+            json += JsonUtility.ToJson(redTower.GetComponent<TowerScript>().serializedTower, true);
+
+            foreach(GameObject blueMinion in blueMinions)
+            {
+                json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, true);
+            }
+
+            foreach (GameObject blueMinion in blueMinions)
+            {
+                json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, true);
+            }
+        }
+        serializeAll = !serializeAll;
+
+        if (writeTimer <= 0 )
         {
             writeTimer = writeFrequency;
             if(writeToFile(json, saveFilePath))

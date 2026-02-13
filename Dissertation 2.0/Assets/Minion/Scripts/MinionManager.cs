@@ -1,6 +1,17 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
+
+[Serializable]
+public class MinionSerializationData
+{
+    public string objectType = "minion";
+    public bool isBlue = false;
+    public float health;
+    public bool isTargetingPlayer = false;
+    public Vector3 position = new Vector3(0, 0, 0);
+}
 
 public class MinionManager : NetworkBehaviour
 {
@@ -30,20 +41,36 @@ public class MinionManager : NetworkBehaviour
 
     public int uniqueIdentifier;
 
+    public MinionSerializationData serializedMinion;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //public override void OnNetworkSpawn()
     void Awake()
     {
+        stats = GetComponent<AgentStats>();
+
+        enemyTowerTag = stats.enemyTowerTag;
+        enemyMinionTag = stats.enemyMinionTag;
+        enemyPlayerTag = stats.enemyPlayerTag;
+
+        if(stats.friendlyLayer == 9)
+        {
+            serializedMinion.isBlue = true;
+        }
+        else
+        {
+            serializedMinion.isBlue = false;
+        }
+        serializedMinion.health = stats.health;
+        serializedMinion.position = transform.position;
+        serializedMinion.isTargetingPlayer = false;
+
+
         if (NetworkManager.IsHost)
         {
-            stats = GetComponent<AgentStats>();
-
             agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
             agent.speed = stats.speed;
 
-            enemyTowerTag = stats.enemyTowerTag;
-            enemyMinionTag = stats.enemyMinionTag;
-            enemyPlayerTag = stats.enemyPlayerTag;
             //enemyPlayer = stats.enemyPlayer;
             //enemyTower = stats.enemyTower;
             //enemyLayer = stats.enemyLayer;
@@ -53,6 +80,9 @@ public class MinionManager : NetworkBehaviour
 
             targetSwitchTimer = 0;
         }
+
+        //if (enemy)
+        //    serializedMinion.isBlue
     }
 
     // Update is called once per frame
@@ -105,8 +135,24 @@ public class MinionManager : NetworkBehaviour
                 }
 
                 faceTarget();
+
+                if(currentTarget.tag == enemyPlayerTag)
+                {
+                    serializedMinion.isTargetingPlayer = true;
+                }
+                else
+                {
+                    serializedMinion.isTargetingPlayer = false;
+                }
+            }
+            else
+            {
+                serializedMinion.isTargetingPlayer = false;
             }
         }
+
+        serializedMinion.health = stats.targetHealth;
+        serializedMinion.position = gameObject.transform.position;
     }
 
     private void faceTarget()
