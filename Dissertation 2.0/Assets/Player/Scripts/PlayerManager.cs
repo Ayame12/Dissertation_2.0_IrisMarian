@@ -116,6 +116,7 @@ public class PlayerManager : NetworkBehaviour
     public void resetPlayerComponents()
     {
         playerInput.resetComponent();
+        playerMovement.resetComponent();
     }
 
     [Rpc(SendTo.Server)]
@@ -145,5 +146,11 @@ public class PlayerManager : NetworkBehaviour
         {
             enemyTower.GetComponent<TowerScript>().currentTarget = gameObject;
         }
+    }
+
+    [Rpc(SendTo.Owner)]
+    public void incrementCsRpc()
+    {
+        ++creepScore;
     }
 }

@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using UnityEditor.SceneTemplate;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,11 @@ public class PlayerInputSerializedData
     public bool ability2 = false;
     public bool ability3 = false;
     public Vector3 mousePosInGame = Vector3.zero;
+    //public string hoveredObject = "null";
+    public bool isHoveringPlayer = false;
+    public bool isHoveringTower = false;
+    public bool isHoveringMinion = false;
+    public bool isHoveringGround = false;
 }
 public class PlayerInputScript : MonoBehaviour
 {
@@ -41,7 +47,7 @@ public class PlayerInputScript : MonoBehaviour
 
     private AgentStats stats;
 
-    //public PlayerInputSerializedData serializedData;
+    public PlayerInputSerializedData serializedData;
 
     void Start()
     {
@@ -51,37 +57,41 @@ public class PlayerInputScript : MonoBehaviour
         cam = Camera.main;
 
         stats = GetComponent<AgentStats>();
-        //if(stats.friendlyLayer == 9)
-        //{
-        //    serializedData.isBlue = true;
-        //}
-        //else
-        //{
-        //    serializedData.isBlue = false;
-        //}
+        serializedData = new PlayerInputSerializedData();
+        if (stats.friendlyLayer == 9)
+        {
+            serializedData.isBlue = true;
+        }
+        else
+        {
+            serializedData.isBlue = false;
+        }
     }
 
     // Update is called once per frame
     public void tickUpdate()
     {
-        if (ability1)
-        {
-            ability1 = false;
-        }
-        if (ability2)
-        {
-            ability2 = false;
-        }
-        if (ability3)
-        {
-            ability3 = false;
-        }
-        if(newInput)
-        {
-            newInput = false;
-        }
+        move = false;
+        attack = false;
+        ability1 = false;
+        ability2 = false;
+        ability3 = false;
+        newInput = false;
+
+        serializedData.move = false;
+        serializedData.attack = false;
+        serializedData.ability1 = false;
+        serializedData.ability2 = false;
+        serializedData.ability3 = false;
+        //serializedData.hoveredObject = "null";
+        serializedData.isHoveringPlayer = false;
+        serializedData.isHoveringTower = false;
+        serializedData.isHoveringMinion = false;
+        serializedData.isHoveringGround = false;
 
         Vector2 currentMousePos = Mouse.current.position.ReadValue();
+
+        GameObject tempTarget = null;
 
         if (mouseOnScreen(currentMousePos))
         {
@@ -93,7 +103,7 @@ public class PlayerInputScript : MonoBehaviour
             
             RaycastHit hit;
 
-            GameObject tempTarget = null;
+            
 
             if (Physics.Raycast(cam.ScreenPointToRay(mousePos), out hit, Mathf.Infinity))
             {
@@ -105,29 +115,34 @@ public class PlayerInputScript : MonoBehaviour
                     {
                         move = true;
                         attack = false;
+                        newInput = true;
+                        //serializedData.hoveredObject = "groundHovered";
+                        
                     }
                     else if (hit.collider.gameObject.layer == stats.enemyLayer)
                     {
                         attack = true;
                         move = false;
+                        newInput = true;
 
-                        if (hit.transform.parent)
-                        {
-                            tempTarget = hit.transform.parent.gameObject;
-                        }
-                        else if (hit.collider.gameObject != null)
-                        {
-                            tempTarget = hit.transform.gameObject;
-                        }
+                        //if (hit.transform.parent)
+                        //{
+                        //    tempTarget = hit.transform.parent.gameObject;
+                        //}
+                        //else if (hit.collider.gameObject != null)
+                        //{
+                        //    tempTarget = hit.transform.gameObject;
+                        //}
+                        tempTarget = hit.transform.root.gameObject;
+
                     }
 
                     lastRightClick = mousePosInGame;
                     target = tempTarget;
-                    newInput = true;
                 }
 
-                    //Debug.Log(mousePos.ToString() + "  :  " + mousePosInGame.ToString());
-                }
+                //Debug.Log(mousePos.ToString() + "  :  " + mousePosInGame.ToString());
+            }
         }
         else
         {
@@ -176,16 +191,38 @@ public class PlayerInputScript : MonoBehaviour
             newInput = true;
         }
 
-        //if(newInput)
-        //{
-        //    serializedData.move = move;
+        if (newInput)
+        {
+            serializedData.move = move;
+            serializedData.attack = attack;
+            serializedData.ability1 = ability1;
+            serializedData.ability2 = ability2;
+            serializedData.ability3 = ability3;
+            serializedData.mousePosInGame = mousePosInGame;
 
-        //    serializedData.attack = attack;
-        //    serializedData.ability1 = ability1;
-        //    serializedData.ability2 = ability2;
-        //    serializedData.ability3 = ability3;
-        //    serializedData.mousePosInGame = mousePosInGame;
-        //}
+            if(tempTarget != null)
+            {
+                if (tempTarget.tag == stats.enemyPlayerTag)
+                {
+                    serializedData.isHoveringPlayer = true;
+                    //serializedData.hoveredObject = "playerHovered";
+                }
+                else if (tempTarget.tag == stats.enemyMinionTag)
+                {
+                    serializedData.isHoveringMinion = true;
+                    //serializedData.hoveredObject = "minionHovered";
+                }
+                else if (tempTarget.tag == stats.enemyTowerTag)
+                {
+                    serializedData.isHoveringTower = true;
+                    //serializedData.hoveredObject = "towerHovered";
+                }
+            }
+            else if(move)
+            {
+                serializedData.isHoveringGround = true;
+            }
+        }
     }
 
     public bool mouseOnScreen(Vector2 mouse)

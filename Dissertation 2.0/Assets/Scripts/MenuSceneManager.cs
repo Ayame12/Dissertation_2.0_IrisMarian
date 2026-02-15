@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -9,7 +10,8 @@ public class MenuSceneManager : MonoBehaviour
     public Button hostGameButton;
     public Button joinGameButton;
 
-    public TMP_InputField input;
+    public TMP_InputField ipInput;
+    public TMP_InputField playerIdentifier;
 
     private void Awake()
     {
@@ -20,7 +22,7 @@ public class MenuSceneManager : MonoBehaviour
 
         joinGameButton.onClick.AddListener(() => {
 
-            string ipString = input.text;
+            string ipString = ipInput.text;
 
             if (!string.IsNullOrEmpty(ipString))
             {
@@ -43,7 +45,16 @@ public class MenuSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(string.IsNullOrEmpty(playerIdentifier.text))
+        {
+            hostGameButton.GetComponent<Button>().enabled = false;
+            joinGameButton.GetComponent<Button>().enabled = false;
+        }
+        else
+        {
+            hostGameButton.GetComponent<Button>().enabled = true;
+            joinGameButton.GetComponent<Button>().enabled = true;
+        }
     }
 
     //public void hostGame()

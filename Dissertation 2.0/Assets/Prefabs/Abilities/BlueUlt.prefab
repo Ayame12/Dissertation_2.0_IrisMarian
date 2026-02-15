@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UltProjectile
   ShowTopMostFoldoutHeaderGroup: 1
   enemyLayer: 10
-  enemyTowerTag: BlueTower
+  enemyTowerTag: RedTower
   speed: 10
   damage: 200
   range: 10

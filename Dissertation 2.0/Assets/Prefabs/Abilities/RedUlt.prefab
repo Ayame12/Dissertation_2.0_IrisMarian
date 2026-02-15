@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: enemyLayer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2598984585176353824, guid: e66768bfe3ff6744aad4d2d30789c003, type: 3}
+      propertyPath: enemyTowerTag
+      value: BlueTower
+      objectReference: {fileID: 0}
     - target: {fileID: 5214066533966359712, guid: e66768bfe3ff6744aad4d2d30789c003, type: 3}
       propertyPath: m_Name
       value: RedUlt

@@ -127,7 +127,7 @@ public class AgentStats : NetworkBehaviour
                     if (damageType == 1)
                     {
                         PlayerManager playerScr = GameObject.FindGameObjectWithTag(GetComponent<AgentStats>().enemyPlayerTag).GetComponent<PlayerManager>();
-                        playerScr.creepScore++;
+                        playerScr.incrementCsRpc();
                     }
                 }
                 Destroy(gameObject);
@@ -143,6 +143,10 @@ public class AgentStats : NetworkBehaviour
                 targetHealth = health;
                 GetComponent<PlayerManager>().resetPlayerComponents();
                 updateHealthUI();
+                isStunned = false;
+                isSlowed = false;
+                stunTimer = 0;
+                slowTimer = 0;
                 GameManagerScript.Instance.handlePlayerDeathRpc(isblueplayer);
             }
             else if(GetComponent<TowerScript>())

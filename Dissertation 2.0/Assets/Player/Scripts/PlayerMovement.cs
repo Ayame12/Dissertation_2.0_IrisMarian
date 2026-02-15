@@ -251,4 +251,9 @@ public class PlayerMovement : NetworkBehaviour
         projectile.GetComponent<BasicProjectile>().setTarget(basicAttackTarget, stats.damage);
         projectile.GetComponent<NetworkObject>().Spawn(true);
     }
+
+    public void resetComponent()
+    {
+        isDashing = false;
+    }
 }

@@ -61,10 +61,11 @@ public class GameManagerScript : NetworkBehaviour
     public bool gameDone;
     public Text winnerText;
 
-    bool logGame = true;
-    bool logHostOnly = true;
+    public bool logGame = true;
+    public bool logHostOnly = true;
+    public bool prettyPrinting = true;
     public string saveFilePath;
-    string json;
+     string json;
     public float writeFrequency;
     private float writeTimer;
     public float serializeLogFrequency;
@@ -74,7 +75,8 @@ public class GameManagerScript : NetworkBehaviour
     public System.Diagnostics.Stopwatch stopwatch;
 
     currentTimestamp timestamp;
-    
+
+    public TMP_InputField playerIdentifier;
 
     //public bool isHost;
     //public bool waitingToLoadGame = true;
@@ -104,17 +106,7 @@ public class GameManagerScript : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        string docPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-        int m = System.DateTime.Now.Month;
-        int d = System.DateTime.Now.Day;
-        int h = System.DateTime.Now.Hour;
-        int s = System.DateTime.Now.Minute;
-
-        string dateAndTimeOfGame = m.ToString() +"."+ d.ToString() + "_" + h.ToString() + "." + s.ToString();
-
-        saveFilePath = Path.Combine(Application.persistentDataPath, docPath + "\\DissertationData\\iris_gameData_" + dateAndTimeOfGame + ".json");
-
+        
         stopwatch = new System.Diagnostics.Stopwatch();
         timestamp = new currentTimestamp();
         //saveFilePath = "C:\\Users\\2200147\\Documents\\DissertationData\\iris_playerData.json";
@@ -152,12 +144,20 @@ public class GameManagerScript : NetworkBehaviour
                 {
                     serializeLogTimer -= Time.deltaTime;
                     writeTimer -= Time.deltaTime;
-
+                    if(IsHost)
+                    {
+                        if(bluePlayer.GetComponent<PlayerInputScript>().newInput)
+                        {
+                            timestamp.logType = "input";
+                            serializeLogTimer = serializeLogFrequency;
+                            serializeGameState(true);
+                        }
+                    }
                     if (serializeLogTimer <= 0)
                     {
                         timestamp.logType = "log";
                         serializeLogTimer = serializeLogFrequency;
-                        serializeGameState();
+                        serializeGameState(false);
                     }
                     else if (gameDone)
                     {
@@ -167,9 +167,9 @@ public class GameManagerScript : NetworkBehaviour
                         timestamp.secondsElapsed = stopwatch.Elapsed.Seconds;
                         timestamp.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
 
-                        json += JsonUtility.ToJson(timestamp, true);
-                        json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, true);
-                        json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, true);
+                        json += JsonUtility.ToJson(timestamp, prettyPrinting);
+                        json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, prettyPrinting);
+                        json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, prettyPrinting);
 
                         writeToFile(json, saveFilePath);
                     }
@@ -215,6 +215,27 @@ public class GameManagerScript : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        string docPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        int m = System.DateTime.Now.Month;
+        int d = System.DateTime.Now.Day;
+        int h = System.DateTime.Now.Hour;
+        int s = System.DateTime.Now.Minute;
+
+        string dateAndTimeOfGame = m.ToString() + "." + d.ToString() + "_" + h.ToString() + "." + s.ToString();
+
+        string side;
+        if (IsHost)
+        {
+            side = "_Blue_";
+        }
+        else
+        {
+            side = "_Red_";
+        }
+        saveFilePath = Path.Combine(Application.persistentDataPath, docPath + "\\DissertationData\\iris_gameData_" + playerIdentifier.text + side + dateAndTimeOfGame + ".json");
+
+
         if (IsServer)
         {
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
@@ -317,7 +338,7 @@ public class GameManagerScript : NetworkBehaviour
         }
     }
 
-    private void serializeGameState()
+    private void serializeGameState(bool getPlayerInput)
     {
         timestamp.minutesElapsed = stopwatch.Elapsed.Minutes;
         timestamp.secondsElapsed = stopwatch.Elapsed.Seconds;
@@ -329,23 +350,38 @@ public class GameManagerScript : NetworkBehaviour
         timestamp.blueMinionsAlive = blueMinions.Length;
         timestamp.redMinionsAlive = redMinions.Length;
 
-        json += JsonUtility.ToJson(timestamp, true);
-        json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, true);
-        json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, true);
-
-        if(serializeAll)
+        json += JsonUtility.ToJson(timestamp, prettyPrinting);
+        json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, prettyPrinting);
+        if(getPlayerInput)
         {
-            json += JsonUtility.ToJson(blueTower.GetComponent<TowerScript>().serializedTower, true);
-            json += JsonUtility.ToJson(redTower.GetComponent<TowerScript>().serializedTower, true);
+            if(IsHost)
+            {
+                json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerInputScript>().serializedData, prettyPrinting);
+            }
+        }
+        json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, prettyPrinting);
+        if (getPlayerInput)
+        {
+            if (!IsHost)
+            {
+                json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerInputScript>().serializedData, prettyPrinting);
+            }
+        }
+
+
+        if (serializeAll)
+        {
+            json += JsonUtility.ToJson(blueTower.GetComponent<TowerScript>().serializedTower, prettyPrinting);
+            json += JsonUtility.ToJson(redTower.GetComponent<TowerScript>().serializedTower, prettyPrinting);
 
             foreach(GameObject blueMinion in blueMinions)
             {
-                json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, true);
+                json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, prettyPrinting);
             }
 
             foreach (GameObject blueMinion in blueMinions)
             {
-                json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, true);
+                json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, prettyPrinting);
             }
         }
         serializeAll = !serializeAll;
