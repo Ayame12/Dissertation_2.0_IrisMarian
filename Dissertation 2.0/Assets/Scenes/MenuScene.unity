@@ -1389,10 +1389,11 @@ MonoBehaviour:
   gameDone: 0
   winnerText: {fileID: 0}
   logGame: 1
-  logHostOnly: 0
+  logHostOnly: 1
+  prettyPrinting: 1
   saveFilePath: 
-  writeFrequency: 20
-  serializeLogFrequency: 5
+  writeFrequency: 5
+  serializeLogFrequency: 0.25
   playerIdentifier: {fileID: 1021641442}
 --- !u!1 &1021641440
 GameObject:

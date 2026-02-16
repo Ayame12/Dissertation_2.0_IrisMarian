@@ -24,9 +24,11 @@ public class PlayerInputScript : MonoBehaviour
 
     private Camera cam;
 
+    public bool isAI = false;
+
     private Vector2 mousePos;
     public Vector3 mousePosInGame;
-    public Vector3 lastRightClick;
+    //public Vector3 lastRightClick;
     public GameObject hoveredObject;
 
     public int lastDirection = 0;
@@ -46,6 +48,7 @@ public class PlayerInputScript : MonoBehaviour
     public GameObject target;
 
     private AgentStats stats;
+    private AI_InputSript ai_input;
 
     public PlayerInputSerializedData serializedData;
 
@@ -66,6 +69,11 @@ public class PlayerInputScript : MonoBehaviour
         {
             serializedData.isBlue = false;
         }
+
+        if(GetComponent<AI_InputSript>())
+        {
+            ai_input = GetComponent<AI_InputSript>();
+        }
     }
 
     // Update is called once per frame
@@ -78,150 +86,163 @@ public class PlayerInputScript : MonoBehaviour
         ability3 = false;
         newInput = false;
 
-        serializedData.move = false;
-        serializedData.attack = false;
-        serializedData.ability1 = false;
-        serializedData.ability2 = false;
-        serializedData.ability3 = false;
-        //serializedData.hoveredObject = "null";
-        serializedData.isHoveringPlayer = false;
-        serializedData.isHoveringTower = false;
-        serializedData.isHoveringMinion = false;
-        serializedData.isHoveringGround = false;
-
-        Vector2 currentMousePos = Mouse.current.position.ReadValue();
-
-        GameObject tempTarget = null;
-
-        if (mouseOnScreen(currentMousePos))
+        if (!isAI)
         {
-            //Debug.Log("mouse on screen");
-            lastDirection = 0;
+            serializedData.move = false;
+            serializedData.attack = false;
+            serializedData.ability1 = false;
+            serializedData.ability2 = false;
+            serializedData.ability3 = false;
+            //serializedData.hoveredObject = "null";
+            serializedData.isHoveringPlayer = false;
+            serializedData.isHoveringTower = false;
+            serializedData.isHoveringMinion = false;
+            serializedData.isHoveringGround = false;
 
-            mousePos = currentMousePos;
+            Vector2 currentMousePos = Mouse.current.position.ReadValue();
 
-            
-            RaycastHit hit;
+            GameObject tempTarget = null;
 
-            
-
-            if (Physics.Raycast(cam.ScreenPointToRay(mousePos), out hit, Mathf.Infinity))
+            if (mouseOnScreen(currentMousePos))
             {
-                mousePosInGame = hit.point;
+                //Debug.Log("mouse on screen");
+                lastDirection = 0;
 
-                if (Mouse.current.rightButton.isPressed || Mouse.current.rightButton.wasPressedThisFrame)
+                mousePos = currentMousePos;
+
+
+                RaycastHit hit;
+
+
+
+                if (Physics.Raycast(cam.ScreenPointToRay(mousePos), out hit, Mathf.Infinity))
                 {
-                    if (hit.collider.gameObject.layer == stats.groundLayer)
+                    mousePosInGame = hit.point;
+
+                    if (Mouse.current.rightButton.isPressed || Mouse.current.rightButton.wasPressedThisFrame)
                     {
-                        move = true;
-                        attack = false;
-                        newInput = true;
-                        //serializedData.hoveredObject = "groundHovered";
-                        
+                        if (hit.collider.gameObject.layer == stats.groundLayer)
+                        {
+                            move = true;
+                            attack = false;
+                            newInput = true;
+                            //serializedData.hoveredObject = "groundHovered";
+
+                        }
+                        else if (hit.collider.gameObject.layer == stats.enemyLayer)
+                        {
+                            attack = true;
+                            move = false;
+                            newInput = true;
+
+                            //if (hit.transform.parent)
+                            //{
+                            //    tempTarget = hit.transform.parent.gameObject;
+                            //}
+                            //else if (hit.collider.gameObject != null)
+                            //{
+                            //    tempTarget = hit.transform.gameObject;
+                            //}
+                            tempTarget = hit.transform.root.gameObject;
+
+                        }
+
+                        //lastRightClick = mousePosInGame;
+                        target = tempTarget;
                     }
-                    else if (hit.collider.gameObject.layer == stats.enemyLayer)
-                    {
-                        attack = true;
-                        move = false;
-                        newInput = true;
 
-                        //if (hit.transform.parent)
-                        //{
-                        //    tempTarget = hit.transform.parent.gameObject;
-                        //}
-                        //else if (hit.collider.gameObject != null)
-                        //{
-                        //    tempTarget = hit.transform.gameObject;
-                        //}
-                        tempTarget = hit.transform.root.gameObject;
+                    //Debug.Log(mousePos.ToString() + "  :  " + mousePosInGame.ToString());
+                }
+            }
+            else
+            {
+                float up = Mathf.Abs(Screen.height - 1 - mousePos.y);
+                float down = Mathf.Abs(mousePos.y);
+                float left = Mathf.Abs(mousePos.x);
+                float right = Mathf.Abs(Screen.width - 1 - mousePos.x);
 
-                    }
+                int smallestDir = 1;
+                float smallest = up;
 
-                    lastRightClick = mousePosInGame;
-                    target = tempTarget;
+                if (smallest > down)
+                {
+                    smallestDir = 2;
+                    smallest = down;
+                }
+                if (smallest > left)
+                {
+                    smallestDir = 3;
+                    smallest = left;
+                }
+                if (smallest > right)
+                {
+                    smallestDir = 4;
+                    smallest = right;
                 }
 
-                //Debug.Log(mousePos.ToString() + "  :  " + mousePosInGame.ToString());
+                lastDirection = smallestDir;
+            }
+
+            if (Input.GetKeyDown(ability1Key))
+            {
+                ability1 = true;
+                newInput = true;
+            }
+
+            if (Input.GetKeyDown(ability2Key))
+            {
+                ability2 = true;
+                newInput = true;
+            }
+
+            if (Input.GetKeyDown(ability3Key))
+            {
+                ability3 = true;
+                newInput = true;
+            }
+
+            if (newInput)
+            {
+                serializedData.move = move;
+                serializedData.attack = attack;
+                serializedData.ability1 = ability1;
+                serializedData.ability2 = ability2;
+                serializedData.ability3 = ability3;
+                serializedData.mousePosInGame = mousePosInGame;
+
+                if (tempTarget != null)
+                {
+                    if (tempTarget.tag == stats.enemyPlayerTag)
+                    {
+                        serializedData.isHoveringPlayer = true;
+                        //serializedData.hoveredObject = "playerHovered";
+                    }
+                    else if (tempTarget.tag == stats.enemyMinionTag)
+                    {
+                        serializedData.isHoveringMinion = true;
+                        //serializedData.hoveredObject = "minionHovered";
+                    }
+                    else if (tempTarget.tag == stats.enemyTowerTag)
+                    {
+                        serializedData.isHoveringTower = true;
+                        //serializedData.hoveredObject = "towerHovered";
+                    }
+                }
+                else if (move)
+                {
+                    serializedData.isHoveringGround = true;
+                }
             }
         }
         else
         {
-            float up = Mathf.Abs(Screen.height - 1 - mousePos.y);
-            float down = Mathf.Abs(mousePos.y);
-            float left = Mathf.Abs(mousePos.x);
-            float right = Mathf.Abs(Screen.width - 1 - mousePos.x);
-
-            int smallestDir = 1;
-            float smallest = up;
-
-            if (smallest > down)
-            {
-                smallestDir = 2;
-                smallest = down;
-            }
-            if (smallest > left)
-            {
-                smallestDir = 3;
-                smallest = left;
-            }
-            if (smallest > right)
-            {
-                smallestDir = 4;
-                smallest = right;
-            }
-
-            lastDirection = smallestDir;
-        }
-
-        if (Input.GetKeyDown(ability1Key))
-        {
-            ability1 = true;
-            newInput = true;
-        }
-
-        if (Input.GetKeyDown(ability2Key))
-        {
-            ability2 = true;
-            newInput = true;
-        }
-
-        if (Input.GetKeyDown(ability3Key))
-        {
-            ability3 = true;
-            newInput = true;
-        }
-
-        if (newInput)
-        {
-            serializedData.move = move;
-            serializedData.attack = attack;
-            serializedData.ability1 = ability1;
-            serializedData.ability2 = ability2;
-            serializedData.ability3 = ability3;
-            serializedData.mousePosInGame = mousePosInGame;
-
-            if(tempTarget != null)
-            {
-                if (tempTarget.tag == stats.enemyPlayerTag)
-                {
-                    serializedData.isHoveringPlayer = true;
-                    //serializedData.hoveredObject = "playerHovered";
-                }
-                else if (tempTarget.tag == stats.enemyMinionTag)
-                {
-                    serializedData.isHoveringMinion = true;
-                    //serializedData.hoveredObject = "minionHovered";
-                }
-                else if (tempTarget.tag == stats.enemyTowerTag)
-                {
-                    serializedData.isHoveringTower = true;
-                    //serializedData.hoveredObject = "towerHovered";
-                }
-            }
-            else if(move)
-            {
-                serializedData.isHoveringGround = true;
-            }
+            move = ai_input.move;
+            attack = ai_input.attack;
+            ability1 = ai_input.ability1;
+            ability2 = ai_input.ability2;
+            ability3 = ai_input.ability3;
+            target = ai_input.target;
+            mousePosInGame = ai_input.mousePos;
         }
     }
 

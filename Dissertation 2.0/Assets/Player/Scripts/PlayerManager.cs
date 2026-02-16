@@ -19,7 +19,9 @@ public class PlayerSerializedData
     public float ability2CD = 0;
     public float ability3CD = 0;
     public int creepScore = 0;
-
+    public bool isStunned = false;
+    public bool isSlowed = false;
+    public float stunRemaining = 0;
 }
 
 public class PlayerManager : NetworkBehaviour
@@ -100,6 +102,9 @@ public class PlayerManager : NetworkBehaviour
         serializedPlayer.ability2CD = playerAttack.dashCooldownTimer;
         serializedPlayer.ability3CD = playerAttack.ultCooldownTimer;
         serializedPlayer.creepScore = creepScore;
+        serializedPlayer.isStunned = stats.isStunned;
+        serializedPlayer.isSlowed = stats.isSlowed;
+        serializedPlayer.stunRemaining = stats.stunTimer;
 
         //ai input
         if (!IsOwner)

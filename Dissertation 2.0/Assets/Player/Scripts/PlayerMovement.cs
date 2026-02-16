@@ -68,10 +68,10 @@ public class PlayerMovement : NetworkBehaviour
             {
                 if (playerInput.move)
                 {
-                    moveToPosition(playerInput.lastRightClick);
+                    moveToPosition(playerInput.mousePosInGame);
 
                     //move icon
-                    Vector3 offset = new Vector3(playerInput.lastRightClick.x, playerInput.lastRightClick.y + 0.05f, playerInput.lastRightClick.z);
+                    Vector3 offset = new Vector3(playerInput.mousePosInGame.x, playerInput.mousePosInGame.y + 0.05f, playerInput.mousePosInGame.z);
                     moveIcon.SetActive(true);
                     moveIcon.transform.position = offset;
                     //moveIcon.GetComponent<Animator>().Play("MoveIconAnim", -1, 0f);

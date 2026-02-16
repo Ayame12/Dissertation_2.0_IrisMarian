@@ -21,6 +21,9 @@ class currentTimestamp
 
     public int blueMinionsAlive = 0;
     public int redMinionsAlive = 0;
+
+    private PlayerSerializedData bluePlayerData;
+    private PlayerSerializedData redPlayerData;
 }
 
 public class GameManagerScript : NetworkBehaviour
@@ -65,7 +68,7 @@ public class GameManagerScript : NetworkBehaviour
     public bool logHostOnly = true;
     public bool prettyPrinting = true;
     public string saveFilePath;
-     string json;
+    private string json;
     public float writeFrequency;
     private float writeTimer;
     public float serializeLogFrequency;
@@ -369,7 +372,7 @@ public class GameManagerScript : NetworkBehaviour
         }
 
 
-        if (serializeAll)
+        if (true /*serializeAll*/)
         {
             json += JsonUtility.ToJson(blueTower.GetComponent<TowerScript>().serializedTower, prettyPrinting);
             json += JsonUtility.ToJson(redTower.GetComponent<TowerScript>().serializedTower, prettyPrinting);
@@ -384,7 +387,7 @@ public class GameManagerScript : NetworkBehaviour
                 json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, prettyPrinting);
             }
         }
-        serializeAll = !serializeAll;
+        //serializeAll = !serializeAll;
 
         if (writeTimer <= 0 )
         {

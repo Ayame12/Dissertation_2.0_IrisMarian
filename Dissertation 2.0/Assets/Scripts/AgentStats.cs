@@ -47,20 +47,17 @@ public class AgentStats : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner)
-        { return; }
-
         if (slowTimer > 0)
         {
             slowTimer -= Time.deltaTime;
             if (slowTimer == 0)
             {
-                removeSlow();
+                removeSlowRpc();
             }
         }
         else if (slowTimer < 0)
         {
-            removeSlow();
+            removeSlowRpc();
         }
 
         if (stunTimer > 0)
@@ -68,24 +65,22 @@ public class AgentStats : NetworkBehaviour
             stunTimer -= Time.deltaTime;
             if (stunTimer == 0)
             {
-                removeStun();
+                removeStunRpc();
             }
         }
         else if (stunTimer < 0)
         {
-            removeStun();
+            removeStunRpc();
         }
+
+        if (!IsOwner)
+        { return; }
 
         healingTimer -= Time.deltaTime;
         if (healingTimer <= 0)
         {
             healingTimer = 1;
-            targetHealth += passiveHealing;
-            if (targetHealth>health)
-            {
-                targetHealth = health;
-            }
-            updateHealthUI();
+            healAmmountRpc(targetHealth, passiveHealing);
         }
     }
 
@@ -196,7 +191,8 @@ public class AgentStats : NetworkBehaviour
         currentSpeed = 0;
     }
 
-    public void removeSlow()
+    [Rpc(SendTo.Everyone)]
+    public void removeSlowRpc()
     {
         isSlowed = false;
         slowTimer = 0;
@@ -208,7 +204,8 @@ public class AgentStats : NetworkBehaviour
         }
     }
 
-    public void removeStun()
+    [Rpc(SendTo.Everyone)]
+    public void removeStunRpc()
     {
         isStunned = false;
         stunTimer = 0;
@@ -221,6 +218,18 @@ public class AgentStats : NetworkBehaviour
         {
             currentSpeed = speed;
         }
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void healAmmountRpc(float currentTargetHP, float amount)
+    {
+        
+        targetHealth = currentTargetHP + amount;
+        if (targetHealth > health)
+        {
+            targetHealth = health;
+        }
+        updateHealthUI();
     }
 
     private void startLerpHealth()

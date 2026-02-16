@@ -9,8 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6075792471547691126, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: enemyLayer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -6075792471547691126, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: enemyTowerTag
       value: BlueTower
+      objectReference: {fileID: 0}
+    - target: {fileID: -6075792471547691126, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
+      propertyPath: friendlyLayer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -6075792471547691126, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
       propertyPath: enemyMinionTag
