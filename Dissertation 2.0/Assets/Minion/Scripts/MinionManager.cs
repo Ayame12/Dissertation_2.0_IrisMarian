@@ -151,7 +151,7 @@ public class MinionManager : NetworkBehaviour
             }
         }
 
-        serializedMinion.health = stats.targetHealth;
+        serializedMinion.health = stats.currentHealth;
         serializedMinion.position = gameObject.transform.position;
     }
 

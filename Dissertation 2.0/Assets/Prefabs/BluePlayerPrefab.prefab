@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3256520520
+  GlobalObjectIdHash: 3056977775
   InScenePlacedSourceGlobalObjectIdHash: 1763201246
   DeferredDespawnTick: 0
   Ownership: 1
@@ -685,9 +685,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgentStats
   ShowTopMostFoldoutHeaderGroup: 1
-  health: 700
-  passiveHealing: 5
-  damage: 40
+  health: 650
+  passiveHealing: 2
+  damage: 50
   speed: 5
   currentSpeed: 0
   damageLerpDuration: 0.25
@@ -698,6 +698,8 @@ MonoBehaviour:
   enemyTowerTag: RedTower
   enemyMinionTag: RedMinion
   enemyPlayerTag: RedPlayer
+  isLocked: 0
+  lockTimer: 0
   isStunned: 0
   stunTimer: 0
   isSlowed: 0
@@ -771,7 +773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3748319ea325aeb4595f94a4543f29b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthUI
-  ShowTopMostFoldoutHeaderGroup: 1
   health3DSlider: {fileID: 8333084592322144642}
 --- !u!114 &730009727559553639
 MonoBehaviour:

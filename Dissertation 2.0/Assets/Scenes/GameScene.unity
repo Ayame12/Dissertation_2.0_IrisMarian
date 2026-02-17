@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinionSpawnerScript
   ShowTopMostFoldoutHeaderGroup: 1
   minionPrefab: {fileID: 651560650933264011, guid: 15ed0f07d1cbaac47876649340df88e4, type: 3}
-  waveSpawnInterval: 40
+  waveSpawnInterval: 25
   minionSpawnInterval: 0.75
   minionsperWave: 6
   firstWaveDelay: 3
@@ -2793,7 +2793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinionSpawnerScript
   ShowTopMostFoldoutHeaderGroup: 1
   minionPrefab: {fileID: 3263970021542850834, guid: 2e7c964011f1ab44a87914180099c128, type: 3}
-  waveSpawnInterval: 40
+  waveSpawnInterval: 25
   minionSpawnInterval: 0.75
   minionsperWave: 6
   firstWaveDelay: 3

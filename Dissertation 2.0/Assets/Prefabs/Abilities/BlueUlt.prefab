@@ -122,7 +122,7 @@ MonoBehaviour:
   enemyLayer: 10
   enemyTowerTag: RedTower
   speed: 10
-  damage: 200
+  damage: 220
   range: 10
   slowPercentage: 0.7
   lingerDuration: 5

@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4b08461b14705e84db690fd9a0587d6c, type: 2}
     - target: {fileID: 8847677409001520722, guid: d0f842e3332bdf9408e5da0fc38aa56c, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1336823799
+      value: 4101402398
       objectReference: {fileID: 0}
     - target: {fileID: 8847677409001520722, guid: d0f842e3332bdf9408e5da0fc38aa56c, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8968110312773352385, guid: d0f842e3332bdf9408e5da0fc38aa56c, type: 3}
       propertyPath: m_Name
-      value: BluePlayerBasicAttack Variant
+      value: RedPlayerBasicAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

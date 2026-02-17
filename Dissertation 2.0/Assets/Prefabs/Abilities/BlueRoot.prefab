@@ -186,7 +186,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   enemyLayer: 10
   enemyTowerTag: RedTower
-  speed: 17
+  speed: 16
   damage: 80
   range: 10
   rootDuration: 2

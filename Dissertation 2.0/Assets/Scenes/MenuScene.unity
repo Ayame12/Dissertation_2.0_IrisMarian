@@ -1382,9 +1382,9 @@ MonoBehaviour:
   bluePlayerPrefab: {fileID: 3485978277810818288, guid: 1730bccf22c781149abbc730489f9b7e, type: 3}
   redPlayerPrefab: {fileID: 3993181657702300061, guid: c000e198b5e998f4fa90c2502a1292e3, type: 3}
   cineCam: {fileID: 0}
-  bluePlayerRespawnCooldown: 5
-  redPlayerRespawnCooldown: 10.22
-  respawnIncrement: 2
+  bluePlayerRespawnCooldown: 15
+  redPlayerRespawnCooldown: 15
+  respawnIncrement: 1
   blueWins: 0
   gameDone: 0
   winnerText: {fileID: 0}

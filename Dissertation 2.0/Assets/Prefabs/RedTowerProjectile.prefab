@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3880997927170983593, guid: 3a4b72036bdf1b041ac4bb82f213156d, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3421474471
+      value: 3386895440
       objectReference: {fileID: 0}
     - target: {fileID: 3880997927170983593, guid: 3a4b72036bdf1b041ac4bb82f213156d, type: 3}
       propertyPath: SceneMigrationSynchronization
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781685695025374406, guid: 3a4b72036bdf1b041ac4bb82f213156d, type: 3}
       propertyPath: m_Name
-      value: BlueTowerProjectile Variant
+      value: RedTowerProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 7328377794361329963, guid: 3a4b72036bdf1b041ac4bb82f213156d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

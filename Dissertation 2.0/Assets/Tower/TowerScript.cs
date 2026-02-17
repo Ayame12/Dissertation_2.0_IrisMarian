@@ -97,7 +97,7 @@ public class TowerScript : NetworkBehaviour
                 serializedTower.isTargetingPlayer = false;
             }
         }
-        serializedTower.health = stats.targetHealth;
+        serializedTower.health = stats.currentHealth;
     }
 
     private void findAndSetTarget()

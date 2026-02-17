@@ -89,31 +89,31 @@ public class PlayerAttackScript : NetworkBehaviour
         if (rootCooldownTimer > 0)
         {
             rootCooldownTimer -= Time.deltaTime;
-            if (rootCooldownTimer <= 0)
-            {
-                rootCooldownTimer = 0;
-                rootIsAvailable = true;
-            }
+        }
+        if (rootCooldownTimer <= 0)
+        {
+            rootCooldownTimer = 0;
+            rootIsAvailable = true;
         }
 
         if (dashCooldownTimer > 0)
         {
             dashCooldownTimer -= Time.deltaTime;
-            if (dashCooldownTimer <= 0)
-            {
-                dashCooldownTimer = 0;
-                dashIsAvailable = true;
-            }
+        }
+        if (dashCooldownTimer <= 0)
+        {
+            dashCooldownTimer = 0;
+            dashIsAvailable = true;
         }
 
         if (ultCooldownTimer > 0)
         {
             ultCooldownTimer -= Time.deltaTime;
-            if (ultCooldownTimer <= 0)
-            {
-                ultCooldownTimer = 0;
-                ultIsAvailable = true;
-            }
+        }
+        if (ultCooldownTimer <= 0)
+        {
+            ultCooldownTimer = 0;
+            ultIsAvailable = true;
         }
 
         //UI stuff

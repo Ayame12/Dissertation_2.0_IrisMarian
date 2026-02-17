@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3216415801
+  GlobalObjectIdHash: 1724615414
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -482,7 +482,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   health: 240
   passiveHealing: 0
-  damage: 20
+  damage: 15
   speed: 3.5
   currentSpeed: 0
   damageLerpDuration: 0.25
@@ -493,6 +493,8 @@ MonoBehaviour:
   enemyTowerTag: RedTower
   enemyMinionTag: RedMinion
   enemyPlayerTag: RedPlayer
+  isLocked: 0
+  lockTimer: 0
   isStunned: 0
   stunTimer: 0
   isSlowed: 0

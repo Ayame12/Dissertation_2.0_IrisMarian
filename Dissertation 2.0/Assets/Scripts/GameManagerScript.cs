@@ -100,8 +100,6 @@ public class GameManagerScript : NetworkBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        
     }
 
     public static void LoadNetwork(Scene targetScene)

@@ -93,7 +93,7 @@ public class PlayerManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        serializedPlayer.health = stats.targetHealth;
+        serializedPlayer.health = stats.currentHealth;
         serializedPlayer.position = transform.position;
         serializedPlayer.ability1 = playerAttack.rootIsAvailable;
         serializedPlayer.ability2 = playerAttack.dashIsAvailable;

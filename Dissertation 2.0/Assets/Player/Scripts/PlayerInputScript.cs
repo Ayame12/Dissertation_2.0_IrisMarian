@@ -119,7 +119,7 @@ public class PlayerInputScript : MonoBehaviour
 
                     if (/*Mouse.current.rightButton.isPressed ||*/ Mouse.current.rightButton.wasPressedThisFrame)
                     {
-                        if (hit.collider.gameObject.layer == stats.groundLayer)
+                        if (hit.collider.gameObject.layer == stats.groundLayer || hit.collider.gameObject.layer == stats.friendlyLayer)
                         {
                             move = true;
                             attack = false;

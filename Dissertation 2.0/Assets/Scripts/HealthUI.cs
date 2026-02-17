@@ -2,7 +2,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUI : NetworkBehaviour
+public class HealthUI : MonoBehaviour
 {
     public Slider health3DSlider;
 
@@ -13,8 +13,8 @@ public class HealthUI : NetworkBehaviour
         health3DSlider.value = maxValue;
     }
 
-    [Rpc(SendTo.Everyone)]
-    public void Update3DSliderRpc(float value)
+    //[Rpc(SendTo.Everyone)]
+    public void Update3DSlider(float value)
     {
         health3DSlider.value = value;
     }

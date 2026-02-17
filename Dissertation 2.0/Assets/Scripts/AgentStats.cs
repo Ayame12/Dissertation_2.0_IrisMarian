@@ -14,8 +14,7 @@ public class AgentStats : NetworkBehaviour
     private float healingTimer = 1;
 
     public float damageLerpDuration;
-    private float currentHealth;
-    public float targetHealth;
+    public float currentHealth;
     private Coroutine damageCoroutine;
 
     private HealthUI healthUI;
@@ -44,7 +43,11 @@ public class AgentStats : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        healthUI = GetComponentInChildren<HealthUI>();
+        healthUI.Start3DSlider(health);
         currentSpeed = speed;
+
+        currentHealth = health;
     }
 
     // Update is called once per frame
@@ -84,20 +87,10 @@ public class AgentStats : NetworkBehaviour
         if (healingTimer <= 0)
         {
             healingTimer = 1;
-            healAmmount(targetHealth, passiveHealing);
+            healAmmount(currentHealth, passiveHealing);
         }
 
-        updateOtehrSideRpc(targetHealth, currentHealth, isStunned, isSlowed, stunTimer);
-    }
-
-    private void Awake()
-    {
-        healthUI = GetComponentInChildren<HealthUI>();
-        currentHealth = health;
-        targetHealth = health;
-
-        healthUI.Start3DSlider(health);
-
+        updateOtherSideRpc(currentHealth, isStunned, isSlowed, stunTimer);
     }
 
     [Rpc(SendTo.Owner)]
@@ -107,7 +100,7 @@ public class AgentStats : NetworkBehaviour
         {
             return;
         }
-        targetHealth -= damage;
+        currentHealth -= damage;
 
         if (damageType == 1)
         {
@@ -123,7 +116,7 @@ public class AgentStats : NetworkBehaviour
             }
         }
 
-        if (targetHealth <= 0 )
+        if (currentHealth <= 0 )
         {
             if (GetComponent<MinionManager>())
             {
@@ -145,14 +138,22 @@ public class AgentStats : NetworkBehaviour
                     isblueplayer = true;
                 }
                 currentHealth = health;
-                targetHealth = health;
                 GetComponent<PlayerManager>().resetPlayerComponents();
-                updateHealthUI();
-                isStunned = false;
-                isSlowed = false;
-                stunTimer = 0;
-                slowTimer = 0;
+                healthUI.Update3DSlider(currentHealth);
+                removeSlow();
+                removeStun();
+                removeLock();
                 GameManagerScript.Instance.handlePlayerDeathRpc(isblueplayer);
+
+                if(isblueplayer)
+                {
+                    GetComponent<PlayerAttackScript>().rootCooldownTimer -= GameManagerScript.Instance.bluePlayerRespawnCooldown;
+                }
+                else
+                {
+                    GetComponent<PlayerAttackScript>().rootCooldownTimer -= GameManagerScript.Instance.redPlayerRespawnCooldown;
+                }
+
             }
             else if(GetComponent<TowerScript>())
             {
@@ -170,11 +171,13 @@ public class AgentStats : NetworkBehaviour
                 
             }
         }
-        else
-        {
-            startLerpHealth();
+        //else
+        //{
+        //    startLerpHealth();
         
-        }
+        //}
+
+        updateOtherSideRpc(currentHealth, isStunned, isSlowed, stunTimer);
     }
 
     [Rpc(SendTo.Owner)]
@@ -251,48 +254,43 @@ public class AgentStats : NetworkBehaviour
 
     private void healAmmount(float currentTargetHP, float amount)
     {
-        
-        targetHealth = currentTargetHP + amount;
-        if (targetHealth > health)
+
+        currentHealth = currentTargetHP + amount;
+        if (currentHealth > health)
         {
-            targetHealth = health;
+            currentHealth = health;
         }
-        updateHealthUI();
+        healthUI.Update3DSlider(currentHealth);
     }
 
-    private void startLerpHealth()
-    {
-        if (damageCoroutine == null)
-        {
-            damageCoroutine = StartCoroutine(lerpHealth());
-        }
-    }
+    //private void startLerpHealth()
+    //{
+    //    if (damageCoroutine == null)
+    //    {
+    //        damageCoroutine = StartCoroutine(lerpHealth());
+    //    }
+    //}
 
-    private IEnumerator lerpHealth()
-    {
-        float elapsedTime = 0;
-        float initialHealth = currentHealth;
-        float target = targetHealth;
+    //private IEnumerator lerpHealth()
+    //{
+    //    float elapsedTime = 0;
+    //    float initialHealth = currentHealth;
+    //    float target = targetHealth;
 
-        while (elapsedTime < damageLerpDuration)
-        {
-            currentHealth = Mathf.Lerp(initialHealth, target, elapsedTime / damageLerpDuration);
-            updateHealthUI();
+    //    while (elapsedTime < damageLerpDuration)
+    //    {
+    //        currentHealth = Mathf.Lerp(initialHealth, target, elapsedTime / damageLerpDuration);
+    //        updateHealthUI();
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+    //        elapsedTime += Time.deltaTime;
+    //        yield return null;
+    //    }
 
-        currentHealth = target;
-        updateHealthUI();
+    //    currentHealth = target;
+    //    updateHealthUI();
 
-        damageCoroutine = null;
-    }
-
-    private void updateHealthUI()
-    {
-        healthUI.Update3DSliderRpc(currentHealth);
-    }
+    //    damageCoroutine = null;
+    //}
 
     //[Rpc(SendTo.Everyone)]
     //private void resetStatsRpc()
@@ -306,13 +304,22 @@ public class AgentStats : NetworkBehaviour
 
     //}
 
-    [Rpc(SendTo.NotOwner)]
-    private void updateOtehrSideRpc(float tarHealth, float curHealth, bool stun, bool slow, float stunRemaining)
+    [Rpc(SendTo.Everyone)]
+    private void updateOtherSideRpc(float curHealth, bool stun, bool slow, float stunRemaining)
     {
-        targetHealth = tarHealth;
+        if(!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         currentHealth = curHealth;
         isStunned = stun;
         isSlowed = slow;
         stunTimer = stunRemaining;
+
+        if (healthUI)
+        {
+            healthUI.Update3DSlider(currentHealth);
+        }
     }
 }
