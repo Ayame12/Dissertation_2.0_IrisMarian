@@ -1383,13 +1383,13 @@ MonoBehaviour:
   redPlayerPrefab: {fileID: 3993181657702300061, guid: c000e198b5e998f4fa90c2502a1292e3, type: 3}
   cineCam: {fileID: 0}
   bluePlayerRespawnCooldown: 5
-  redPlayerRespawnCooldown: 5
+  redPlayerRespawnCooldown: 10.22
   respawnIncrement: 2
   blueWins: 0
   gameDone: 0
   winnerText: {fileID: 0}
   logGame: 1
-  logHostOnly: 1
+  logHostOnly: 0
   prettyPrinting: 1
   saveFilePath: 
   writeFrequency: 5

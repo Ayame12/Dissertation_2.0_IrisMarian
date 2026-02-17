@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3056977775
+  GlobalObjectIdHash: 3256520520
   InScenePlacedSourceGlobalObjectIdHash: 1763201246
   DeferredDespawnTick: 0
   Ownership: 1
@@ -572,6 +572,9 @@ MonoBehaviour:
     ability2CD: 0
     ability3CD: 0
     creepScore: 0
+    isStunned: 0
+    isSlowed: 0
+    stunRemaining: 0
   isAI: 0
   creepScore: 0
   creepScoreUi: {fileID: 5180114173188804606}
@@ -588,8 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fbbe04de5529b4c9fd2cd032836368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputScript
+  isAI: 0
   mousePosInGame: {x: 0, y: 0, z: 0}
-  lastRightClick: {x: 0, y: 0, z: 0}
   hoveredObject: {fileID: 0}
   lastDirection: 0
   ability1Key: 113
@@ -730,7 +733,7 @@ MonoBehaviour:
   ability3Text: {fileID: 6184589154111875969}
   ultPrefab: {fileID: 5214066533966359712, guid: e66768bfe3ff6744aad4d2d30789c003, type: 3}
   ultTag: BlueUlt
-  ultCooldown: 50
+  ultCooldown: 60
   ultCooldownTimer: 0
   ultIsAvailable: 1
 --- !u!136 &1512109773403391289

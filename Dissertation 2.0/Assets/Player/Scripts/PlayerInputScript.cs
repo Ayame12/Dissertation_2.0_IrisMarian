@@ -119,7 +119,7 @@ public class PlayerInputScript : MonoBehaviour
                 {
                     mousePosInGame = hit.point;
 
-                    if (Mouse.current.rightButton.isPressed || Mouse.current.rightButton.wasPressedThisFrame)
+                    if (/*Mouse.current.rightButton.isPressed ||*/ Mouse.current.rightButton.wasPressedThisFrame)
                     {
                         if (hit.collider.gameObject.layer == stats.groundLayer)
                         {
@@ -189,7 +189,7 @@ public class PlayerInputScript : MonoBehaviour
                 newInput = true;
             }
 
-            if (Input.GetKeyDown(ability2Key))
+            if (Input.GetKeyDown(ability2Key) && !stats.isStunned)
             {
                 ability2 = true;
                 newInput = true;

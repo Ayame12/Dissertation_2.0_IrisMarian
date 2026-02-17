@@ -3954,6 +3954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueTower
       objectReference: {fileID: 0}
+    - target: {fileID: 8263799750514163099, guid: 1a1df5225dfae5241b6559f97c84078b, type: 3}
+      propertyPath: health
+      value: 3000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

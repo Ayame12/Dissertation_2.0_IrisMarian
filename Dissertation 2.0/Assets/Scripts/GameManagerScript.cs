@@ -12,7 +12,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 [Serializable]
-class currentTimestamp
+class SerializedGameData
 {
     public string logType = "log";
     public int minutesElapsed = 0;
@@ -22,8 +22,13 @@ class currentTimestamp
     public int blueMinionsAlive = 0;
     public int redMinionsAlive = 0;
 
-    private PlayerSerializedData bluePlayerData;
-    private PlayerSerializedData redPlayerData;
+    public PlayerSerializedData bluePlayerData;
+    public PlayerSerializedData redPlayerData;
+    public TowerSerializationData blueTowerData;
+    public TowerSerializationData redTowerData;
+
+    public List<MinionSerializationData> blueMinions;
+    public List<MinionSerializationData> redMinions;
 }
 
 public class GameManagerScript : NetworkBehaviour
@@ -77,7 +82,7 @@ public class GameManagerScript : NetworkBehaviour
     private bool startLogging = false;
     public System.Diagnostics.Stopwatch stopwatch;
 
-    currentTimestamp timestamp;
+    SerializedGameData serializedData;
 
     public TMP_InputField playerIdentifier;
 
@@ -111,7 +116,9 @@ public class GameManagerScript : NetworkBehaviour
 
         
         stopwatch = new System.Diagnostics.Stopwatch();
-        timestamp = new currentTimestamp();
+        serializedData = new SerializedGameData();
+        serializedData.blueMinions = new List<MinionSerializationData>();
+        serializedData.redMinions = new List<MinionSerializationData>();
         //saveFilePath = "C:\\Users\\2200147\\Documents\\DissertationData\\iris_playerData.json";
     }
 
@@ -147,34 +154,40 @@ public class GameManagerScript : NetworkBehaviour
                 {
                     serializeLogTimer -= Time.deltaTime;
                     writeTimer -= Time.deltaTime;
-                    if(IsHost)
+                    if (!gameDone)
                     {
-                        if(bluePlayer.GetComponent<PlayerInputScript>().newInput)
+                        if (IsHost)
                         {
-                            timestamp.logType = "input";
+                            if (bluePlayer.GetComponent<PlayerInputScript>().newInput)
+                            {
+                                serializedData.logType = "input";
+                                serializeLogTimer = serializeLogFrequency;
+                                serializeGameState(true);
+                            }
+                        }
+                        if (serializeLogTimer <= 0)
+                        {
+                            serializedData.logType = "log";
                             serializeLogTimer = serializeLogFrequency;
-                            serializeGameState(true);
+                            serializeGameState(false);
                         }
                     }
-                    if (serializeLogTimer <= 0)
-                    {
-                        timestamp.logType = "log";
-                        serializeLogTimer = serializeLogFrequency;
-                        serializeGameState(false);
-                    }
-                    else if (gameDone)
+                    else 
                     {
                         //int seconds = stopwatch.Elapsed.Seconds;
 
-                        timestamp.minutesElapsed = stopwatch.Elapsed.Minutes;
-                        timestamp.secondsElapsed = stopwatch.Elapsed.Seconds;
-                        timestamp.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
+                        //timestamp.minutesElapsed = stopwatch.Elapsed.Minutes;
+                        //timestamp.secondsElapsed = stopwatch.Elapsed.Seconds;
+                        //timestamp.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
 
-                        json += JsonUtility.ToJson(timestamp, prettyPrinting);
-                        json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, prettyPrinting);
-                        json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, prettyPrinting);
+                        //change this/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                        json += JsonUtility.ToJson(serializedData, prettyPrinting);
 
                         writeToFile(json, saveFilePath);
+
+                        logGame = false;
                     }
 
                 }
@@ -183,7 +196,7 @@ public class GameManagerScript : NetworkBehaviour
 
         if (gameDone)
         {
-            if(false)
+            if(GameObject.FindGameObjectWithTag("winnerText") != null)
             {
                 GameObject textObj = GameObject.FindGameObjectWithTag("winnerText");
                 winnerText = textObj.GetComponent<Text>();
@@ -343,51 +356,39 @@ public class GameManagerScript : NetworkBehaviour
 
     private void serializeGameState(bool getPlayerInput)
     {
-        timestamp.minutesElapsed = stopwatch.Elapsed.Minutes;
-        timestamp.secondsElapsed = stopwatch.Elapsed.Seconds;
-        timestamp.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
+        if(gameDone || !logGame)
+        { return; }
+
+        serializedData.minutesElapsed = stopwatch.Elapsed.Minutes;
+        serializedData.secondsElapsed = stopwatch.Elapsed.Seconds;
+        serializedData.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
+
+        serializedData.bluePlayerData = bluePlayer.GetComponent<PlayerManager>().serializedPlayer;
+        serializedData.redPlayerData = redPlayer.GetComponent<PlayerManager>().serializedPlayer;
+
+        serializedData.blueTowerData = blueTower.GetComponent<TowerScript>().serializedTower;
+        serializedData.redTowerData = redTower.GetComponent<TowerScript>().serializedTower;
 
         GameObject[] blueMinions = GameObject.FindGameObjectsWithTag("BlueMinion");
         GameObject[] redMinions = GameObject.FindGameObjectsWithTag("RedMinion");
 
-        timestamp.blueMinionsAlive = blueMinions.Length;
-        timestamp.redMinionsAlive = redMinions.Length;
-
-        json += JsonUtility.ToJson(timestamp, prettyPrinting);
-        json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerManager>().serializedPlayer, prettyPrinting);
-        if(getPlayerInput)
+        foreach(GameObject blueMinion in blueMinions)
         {
-            if(IsHost)
-            {
-                json += JsonUtility.ToJson(bluePlayer.GetComponent<PlayerInputScript>().serializedData, prettyPrinting);
-            }
-        }
-        json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerManager>().serializedPlayer, prettyPrinting);
-        if (getPlayerInput)
-        {
-            if (!IsHost)
-            {
-                json += JsonUtility.ToJson(redPlayer.GetComponent<PlayerInputScript>().serializedData, prettyPrinting);
-            }
+            serializedData.blueMinions.Add(blueMinion.GetComponent<MinionManager>().serializedMinion);
         }
 
-
-        if (true /*serializeAll*/)
+        foreach (GameObject redMinion in redMinions)
         {
-            json += JsonUtility.ToJson(blueTower.GetComponent<TowerScript>().serializedTower, prettyPrinting);
-            json += JsonUtility.ToJson(redTower.GetComponent<TowerScript>().serializedTower, prettyPrinting);
-
-            foreach(GameObject blueMinion in blueMinions)
-            {
-                json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, prettyPrinting);
-            }
-
-            foreach (GameObject blueMinion in blueMinions)
-            {
-                json += JsonUtility.ToJson(blueMinion.GetComponent<MinionManager>().serializedMinion, prettyPrinting);
-            }
+            serializedData.redMinions.Add(redMinion.GetComponent<MinionManager>().serializedMinion);
         }
-        //serializeAll = !serializeAll;
+
+        serializedData.blueMinionsAlive = blueMinions.Length;
+        serializedData.redMinionsAlive = redMinions.Length;
+
+        json += JsonUtility.ToJson(serializedData, prettyPrinting);
+
+        serializedData.blueMinions.Clear();
+        serializedData.redMinions.Clear();
 
         if (writeTimer <= 0 )
         {
