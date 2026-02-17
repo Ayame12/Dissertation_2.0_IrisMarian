@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

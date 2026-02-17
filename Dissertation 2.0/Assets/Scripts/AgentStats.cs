@@ -31,6 +31,9 @@ public class AgentStats : NetworkBehaviour
     public string enemyMinionTag;
     public string enemyPlayerTag;
 
+    public bool isLocked;
+    public float lockTimer;
+
     public bool isStunned;
     public float stunTimer = 0;
 
@@ -53,27 +56,28 @@ public class AgentStats : NetworkBehaviour
         if (slowTimer > 0)
         {
             slowTimer -= Time.deltaTime;
-            if (slowTimer == 0)
+            if (slowTimer <= 0)
             {
                 removeSlow();
             }
-        }
-        else if (slowTimer < 0)
-        {
-            removeSlow();
         }
 
         if (stunTimer > 0)
         {
             stunTimer -= Time.deltaTime;
-            if (stunTimer == 0)
+            if (stunTimer <= 0)
             {
                 removeStun();
             }
         }
-        else if (stunTimer < 0)
+
+        if (lockTimer > 0)
         {
-            removeStun();
+            lockTimer -= Time.deltaTime;
+            if (lockTimer <= 0)
+            {
+                removeLock();
+            }
         }
 
         healingTimer -= Time.deltaTime;
@@ -197,6 +201,12 @@ public class AgentStats : NetworkBehaviour
         currentSpeed = 0;
     }
 
+    public void applyLock(float duration)
+    {
+        isLocked = true;
+        lockTimer = duration;
+        currentSpeed = 0;
+    }
     public void removeSlow()
     {
         isSlowed = false;
@@ -213,6 +223,21 @@ public class AgentStats : NetworkBehaviour
     {
         isStunned = false;
         stunTimer = 0;
+
+        if (isSlowed)
+        {
+            currentSpeed = speed * slowPercentage;
+        }
+        else
+        {
+            currentSpeed = speed;
+        }
+    }
+
+    public void removeLock()
+    {
+        isLocked = false;
+        lockTimer = 0;
 
         if (isSlowed)
         {

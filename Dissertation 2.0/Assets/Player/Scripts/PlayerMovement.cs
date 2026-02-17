@@ -193,7 +193,7 @@ public class PlayerMovement : NetworkBehaviour
 
             if(targetIdentifier != -1)
             {
-                stats.applyStunRpc(basicAttackCastDuration);
+                stats.applyLock(basicAttackCastDuration);
 
                 basicAttackCooldownTimer = basicAttackCooldown;
 
