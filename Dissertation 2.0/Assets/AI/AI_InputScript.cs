@@ -19,12 +19,12 @@ public class AI_InputSript : MonoBehaviour
     public GameObject target = null;
     public Vector3 mousePos = Vector3.zero;
 
-    public enum DiscreteAction
+    public enum InputType
     {
         move,
-        attack, 
-        ability1, 
-        ability2, 
+        attack,
+        ability1,
+        ability2,
         ability3,
     }
 
@@ -44,7 +44,7 @@ public class AI_InputSript : MonoBehaviour
             elapsedSinceLastAction = 0;
             nextActionTime = generateRandomGaussian(meanInputFrequency, stdDevInputFrequency);
 
-            DiscreteAction action = decideDiscreteAction();
+            InputType action = decideDiscreteAction();
         }
     }
 
@@ -66,17 +66,17 @@ public class AI_InputSript : MonoBehaviour
         return value;
     }
 
-    private DiscreteAction decideDiscreteAction()
+    private InputType decideDiscreteAction()
     {
         int method = 0;
 
-        DiscreteAction action = new DiscreteAction();
+        InputType action = new InputType();
         switch(method)
         {
             case 0:
                 {
                     int n = UnityEngine.Random.Range(0, 5);
-                    action = (DiscreteAction)n;
+                    action = (InputType)n;
                 }
                 break;
             case 1:
@@ -88,7 +88,7 @@ public class AI_InputSript : MonoBehaviour
         return action;
     }
 
-    private bool generateParametersForAction(DiscreteAction action)
+    private bool generateParametersForAction(InputType action)
     {
 
 

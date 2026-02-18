@@ -1,5 +1,14 @@
 using UnityEngine;
 
+public enum ActionType
+{
+    trade,
+    kill,
+    clear,
+    back,
+    tower,
+}
+
 public class AI_ManagerScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
