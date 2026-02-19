@@ -10,6 +10,26 @@ public class PlayerSerializedData
 {
     public string objectType = "player";
     public bool isBlue = false;
+    public bool isAlive = true;
+    public float health;
+    public Vector3 position = new Vector3(0, 0, 0);
+    public bool ability1 = true;
+    public bool ability2 = true;
+    public bool ability3 = true;
+    public float ability1CD = 0;
+    public float ability2CD = 0;
+    public float ability3CD = 0;
+    public int creepScore = 0;
+    public bool isStunned = false;
+    public bool isSlowed = false;
+    public float stunRemaining = 0;
+}
+
+[Serializable]
+public class PlayerSerializedDataOld
+{
+    public string objectType = "player";
+    public bool isBlue = false;
     public float health;
     public Vector3 position = new Vector3(0, 0, 0);
     public bool ability1 = true;
@@ -93,6 +113,7 @@ public class PlayerManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        serializedPlayer.isAlive = stats.isAlive;
         serializedPlayer.health = stats.currentHealth;
         serializedPlayer.position = transform.position;
         serializedPlayer.ability1 = playerAttack.rootIsAvailable;

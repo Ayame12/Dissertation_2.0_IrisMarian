@@ -2,9 +2,12 @@ using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Splines;
 
 public class AgentStats : NetworkBehaviour
 {
+    public bool isAlive = true;
+
     public float health;
     public float passiveHealing;
     public float damage;
@@ -138,6 +141,7 @@ public class AgentStats : NetworkBehaviour
                     isblueplayer = true;
                 }
                 currentHealth = health;
+                isAlive = false;
                 GetComponent<PlayerManager>().resetPlayerComponents();
                 healthUI.Update3DSlider(currentHealth);
                 removeSlow();

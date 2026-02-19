@@ -31,6 +31,25 @@ class SerializedGameData
     public List<MinionSerializationData> redMinions;
 }
 
+class SerializedGameDataOld
+{
+    public string logType = "log";
+    public int minutesElapsed = 0;
+    public int secondsElapsed = 0;
+    public int milisecondsElapsed = 0;
+
+    public int blueMinionsAlive = 0;
+    public int redMinionsAlive = 0;
+
+    public PlayerSerializedData bluePlayerData;
+    public PlayerSerializedData redPlayerData;
+    public TowerSerializationData blueTowerData;
+    public TowerSerializationData redTowerData;
+
+    public List<MinionSerializationData> blueMinions;
+    public List<MinionSerializationData> redMinions;
+}
+
 public class GameManagerScript : NetworkBehaviour
 {
     public enum Scene

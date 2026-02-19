@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 2187877929
+  GlobalObjectIdHash: 3730755709
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -427,13 +427,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgentStats
   ShowTopMostFoldoutHeaderGroup: 1
-  health: 1100
+  health: 300
   passiveHealing: 0
   damage: 0
   speed: 0
   currentSpeed: 0
   damageLerpDuration: 0.25
-  targetHealth: 0
+  currentHealth: 0
   groundLayer: 8
   enemyLayer: 10
   friendlyLayer: 9
@@ -459,7 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3748319ea325aeb4595f94a4543f29b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthUI
-  ShowTopMostFoldoutHeaderGroup: 1
   health3DSlider: {fileID: 6352158156873933704}
 --- !u!114 &6644552614899783502
 MonoBehaviour:
