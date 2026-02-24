@@ -1,18 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.Cinemachine;
 using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 [Serializable]
-class SerializedGameData
+public class PositionData
+{
+    public float x;
+    public float y;
+    public float z;
+}
+
+[Serializable]
+public class SerializedGameData
 {
     public string logType = "log";
     public int minutesElapsed = 0;
@@ -22,8 +27,28 @@ class SerializedGameData
     public int blueMinionsAlive = 0;
     public int redMinionsAlive = 0;
 
-    public PlayerSerializedData bluePlayerData;
-    public PlayerSerializedData redPlayerData;
+    public PlayerSerializedData bluePlayerData = new PlayerSerializedData();
+    public PlayerSerializedData redPlayerData = new PlayerSerializedData();
+    public TowerSerializationData blueTowerData = new TowerSerializationData();
+    public TowerSerializationData redTowerData = new TowerSerializationData();
+
+    public List<MinionSerializationData> blueMinions = new List<MinionSerializationData>();
+    public List<MinionSerializationData> redMinions = new List<MinionSerializationData>();
+}
+
+[Serializable]
+public class SerializedGameDataOld
+{
+    public string logType = "log";
+    public int minutesElapsed = 0;
+    public int secondsElapsed = 0;
+    public int milisecondsElapsed = 0;
+
+    public int blueMinionsAlive = 0;
+    public int redMinionsAlive = 0;
+
+    public PlayerSerializedDataOld bluePlayerData;
+    public PlayerSerializedDataOld redPlayerData;
     public TowerSerializationData blueTowerData;
     public TowerSerializationData redTowerData;
 
@@ -31,23 +56,16 @@ class SerializedGameData
     public List<MinionSerializationData> redMinions;
 }
 
-class SerializedGameDataOld
+[Serializable]
+public class SerializedGameDataOldList
 {
-    public string logType = "log";
-    public int minutesElapsed = 0;
-    public int secondsElapsed = 0;
-    public int milisecondsElapsed = 0;
+    public SerializedGameDataOld[] logs;
+}
 
-    public int blueMinionsAlive = 0;
-    public int redMinionsAlive = 0;
-
-    public PlayerSerializedData bluePlayerData;
-    public PlayerSerializedData redPlayerData;
-    public TowerSerializationData blueTowerData;
-    public TowerSerializationData redTowerData;
-
-    public List<MinionSerializationData> blueMinions;
-    public List<MinionSerializationData> redMinions;
+[Serializable]
+public class SerializedGameDataList
+{
+    public SerializedGameData[] logs;
 }
 
 public class GameManagerScript : NetworkBehaviour
@@ -101,7 +119,7 @@ public class GameManagerScript : NetworkBehaviour
     private bool startLogging = false;
     public System.Diagnostics.Stopwatch stopwatch;
 
-    SerializedGameData serializedData;
+    SerializedGameData serializedData = new SerializedGameData();
 
     public TMP_InputField playerIdentifier;
 
@@ -133,9 +151,6 @@ public class GameManagerScript : NetworkBehaviour
 
         
         stopwatch = new System.Diagnostics.Stopwatch();
-        serializedData = new SerializedGameData();
-        serializedData.blueMinions = new List<MinionSerializationData>();
-        serializedData.redMinions = new List<MinionSerializationData>();
         //saveFilePath = "C:\\Users\\2200147\\Documents\\DissertationData\\iris_playerData.json";
     }
 

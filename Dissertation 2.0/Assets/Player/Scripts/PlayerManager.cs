@@ -12,7 +12,7 @@ public class PlayerSerializedData
     public bool isBlue = false;
     public bool isAlive = true;
     public float health;
-    public Vector3 position = new Vector3(0, 0, 0);
+    public PositionData position = new PositionData();
     public bool ability1 = true;
     public bool ability2 = true;
     public bool ability3 = true;
@@ -31,7 +31,7 @@ public class PlayerSerializedDataOld
     public string objectType = "player";
     public bool isBlue = false;
     public float health;
-    public Vector3 position = new Vector3(0, 0, 0);
+    public PositionData position = new PositionData();
     public bool ability1 = true;
     public bool ability2 = true;
     public bool ability3 = true;
@@ -104,7 +104,9 @@ public class PlayerManager : NetworkBehaviour
         {
             serializedPlayer.isBlue = false;
         }
-        serializedPlayer.position = transform.position;
+        serializedPlayer.position.x = transform.position.x;
+        serializedPlayer.position.y = transform.position.y;
+        serializedPlayer.position.z = transform.position.z;
         serializedPlayer.health = stats.health;
 
         GameManagerScript.Instance.setupPlayerReferences(gameObject);
@@ -115,7 +117,9 @@ public class PlayerManager : NetworkBehaviour
     {
         serializedPlayer.isAlive = stats.isAlive;
         serializedPlayer.health = stats.currentHealth;
-        serializedPlayer.position = transform.position;
+        serializedPlayer.position.x = transform.position.x;
+        serializedPlayer.position.y = transform.position.y;
+        serializedPlayer.position.z = transform.position.z;
         serializedPlayer.ability1 = playerAttack.rootIsAvailable;
         serializedPlayer.ability2 = playerAttack.dashIsAvailable;
         serializedPlayer.ability3 = playerAttack.ultIsAvailable;

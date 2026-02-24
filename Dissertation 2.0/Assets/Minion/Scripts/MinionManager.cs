@@ -10,7 +10,7 @@ public class MinionSerializationData
     public bool isBlue = false;
     public float health;
     public bool isTargetingPlayer = false;
-    public Vector3 position = new Vector3(0, 0, 0);
+    public PositionData position = new PositionData();
 }
 
 public class MinionManager : NetworkBehaviour
@@ -62,7 +62,9 @@ public class MinionManager : NetworkBehaviour
             serializedMinion.isBlue = false;
         }
         serializedMinion.health = stats.health;
-        serializedMinion.position = transform.position;
+        serializedMinion.position.x = transform.position.x;
+        serializedMinion.position.y = transform.position.y;
+        serializedMinion.position.z = transform.position.z;
         serializedMinion.isTargetingPlayer = false;
 
 
@@ -152,7 +154,9 @@ public class MinionManager : NetworkBehaviour
         }
 
         serializedMinion.health = stats.currentHealth;
-        serializedMinion.position = gameObject.transform.position;
+        serializedMinion.position.x = transform.position.x;
+        serializedMinion.position.y = transform.position.y;
+        serializedMinion.position.z = transform.position.z;
     }
 
     private void faceTarget()
