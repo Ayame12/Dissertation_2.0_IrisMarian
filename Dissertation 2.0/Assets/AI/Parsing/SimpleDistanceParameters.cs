@@ -1,9 +1,10 @@
-using System;
 using UnityEngine;
 
-public class ParseLogs : MonoBehaviour
+public class SimpleDistanceParameters : MonoBehaviour
 {
-    public Vector2[] segmentLimits;
+    public float[] distanceIncrementsToEnemyPlayer;
+    public float[] distanceIncrementsToEnemyWave;
+    public float[] distanceIncrementsToEnemyTower;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,5 +17,4 @@ public class ParseLogs : MonoBehaviour
     {
         
     }
-
 }

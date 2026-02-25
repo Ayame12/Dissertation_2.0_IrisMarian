@@ -119,6 +119,106 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &671571978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671571980}
+  - component: {fileID: 671571979}
+  m_Layer: 0
+  m_Name: simplePositionBasedStatesParsing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &671571979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671571978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abac5d86bc8fd547b4ca2d0b6556a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::simplePositionBasedStatesParsing
+  fileFolder: C:\Users\2200147\Documents\DissertationData\Reserializing\PlayerDataToParse
+  saveFolder: C:\Users\2200147\Documents\DissertationData\Reserializing\StatesData
+  distanceParameters: {fileID: 1521773915}
+--- !u!4 &671571980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671571978}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.612, y: 0, z: -8.35671}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1521773914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1521773916}
+  - component: {fileID: 1521773915}
+  m_Layer: 0
+  m_Name: SimpleDistanceParameters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1521773915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521773914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b063c109efd884bb8d0a4d41eadf32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleDistanceParameters
+  distanceIncrementsToEnemyPlayer:
+  - 200
+  - 400
+  distanceIncrementsToEnemyWave:
+  - 200
+  - 400
+  distanceIncrementsToEnemyTower:
+  - 200
+  - 400
+--- !u!4 &1521773916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521773914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.612, y: 0, z: -8.35671}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1565400732
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,12 +357,12 @@ GameObject:
   - component: {fileID: 1738039804}
   - component: {fileID: 1738039803}
   m_Layer: 0
-  m_Name: jsonEdit
+  m_Name: rewriteJsonsOldToNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1738039803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,8 +375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80af9ce7a336f95429086321253f101d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmendPlayerDeath
-  filePath: E:\DefaultFolders\Documents\DissertationData\testData.json
-  saveFilePath: E:\DefaultFolders\Documents\DissertationData\testData_Redo.json
+  fileFolder: C:\Users\2200147\Documents\DissertationData\Reserializing\Player00
+    - Copy
+  saveFolder: C:\Users\2200147\Documents\DissertationData\Reserializing\Player00
+    - Rewrite
 --- !u!4 &1738039804
 Transform:
   m_ObjectHideFlags: 0
@@ -391,3 +493,5 @@ SceneRoots:
   - {fileID: 2029844657}
   - {fileID: 1565400734}
   - {fileID: 1738039804}
+  - {fileID: 1521773916}
+  - {fileID: 671571980}
