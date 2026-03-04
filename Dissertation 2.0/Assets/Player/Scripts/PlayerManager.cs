@@ -115,6 +115,22 @@ public class PlayerManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        updateSerializedData();
+
+        //ai input
+        if (!IsOwner)
+        {
+            return;
+        }
+        playerInput.tickUpdate();
+        playerMovement.tickUpdate();
+        playerAttack.tickUpdate();
+
+        creepScoreUi.text = "CS: "+creepScore.ToString();
+    }
+
+    public void updateSerializedData()
+    {
         serializedPlayer.isAlive = stats.isAlive;
         serializedPlayer.health = stats.currentHealth;
         serializedPlayer.position.x = transform.position.x;
@@ -130,17 +146,6 @@ public class PlayerManager : NetworkBehaviour
         serializedPlayer.isStunned = stats.isStunned;
         serializedPlayer.isSlowed = stats.isSlowed;
         serializedPlayer.stunRemaining = stats.stunTimer;
-
-        //ai input
-        if (!IsOwner)
-        {
-            return;
-        }
-        playerInput.tickUpdate();
-        playerMovement.tickUpdate();
-        playerAttack.tickUpdate();
-
-        creepScoreUi.text = "CS: "+creepScore.ToString();
     }
 
     public void resetPlayerComponents()

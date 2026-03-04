@@ -322,6 +322,7 @@ public class GameManagerScript : NetworkBehaviour
         if (isBluePlayer)
         {
             bluePlayer.SetActive(false);
+            bluePlayer.GetComponent<AgentStats>().isAlive = false;
             bluePlayerRespawnTimer = bluePlayerRespawnCooldown;
             bluePlayerRespawnCooldown += respawnIncrement;
 
@@ -331,6 +332,7 @@ public class GameManagerScript : NetworkBehaviour
         else
         {
             redPlayer.SetActive(false);
+            redPlayer.GetComponent<AgentStats>().isAlive = false;
             redPlayerRespawnTimer = redPlayerRespawnCooldown;
             redPlayerRespawnCooldown += respawnIncrement;
 
@@ -345,10 +347,12 @@ public class GameManagerScript : NetworkBehaviour
         if(isBluePlayer)
         {
             bluePlayer.SetActive(true);
+            bluePlayer.GetComponent<AgentStats>().isAlive = true;
         }
         else
         {
             redPlayer.SetActive(true);
+            redPlayer.GetComponent<AgentStats>().isAlive = true;
         }
     }
 

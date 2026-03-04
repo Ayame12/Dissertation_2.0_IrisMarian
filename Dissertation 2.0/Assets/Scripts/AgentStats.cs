@@ -93,7 +93,7 @@ public class AgentStats : NetworkBehaviour
             healAmmount(currentHealth, passiveHealing);
         }
 
-        updateOtherSideRpc(currentHealth, isStunned, isSlowed, stunTimer);
+        updateOtherSideRpc(currentHealth, isStunned, isSlowed, stunTimer, isAlive);
     }
 
     [Rpc(SendTo.Owner)]
@@ -147,6 +147,8 @@ public class AgentStats : NetworkBehaviour
                 removeSlow();
                 removeStun();
                 removeLock();
+                updateOtherSideRpc(currentHealth, isStunned, isSlowed, stunTimer, isAlive);
+                GetComponent<PlayerManager>().updateSerializedData();
                 GameManagerScript.Instance.handlePlayerDeathRpc(isblueplayer);
 
                 if(isblueplayer)
@@ -181,7 +183,7 @@ public class AgentStats : NetworkBehaviour
         
         //}
 
-        updateOtherSideRpc(currentHealth, isStunned, isSlowed, stunTimer);
+        updateOtherSideRpc(currentHealth, isStunned, isSlowed, stunTimer, isAlive);
     }
 
     [Rpc(SendTo.Owner)]
@@ -309,7 +311,7 @@ public class AgentStats : NetworkBehaviour
     //}
 
     [Rpc(SendTo.Everyone)]
-    private void updateOtherSideRpc(float curHealth, bool stun, bool slow, float stunRemaining)
+    private void updateOtherSideRpc(float curHealth, bool stun, bool slow, float stunRemaining, bool alive)
     {
         if(!gameObject.activeInHierarchy)
         {
@@ -320,6 +322,7 @@ public class AgentStats : NetworkBehaviour
         isStunned = stun;
         isSlowed = slow;
         stunTimer = stunRemaining;
+        isAlive = alive;
 
         if (healthUI)
         {
