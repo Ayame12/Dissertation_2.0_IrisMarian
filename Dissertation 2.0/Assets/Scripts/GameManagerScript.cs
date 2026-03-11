@@ -399,6 +399,33 @@ public class GameManagerScript : NetworkBehaviour
         serializedData.secondsElapsed = stopwatch.Elapsed.Seconds;
         serializedData.milisecondsElapsed = stopwatch.Elapsed.Milliseconds;
 
+        if(IsHost)
+        {
+            if (!redPlayer.activeInHierarchy)
+            {
+                redPlayer.GetComponent<AgentStats>().isAlive = false;
+                redPlayer.GetComponent<PlayerManager>().serializedPlayer.isAlive = false;
+            }
+            else
+            {
+                redPlayer.GetComponent<AgentStats>().isAlive = true;
+                redPlayer.GetComponent<PlayerManager>().serializedPlayer.isAlive = true;
+            }
+        }
+        else
+        {
+            if (!bluePlayer.activeInHierarchy)
+            {
+                bluePlayer.GetComponent<AgentStats>().isAlive = false;
+                bluePlayer.GetComponent<PlayerManager>().serializedPlayer.isAlive = false;
+            }
+            else
+            {
+                bluePlayer.GetComponent<AgentStats>().isAlive = true;
+                bluePlayer.GetComponent<PlayerManager>().serializedPlayer.isAlive = true;
+            }
+        }
+        
         serializedData.bluePlayerData = bluePlayer.GetComponent<PlayerManager>().serializedPlayer;
         serializedData.redPlayerData = redPlayer.GetComponent<PlayerManager>().serializedPlayer;
 
