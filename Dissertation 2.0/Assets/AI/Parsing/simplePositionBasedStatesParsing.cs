@@ -29,6 +29,12 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
 
     public string fileFolder;
     public string saveFolder;
+    public float actionDuration;
+
+    public float towerDamageThreshold;
+    public float playerDamageThreshold;
+    public float backDistanceThreshold;
+    public float mouseProximityThreshold;
 
     Vector2 blueTowerPosition = new Vector2(-16.5f, -16.5f);
     Vector2 redTowerPosition = new Vector2(16.5f, 16.5f);
@@ -37,9 +43,9 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
 
     float maxMinionClusterDistance = 2;
 
+    private float[] distanceIncrementsPlayerToEnemyTower = { 6, 10, 18, 27, 35, 40 };
     private float[] distanceIncrementsPlayerToPlayer = { 6, 10, 15, 20 };
     private float[] distanceIncrementsPlayerToEnemyWave = { 6, 10, 15,20 };
-    private float[] distanceIncrementsPlayerToEnemyTower = { 6, 10, 18, 27, 35, 40 };
     private float[] distanceIncrementsWaveToEnemyTower = { 6, 10, 18, 27, 35, 40 };
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,11 +73,28 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                 isBlueLog = false;
             }
 
-            foreach (SerializedGameData log in data.logs)
+            for (int logItt = 0; logItt < data.logs.Length; ++logItt)
             {
+                SerializedGameData log = data.logs[logItt];
+
+                if (isBlueLog)
+                {
+                    if (!log.bluePlayerData.isAlive)
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (!log.redPlayerData.isAlive)
+                    {
+                        continue;
+                    }
+                }
+
                 Vector2 bluePlayerPosition = new Vector2(log.bluePlayerData.position.x, log.bluePlayerData.position.z);
                 Vector2 redPlayerPosition = new Vector2(log.redPlayerData.position.x, log.redPlayerData.position.z);
-                
+
                 Vector2 blueMinionCentre = new Vector2(0, 0);
                 Vector2 redMinionCentre = new Vector2(0, 0);
 
@@ -174,8 +197,8 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                     int blueWaveToRedTowerDistanceIndex;
 
                     float bluePlayerToRedTowerDistance = Vector2.Distance(bluePlayerPosition, redTowerPosition);
-                    float playersDistance = Vector2.Distance(bluePlayerPosition,redPlayerPosition);
-                    float bluePlayerToRedWaveDistance = Vector2.Distance(bluePlayerPosition, redMinionCentre);                    
+                    float playersDistance = Vector2.Distance(bluePlayerPosition, redPlayerPosition);
+                    float bluePlayerToRedWaveDistance = Vector2.Distance(bluePlayerPosition, redMinionCentre);
                     float blueWaveToRedTowerDistance = Vector2.Distance(blueMinionCentre, redTowerPosition);
 
                     {
@@ -210,7 +233,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                             {
                                 break;
                             }
-                            if(i == distanceIncrementsPlayerToPlayer.Length -1)
+                            if (i == distanceIncrementsPlayerToPlayer.Length - 1)
                             {
                                 ++index;
                             }
@@ -271,24 +294,213 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                     stateID += bluePlayerToRedWaveDistanceIndex * 10;
                     stateID += blueWaveToRedTowerDistanceIndex;
 
-                    bool foundState = false;
-                    foreach(State s in states)
+                    float playerActionVal = 0;
+                    float clearActionVal = 0;
+                    float towerActionVal = 0;
+                    float backActionVal = 0;
+
                     {
-                        if(s.stateID == stateID)
+                        int currentSecond = log.secondsElapsed;
+                        int currentMilisecond = log.milisecondsElapsed;
+                        int lastSecond = log.secondsElapsed + (int)(actionDuration / 1.0f);
+                        int lastMilisecond = log.milisecondsElapsed + (int)((actionDuration / 0.1f) * 100);
+
+                        int lastLogIndex = logItt + 1;
+                        bool foundLastLog = false;
+                        int smallestDifference = (int)(actionDuration * 2);
+
+                        if (lastLogIndex >= data.logs.Length)
+                        {
+                            lastLogIndex = data.logs.Length - 1;
+                            foundLastLog = true;
+                            break;
+                        }
+
+                        while (!foundLastLog)
+                        {
+                            SerializedGameData nextLog = data.logs[lastLogIndex];
+                            int secondsDiff = nextLog.secondsElapsed - lastSecond;
+                            int milisecondsDiff = nextLog.milisecondsElapsed - lastMilisecond;
+
+                            int diff = secondsDiff * 1000 + milisecondsDiff;
+
+                            if(diff < smallestDifference)
+                            {
+                                smallestDifference = diff;
+
+                                if (lastLogIndex + 1 >= data.logs.Length)
+                                {
+                                    foundLastLog = true;
+                                    break;
+                                }
+
+                                ++lastLogIndex;
+                            }
+                            else
+                            {
+                                foundLastLog = true;
+                                break;
+                            }
+                        }
+
+                        SerializedGameData lastLog = data.logs[lastLogIndex];
+
+                        //calculating difference health for ENEMY player, minions and tower
+
+                        float actionDistribution = 1;
+
+                        bool hasWave = false;
+                        bool enemyHasWave = false;
+                        bool backAction = false;
+                        bool towerAction = false;
+                        bool playerAction = false;
+
+                        float towerHealthDifference = log.redTowerData.health - lastLog.redTowerData.health;
+
+                        if (towerHealthDifference > towerDamageThreshold && hasWave)
+                        {
+                            towerAction = true;
+                        }
+
+                        float closestDistanceToBlueTower = Vector2.Distance(blueTowerPosition, bluePlayerPosition);
+
+                        for (int stateItt = logItt; stateItt < lastLogIndex; ++stateItt)
+                        {
+                            Vector2 pos = new Vector2(data.logs[stateItt].bluePlayerData.position.x, data.logs[stateItt].bluePlayerData.position.z);
+                            float dist = Vector2.Distance(blueTowerPosition, pos);
+
+                            if(dist < closestDistanceToBlueTower)
+                            {
+                                closestDistanceToBlueTower = dist;
+                            }
+                        }
+
+                        float backedOff = Vector2.Distance(bluePlayerPosition, blueTowerPosition) - closestDistanceToBlueTower;
+
+                        if(backedOff > backDistanceThreshold)
+                        {
+                            backAction = true;
+                        }
+
+                        float playerHealthDifference = log.redPlayerData.health - lastLog.redPlayerData.health;
+
+                        if (playerHealthDifference > towerDamageThreshold && log.redPlayerData.isAlive)
+                        {
+                            playerAction = true;
+                        }
+
+
+                        if (backAction)
+                        {
+                            if(towerAction)
+                            {
+                                backActionVal = 0.35f;
+                                towerActionVal = 0.5f;
+                                actionDistribution = 0.25f;
+                            }
+                            else if(playerAction)
+                            {
+                                playerActionVal = 0.5f;
+                                backActionVal = 0.5f;
+                                actionDistribution = 0;
+                            }
+                            else
+                            {
+                                backActionVal = 0.5f;
+                                actionDistribution = 0.5f;
+                            }
+                        }
+                        else if(towerAction)
+                        {
+                            towerActionVal = 0.8f;
+                            actionDistribution = 0.2f;
+                        }
+                        else if(playerAction)
+                        {
+                            playerActionVal = 0.5f;
+                            actionDistribution = 0.5f;
+                        }
+
+                        clearActionVal = actionDistribution;
+
+
+                        //float minionCurrentHealth = 0;
+                        //foreach (MinionSerializationData min in log.redMinions)
+                        //{
+                        //    minionCurrentHealth += min.health;
+                        //}
+
+                        //float minionLastHealth = 0;
+                        //foreach (MinionSerializationData min in lastLog.redMinions)
+                        //{
+                        //    minionLastHealth += min.health;
+                        //}
+
+                        //float minionHealthDifference = minionCurrentHealth - minionLastHealth;
+
+                        //float playerPercentageHealthLost = (float)log.redPlayerData.health / playerHealthDifference;
+                        //float minionsPercentageHealthLost = minionCurrentHealth / minionHealthDifference;
+                        ////float towerPercentageHealthLost = (float)log.redTowerData.health / towerHealthDifference;
+
+                        //bool targettingTower = false;
+                        //bool targetingPlayer = false;
+                        //bool targetingwave = false;
+
+                        //if(playerPercentageHealthLost > minionsPercentageHealthLost / 2 )
+                        //{
+
+                        //}
+
+                        //_________________________________________________________________________________________________________
+
+                        //for (int stateItt = logItt; stateItt < lastLogIndex; ++stateItt)
+                        //{
+                        //    SerializedGameData nLog = data.logs[stateItt];
+
+                        //    if(nLog.logType == "log")
+                        //    {
+                        //        continue;
+                        //    }
+
+                        //    float mouseToPlayer = Vector2.Distance(nLog.mo);
+                        //    float mouseToWave = 0;
+                        //    float mouseToTower = 0;
+                        //    float mouseToAllyTower = 0;
+
+
+                        //}
+
+                    }
+
+                    bool foundState = false;
+                    foreach (State s in states)
+                    {
+                        if (s.stateID == stateID)
                         {
                             ++s.frequency;
 
                             //more stuff abt the action
+                            s.trade += playerActionVal;
+                            s.wave += clearActionVal;
+                            s.tower += towerActionVal;
+                            s.back += backActionVal;
 
-                            foundState = true; 
+                            foundState = true;
                             break;
                         }
                     }
-                    if(!foundState)
+                    if (!foundState)
                     {
                         State currentState = new State();
                         currentState.stateID = stateID;
+
+                        currentState.trade += playerActionVal;
+                        currentState.wave += clearActionVal;
+                        currentState.tower += towerActionVal;
+                        currentState.back += backActionVal;
+
                         states.Add(currentState);
+
                     }
                 }
                 else

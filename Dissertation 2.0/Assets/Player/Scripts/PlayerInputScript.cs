@@ -9,7 +9,7 @@ public class PlayerInputSerializedData
     public bool ability1 = false;
     public bool ability2 = false;
     public bool ability3 = false;
-    public Vector3 mousePosInGame = Vector3.zero;
+    public PositionData mousePosInGame = new PositionData();
     //public string hoveredObject = "null";
     public bool isHoveringPlayer = false;
     public bool isHoveringTower = false;
@@ -59,6 +59,9 @@ public class PlayerInputScript : MonoBehaviour
 
         stats = GetComponent<AgentStats>();
         serializedData = new PlayerInputSerializedData();
+        mousePosInGame.x = 0;
+        mousePosInGame.y = 0;
+        mousePosInGame.z = 0;
         if (stats.friendlyLayer == 9)
         {
             serializedData.isBlue = true;
@@ -206,7 +209,9 @@ public class PlayerInputScript : MonoBehaviour
                 serializedData.ability1 = ability1;
                 serializedData.ability2 = ability2;
                 serializedData.ability3 = ability3;
-                serializedData.mousePosInGame = mousePosInGame;
+                serializedData.mousePosInGame.x = mousePosInGame.x;
+                serializedData.mousePosInGame.y = mousePosInGame.y;
+                serializedData.mousePosInGame.z = mousePosInGame.z;
 
                 if (tempTarget != null)
                 {

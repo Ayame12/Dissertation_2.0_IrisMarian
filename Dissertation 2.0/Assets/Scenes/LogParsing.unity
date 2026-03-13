@@ -150,6 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::simplePositionBasedStatesParsing
   fileFolder: E:\DefaultFolders\Documents\DissertationData\PlayerDataToParse
   saveFolder: E:\DefaultFolders\Documents\DissertationData\StatesData
+  actionDuration: 2
+  towerDamageThreshold: 150
+  playerDamageThreshold: 150
+  backDistanceThreshold: 1.5
+  mouseProximityThreshold: 0
 --- !u!4 &671571980
 Transform:
   m_ObjectHideFlags: 0
@@ -303,7 +308,7 @@ GameObject:
   - component: {fileID: 1738039804}
   - component: {fileID: 1738039803}
   m_Layer: 0
-  m_Name: rewriteJsonsOldToNew
+  m_Name: RewriteJsonsOldToNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
