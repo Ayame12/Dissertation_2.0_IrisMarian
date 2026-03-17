@@ -23,9 +23,9 @@ public class PlayerMovement : NetworkBehaviour
 
     public GameObject targetEnemy;
 
-    public GameObject moveIcon;
-    public float moveIconTimerMax = 1f;
-    private float moveIconTimer;
+    //public GameObject moveIcon;
+    //public float moveIconTimerMax = 1f;
+    //private float moveIconTimer;
 
     public GameObject basicAttackPrefab;
     public float basicAttackCastDuration;
@@ -70,13 +70,13 @@ public class PlayerMovement : NetworkBehaviour
                 {
                     moveToPosition(playerInput.mousePosInGame);
 
-                    //move icon
-                    Vector3 offset = new Vector3(playerInput.mousePosInGame.x, playerInput.mousePosInGame.y + 0.05f, playerInput.mousePosInGame.z);
-                    moveIcon.SetActive(true);
-                    moveIcon.transform.position = offset;
-                    //moveIcon.GetComponent<Animator>().Play("MoveIconAnim", -1, 0f);
+                    ////move icon
+                    //Vector3 offset = new Vector3(playerInput.mousePosInGame.x, playerInput.mousePosInGame.y + 0.05f, playerInput.mousePosInGame.z);
+                    //moveIcon.SetActive(true);
+                    //moveIcon.transform.position = offset;
+                    ////moveIcon.GetComponent<Animator>().Play("MoveIconAnim", -1, 0f);
 
-                    moveIconTimer = moveIconTimerMax;
+                    //moveIconTimer = moveIconTimerMax;
 
                     //potentialy remove this?????????????????????????
                     targetEnemy = null;
@@ -126,15 +126,15 @@ public class PlayerMovement : NetworkBehaviour
         }
 
 
-        if (moveIconTimer > 0f)
-        {
-            moveIconTimer -= Time.deltaTime;
+        //if (moveIconTimer > 0f)
+        //{
+        //    moveIconTimer -= Time.deltaTime;
 
-            if (moveIconTimer <= 0f)
-            {
-                moveIcon.SetActive(false);
-            }
-        }
+        //    if (moveIconTimer <= 0f)
+        //    {
+        //        moveIcon.SetActive(false);
+        //    }
+        //}
     }
 
     public void moveToPosition(Vector3 position)

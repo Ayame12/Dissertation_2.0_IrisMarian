@@ -68,6 +68,8 @@ public class PlayerManager : NetworkBehaviour
     private PlayerMovement playerMovement;
     private PlayerAttackScript playerAttack;
     private AgentStats stats;
+    private AI_PickAction aiPick;
+    private AI_BehavorTree aiBehaviorTree;
 
     public int creepScore = 0;
 
@@ -87,6 +89,8 @@ public class PlayerManager : NetworkBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerAttack = GetComponent<PlayerAttackScript>();
         stats = GetComponent<AgentStats>();
+        aiPick = GetComponent<AI_PickAction>();
+        aiBehaviorTree = GetComponent<AI_BehavorTree>();
 
         if(IsOwner)
         {
@@ -117,12 +121,21 @@ public class PlayerManager : NetworkBehaviour
     {
         updateSerializedData();
 
-        //ai input
         if (!IsOwner)
         {
             return;
         }
-        playerInput.tickUpdate();
+
+        if(isAI)
+        {
+            aiPick.tickUpdate();
+            aiBehaviorTree.tickUpdate();
+        }
+        else
+        {
+            playerInput.tickUpdate();
+        }
+            
         playerMovement.tickUpdate();
         playerAttack.tickUpdate();
 

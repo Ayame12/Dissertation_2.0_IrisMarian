@@ -474,6 +474,8 @@ GameObject:
   - component: {fileID: 7369079880202238471}
   - component: {fileID: 730009727559553639}
   - component: {fileID: 3371254832016470253}
+  - component: {fileID: 7768641798176268948}
+  - component: {fileID: 427882359237658880}
   m_Layer: 9
   m_Name: BluePlayerPrefab
   m_TagString: BluePlayer
@@ -563,8 +565,12 @@ MonoBehaviour:
   serializedPlayer:
     objectType: player
     isBlue: 0
+    isAlive: 1
     health: 0
-    position: {x: 0, y: 0, z: 0}
+    position:
+      x: 0
+      y: 0
+      z: 0
     ability1: 1
     ability2: 1
     ability3: 1
@@ -575,7 +581,7 @@ MonoBehaviour:
     isStunned: 0
     isSlowed: 0
     stunRemaining: 0
-  isAI: 0
+  isAI: 1
   creepScore: 0
   creepScoreUi: {fileID: 5180114173188804606}
   uiCanvas: {fileID: 2551071925232754022}
@@ -620,8 +626,6 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   stopDistance: 5
   targetEnemy: {fileID: 0}
-  moveIcon: {fileID: 584784692437756930, guid: 985241fd0c35bc840b38e4faad9c069b, type: 3}
-  moveIconTimerMax: 1
   basicAttackPrefab: {fileID: 8968110312773352385, guid: d0f842e3332bdf9408e5da0fc38aa56c, type: 3}
   basicAttackCastDuration: 0.2
   basicAttackCooldown: 1
@@ -685,13 +689,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgentStats
   ShowTopMostFoldoutHeaderGroup: 1
+  isAlive: 1
   health: 650
   passiveHealing: 2
   damage: 50
   speed: 5
   currentSpeed: 0
   damageLerpDuration: 0.25
-  targetHealth: 0
+  currentHealth: 0
   groundLayer: 8
   enemyLayer: 10
   friendlyLayer: 9
@@ -1446,6 +1451,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c390bd8637b7943a20a2abd2076628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisableOutline
+--- !u!114 &7768641798176268948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485978277810818288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efff56446ce7f942aa9990cca82a1c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AI_PickAction
+  statesDataFile: 
+  checkStateFrequency: 0
+  blueTowerPosition: {x: -16.5, y: -16.5}
+  redTowerPosition: {x: 16.5, y: 16.5}
+  maxMinionClusterDistance: 2
+--- !u!114 &427882359237658880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485978277810818288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46691ebbe6956f4aae5c66dbeaa4c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AI_BehavorTree
+  currentAction: 0
+  playerAbilityCastRangeWave: 8
+  playerAbilityCastRangePlayer: 10
+  bluePlayerSpawn: {x: -19.2, y: -19.2}
+  redPlayerSpawn: {x: 19.2, y: 19.2}
 --- !u!1 &3869682917775190698
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 
 [Serializable]
-class State
+public class State
 {
     public int stateID;
     public int frequency = 1;
@@ -17,7 +17,7 @@ class State
 }
 
 [Serializable]
-class StatesList
+public class StatesList
 {
     public State[] states;
 }

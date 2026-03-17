@@ -1388,7 +1388,7 @@ MonoBehaviour:
   blueWins: 0
   gameDone: 0
   winnerText: {fileID: 0}
-  logGame: 1
+  logGame: 0
   logHostOnly: 0
   prettyPrinting: 1
   saveFilePath: 
