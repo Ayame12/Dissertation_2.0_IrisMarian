@@ -189,6 +189,11 @@ public class AgentStats : NetworkBehaviour
     [Rpc(SendTo.Owner)]
     public void applySlowRpc(float slow, float slowDuration = 0.2f)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         if (!IsOwner)
         { return; }
 
@@ -205,6 +210,11 @@ public class AgentStats : NetworkBehaviour
     [Rpc(SendTo.Owner)]
     public void applyStunRpc(float stunDuration)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         isStunned = true;
         stunTimer = stunDuration;
         currentSpeed = 0;

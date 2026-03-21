@@ -114,6 +114,12 @@ public class PlayerManager : NetworkBehaviour
         serializedPlayer.health = stats.health;
 
         GameManagerScript.Instance.setupPlayerReferences(gameObject);
+
+        if (!isAI || !IsOwner)
+        {
+            aiPick.enabled = false;
+            aiBehaviorTree.enabled = false;
+        }
     }
 
     // Update is called once per frame

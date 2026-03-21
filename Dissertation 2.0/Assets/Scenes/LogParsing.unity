@@ -150,9 +150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::simplePositionBasedStatesParsing
   fileFolder: E:\DefaultFolders\Documents\DissertationData\PlayerDataToParse
   saveFolder: E:\DefaultFolders\Documents\DissertationData\StatesData
-  actionDuration: 2
-  towerDamageThreshold: 150
-  playerDamageThreshold: 150
+  actionDuration: 3
+  towerDamageThreshold: 19
+  playerDamageThreshold: 30
   backDistanceThreshold: 1.5
   mouseProximityThreshold: 0
 --- !u!4 &671571980

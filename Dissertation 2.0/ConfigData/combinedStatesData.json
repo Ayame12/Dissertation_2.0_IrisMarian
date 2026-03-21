@@ -1,0 +1,7956 @@
+{
+    "states": [
+        {
+            "stateID": 7500,
+            "frequency": 331,
+            "trade": 0.0,
+            "wave": 331.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7557,
+            "frequency": 118,
+            "trade": 0.0,
+            "wave": 118.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6557,
+            "frequency": 118,
+            "trade": 0.0,
+            "wave": 118.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5557,
+            "frequency": 30,
+            "trade": 0.0,
+            "wave": 30.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5556,
+            "frequency": 54,
+            "trade": 0.0,
+            "wave": 54.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6556,
+            "frequency": 95,
+            "trade": 0.0,
+            "wave": 95.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5555,
+            "frequency": 121,
+            "trade": 0.0,
+            "wave": 121.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5455,
+            "frequency": 134,
+            "trade": 0.0,
+            "wave": 134.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4455,
+            "frequency": 77,
+            "trade": 0.0,
+            "wave": 77.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4345,
+            "frequency": 227,
+            "trade": 1.0,
+            "wave": 225.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4344,
+            "frequency": 208,
+            "trade": 0.5,
+            "wave": 207.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4334,
+            "frequency": 399,
+            "trade": 2.0,
+            "wave": 396.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5344,
+            "frequency": 200,
+            "trade": 1.0,
+            "wave": 199.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5334,
+            "frequency": 687,
+            "trade": 5.5,
+            "wave": 680.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 4234,
+            "frequency": 427,
+            "trade": 20.5,
+            "wave": 404.5,
+            "tower": 0.0,
+            "back": 2.0
+        },
+        {
+            "stateID": 4324,
+            "frequency": 1861,
+            "trade": 4.0,
+            "wave": 1856.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4314,
+            "frequency": 690,
+            "trade": 1.0,
+            "wave": 689.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4224,
+            "frequency": 2180,
+            "trade": 40.0,
+            "wave": 2132.0,
+            "tower": 0.0,
+            "back": 8.0
+        },
+        {
+            "stateID": 4214,
+            "frequency": 1322,
+            "trade": 26.0,
+            "wave": 1294.5,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 4210,
+            "frequency": 58,
+            "trade": 1.0,
+            "wave": 57.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4220,
+            "frequency": 58,
+            "trade": 1.0,
+            "wave": 57.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4200,
+            "frequency": 156,
+            "trade": 7.5,
+            "wave": 147.0,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 4100,
+            "frequency": 75,
+            "trade": 10.0,
+            "wave": 64.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5100,
+            "frequency": 54,
+            "trade": 6.0,
+            "wave": 47.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 5200,
+            "frequency": 135,
+            "trade": 5.0,
+            "wave": 126.5,
+            "tower": 0.0,
+            "back": 3.5
+        },
+        {
+            "stateID": 5300,
+            "frequency": 112,
+            "trade": 0.0,
+            "wave": 112.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6300,
+            "frequency": 122,
+            "trade": 0.5,
+            "wave": 121.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7300,
+            "frequency": 104,
+            "trade": 0.0,
+            "wave": 104.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7200,
+            "frequency": 49,
+            "trade": 2.5,
+            "wave": 46.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6200,
+            "frequency": 71,
+            "trade": 2.0,
+            "wave": 69.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6100,
+            "frequency": 24,
+            "trade": 3.5,
+            "wave": 20.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7400,
+            "frequency": 31,
+            "trade": 0.0,
+            "wave": 31.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7357,
+            "frequency": 689,
+            "trade": 4.0,
+            "wave": 685.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7456,
+            "frequency": 53,
+            "trade": 0.0,
+            "wave": 53.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6356,
+            "frequency": 160,
+            "trade": 0.5,
+            "wave": 159.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6355,
+            "frequency": 103,
+            "trade": 1.0,
+            "wave": 102.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5355,
+            "frequency": 355,
+            "trade": 0.5,
+            "wave": 354.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5255,
+            "frequency": 232,
+            "trade": 13.0,
+            "wave": 218.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 5244,
+            "frequency": 144,
+            "trade": 4.0,
+            "wave": 139.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4244,
+            "frequency": 176,
+            "trade": 6.0,
+            "wave": 169.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5224,
+            "frequency": 657,
+            "trade": 29.5,
+            "wave": 624.0,
+            "tower": 0.0,
+            "back": 3.5
+        },
+        {
+            "stateID": 5234,
+            "frequency": 392,
+            "trade": 13.5,
+            "wave": 377.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 5330,
+            "frequency": 100,
+            "trade": 0.5,
+            "wave": 98.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 5340,
+            "frequency": 30,
+            "trade": 0.0,
+            "wave": 30.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6340,
+            "frequency": 88,
+            "trade": 0.0,
+            "wave": 88.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6440,
+            "frequency": 31,
+            "trade": 0.0,
+            "wave": 31.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7450,
+            "frequency": 48,
+            "trade": 0.0,
+            "wave": 48.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7440,
+            "frequency": 178,
+            "trade": 0.0,
+            "wave": 178.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7340,
+            "frequency": 182,
+            "trade": 1.0,
+            "wave": 181.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7230,
+            "frequency": 208,
+            "trade": 4.0,
+            "wave": 203.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6230,
+            "frequency": 74,
+            "trade": 4.0,
+            "wave": 69.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6120,
+            "frequency": 50,
+            "trade": 1.5,
+            "wave": 47.0,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 6110,
+            "frequency": 115,
+            "trade": 14.0,
+            "wave": 101.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7210,
+            "frequency": 1292,
+            "trade": 50.0,
+            "wave": 1242.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7220,
+            "frequency": 893,
+            "trade": 26.0,
+            "wave": 865.5,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 7320,
+            "frequency": 815,
+            "trade": 4.5,
+            "wave": 810.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7310,
+            "frequency": 629,
+            "trade": 12.0,
+            "wave": 617.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7257,
+            "frequency": 1013,
+            "trade": 40.0,
+            "wave": 973.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6257,
+            "frequency": 335,
+            "trade": 9.0,
+            "wave": 324.5,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 5356,
+            "frequency": 124,
+            "trade": 1.0,
+            "wave": 122.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5345,
+            "frequency": 200,
+            "trade": 0.0,
+            "wave": 200.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5445,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5335,
+            "frequency": 325,
+            "trade": 0.0,
+            "wave": 325.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5235,
+            "frequency": 290,
+            "trade": 11.5,
+            "wave": 278.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5225,
+            "frequency": 870,
+            "trade": 17.5,
+            "wave": 851.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 5325,
+            "frequency": 608,
+            "trade": 1.5,
+            "wave": 606.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5215,
+            "frequency": 244,
+            "trade": 6.0,
+            "wave": 238.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5115,
+            "frequency": 66,
+            "trade": 8.0,
+            "wave": 57.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 5220,
+            "frequency": 160,
+            "trade": 4.0,
+            "wave": 152.5,
+            "tower": 0.0,
+            "back": 3.5
+        },
+        {
+            "stateID": 6220,
+            "frequency": 134,
+            "trade": 7.0,
+            "wave": 124.0,
+            "tower": 0.0,
+            "back": 3.0
+        },
+        {
+            "stateID": 7430,
+            "frequency": 179,
+            "trade": 0.0,
+            "wave": 179.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7330,
+            "frequency": 605,
+            "trade": 0.5,
+            "wave": 603.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 6210,
+            "frequency": 126,
+            "trade": 12.0,
+            "wave": 114.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6357,
+            "frequency": 209,
+            "trade": 1.0,
+            "wave": 207.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6457,
+            "frequency": 30,
+            "trade": 0.0,
+            "wave": 30.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7356,
+            "frequency": 154,
+            "trade": 1.0,
+            "wave": 153.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6256,
+            "frequency": 170,
+            "trade": 3.5,
+            "wave": 166.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5256,
+            "frequency": 164,
+            "trade": 6.0,
+            "wave": 157.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5245,
+            "frequency": 137,
+            "trade": 7.0,
+            "wave": 130.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4225,
+            "frequency": 72,
+            "trade": 0.5,
+            "wave": 71.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5315,
+            "frequency": 118,
+            "trade": 0.0,
+            "wave": 118.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4215,
+            "frequency": 129,
+            "trade": 1.5,
+            "wave": 127.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4115,
+            "frequency": 51,
+            "trade": 3.5,
+            "wave": 47.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5015,
+            "frequency": 478,
+            "trade": 0.0,
+            "wave": 477.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5005,
+            "frequency": 22,
+            "trade": 0.0,
+            "wave": 22.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5004,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4004,
+            "frequency": 236,
+            "trade": 0.0,
+            "wave": 236.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4054,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4044,
+            "frequency": 104,
+            "trade": 0.0,
+            "wave": 104.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3034,
+            "frequency": 63,
+            "trade": 0.0,
+            "wave": 63.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3033,
+            "frequency": 149,
+            "trade": 0.0,
+            "wave": 149.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3023,
+            "frequency": 590,
+            "trade": 0.0,
+            "wave": 590.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3113,
+            "frequency": 132,
+            "trade": 17.5,
+            "wave": 112.5,
+            "tower": 0.0,
+            "back": 2.0
+        },
+        {
+            "stateID": 3313,
+            "frequency": 198,
+            "trade": 0.0,
+            "wave": 198.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3413,
+            "frequency": 29,
+            "trade": 0.0,
+            "wave": 29.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3423,
+            "frequency": 91,
+            "trade": 1.0,
+            "wave": 90.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3213,
+            "frequency": 445,
+            "trade": 7.0,
+            "wave": 436.5,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 3223,
+            "frequency": 1102,
+            "trade": 22.0,
+            "wave": 1076.0,
+            "tower": 0.0,
+            "back": 4.0
+        },
+        {
+            "stateID": 4323,
+            "frequency": 279,
+            "trade": 1.0,
+            "wave": 278.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3323,
+            "frequency": 858,
+            "trade": 2.0,
+            "wave": 855.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 4203,
+            "frequency": 66,
+            "trade": 1.5,
+            "wave": 64.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3203,
+            "frequency": 510,
+            "trade": 24.0,
+            "wave": 486.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3103,
+            "frequency": 182,
+            "trade": 21.5,
+            "wave": 160.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7554,
+            "frequency": 343,
+            "trade": 0.0,
+            "wave": 343.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6554,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6544,
+            "frequency": 13,
+            "trade": 0.0,
+            "wave": 13.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6444,
+            "frequency": 54,
+            "trade": 0.0,
+            "wave": 54.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5444,
+            "frequency": 56,
+            "trade": 0.0,
+            "wave": 56.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5434,
+            "frequency": 107,
+            "trade": 1.0,
+            "wave": 106.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6330,
+            "frequency": 172,
+            "trade": 0.0,
+            "wave": 171.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7110,
+            "frequency": 405,
+            "trade": 39.0,
+            "wave": 365.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7057,
+            "frequency": 299,
+            "trade": 0.0,
+            "wave": 299.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6057,
+            "frequency": 275,
+            "trade": 0.0,
+            "wave": 275.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5047,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5046,
+            "frequency": 52,
+            "trade": 0.0,
+            "wave": 52.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6046,
+            "frequency": 49,
+            "trade": 0.0,
+            "wave": 49.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6036,
+            "frequency": 69,
+            "trade": 0.0,
+            "wave": 69.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5026,
+            "frequency": 37,
+            "trade": 0.0,
+            "wave": 37.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5016,
+            "frequency": 259,
+            "trade": 0.0,
+            "wave": 259.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5316,
+            "frequency": 26,
+            "trade": 0.0,
+            "wave": 26.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4516,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5516,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4416,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4316,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4315,
+            "frequency": 117,
+            "trade": 1.0,
+            "wave": 116.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5205,
+            "frequency": 15,
+            "trade": 2.5,
+            "wave": 12.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4205,
+            "frequency": 32,
+            "trade": 3.0,
+            "wave": 29.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4105,
+            "frequency": 27,
+            "trade": 3.5,
+            "wave": 23.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4104,
+            "frequency": 147,
+            "trade": 21.0,
+            "wave": 125.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 4204,
+            "frequency": 250,
+            "trade": 21.0,
+            "wave": 229.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3104,
+            "frequency": 100,
+            "trade": 13.0,
+            "wave": 86.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3204,
+            "frequency": 147,
+            "trade": 11.0,
+            "wave": 135.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3134,
+            "frequency": 31,
+            "trade": 4.5,
+            "wave": 25.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 3144,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4144,
+            "frequency": 44,
+            "trade": 3.0,
+            "wave": 41.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3133,
+            "frequency": 58,
+            "trade": 5.5,
+            "wave": 52.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4243,
+            "frequency": 62,
+            "trade": 3.5,
+            "wave": 58.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4233,
+            "frequency": 140,
+            "trade": 10.5,
+            "wave": 129.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3233,
+            "frequency": 166,
+            "trade": 9.5,
+            "wave": 156.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3243,
+            "frequency": 4,
+            "trade": 0.5,
+            "wave": 3.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3013,
+            "frequency": 374,
+            "trade": 0.0,
+            "wave": 374.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3012,
+            "frequency": 28,
+            "trade": 0.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3022,
+            "frequency": 141,
+            "trade": 0.0,
+            "wave": 139.39999389648438,
+            "tower": 1.600000023841858,
+            "back": 0.0
+        },
+        {
+            "stateID": 4021,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4022,
+            "frequency": 22,
+            "trade": 0.0,
+            "wave": 22.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3003,
+            "frequency": 403,
+            "trade": 0.0,
+            "wave": 403.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3002,
+            "frequency": 113,
+            "trade": 0.0,
+            "wave": 113.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2002,
+            "frequency": 122,
+            "trade": 0.0,
+            "wave": 121.19999694824219,
+            "tower": 0.800000011920929,
+            "back": 0.0
+        },
+        {
+            "stateID": 2001,
+            "frequency": 382,
+            "trade": 0.0,
+            "wave": 260.19970703125,
+            "tower": 120.8001708984375,
+            "back": 1.0
+        },
+        {
+            "stateID": 1001,
+            "frequency": 146,
+            "trade": 0.0,
+            "wave": 81.19996643066406,
+            "tower": 64.79995727539063,
+            "back": 0.0
+        },
+        {
+            "stateID": 1101,
+            "frequency": 147,
+            "trade": 0.0,
+            "wave": 94.49995422363281,
+            "tower": 51.999969482421878,
+            "back": 0.5
+        },
+        {
+            "stateID": 1201,
+            "frequency": 240,
+            "trade": 2.0,
+            "wave": 150.79983520507813,
+            "tower": 87.20004272460938,
+            "back": 0.0
+        },
+        {
+            "stateID": 2101,
+            "frequency": 305,
+            "trade": 21.0,
+            "wave": 231.69985961914063,
+            "tower": 48.79997253417969,
+            "back": 3.5
+        },
+        {
+            "stateID": 3301,
+            "frequency": 221,
+            "trade": 5.5,
+            "wave": 205.89996337890626,
+            "tower": 9.600001335144043,
+            "back": 0.0
+        },
+        {
+            "stateID": 3201,
+            "frequency": 206,
+            "trade": 6.0,
+            "wave": 194.6999969482422,
+            "tower": 4.800000190734863,
+            "back": 0.5
+        },
+        {
+            "stateID": 3331,
+            "frequency": 90,
+            "trade": 0.0,
+            "wave": 90.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4341,
+            "frequency": 17,
+            "trade": 0.0,
+            "wave": 17.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4342,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4352,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 5.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5353,
+            "frequency": 36,
+            "trade": 0.0,
+            "wave": 36.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6353,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6453,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4253,
+            "frequency": 3,
+            "trade": 0.5,
+            "wave": 2.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4353,
+            "frequency": 11,
+            "trade": 0.5,
+            "wave": 10.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4343,
+            "frequency": 76,
+            "trade": 1.5,
+            "wave": 74.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4133,
+            "frequency": 64,
+            "trade": 10.0,
+            "wave": 53.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4333,
+            "frequency": 181,
+            "trade": 2.0,
+            "wave": 179.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4043,
+            "frequency": 36,
+            "trade": 0.0,
+            "wave": 36.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4033,
+            "frequency": 88,
+            "trade": 0.0,
+            "wave": 88.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2022,
+            "frequency": 72,
+            "trade": 0.0,
+            "wave": 71.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 2012,
+            "frequency": 109,
+            "trade": 0.0,
+            "wave": 98.39997863769531,
+            "tower": 9.600001335144043,
+            "back": 1.0
+        },
+        {
+            "stateID": 2512,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2312,
+            "frequency": 31,
+            "trade": 0.0,
+            "wave": 30.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 2212,
+            "frequency": 110,
+            "trade": 0.5,
+            "wave": 100.9999771118164,
+            "tower": 8.000000953674317,
+            "back": 0.5
+        },
+        {
+            "stateID": 2322,
+            "frequency": 79,
+            "trade": 1.0,
+            "wave": 78.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3322,
+            "frequency": 326,
+            "trade": 3.5,
+            "wave": 322.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3222,
+            "frequency": 441,
+            "trade": 8.5,
+            "wave": 431.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 2222,
+            "frequency": 149,
+            "trade": 1.0,
+            "wave": 148.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2122,
+            "frequency": 45,
+            "trade": 2.0,
+            "wave": 42.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 3122,
+            "frequency": 75,
+            "trade": 10.5,
+            "wave": 63.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 3132,
+            "frequency": 45,
+            "trade": 4.0,
+            "wave": 38.5,
+            "tower": 0.0,
+            "back": 2.5
+        },
+        {
+            "stateID": 3232,
+            "frequency": 102,
+            "trade": 5.5,
+            "wave": 96.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4232,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5243,
+            "frequency": 32,
+            "trade": 1.5,
+            "wave": 30.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5343,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5333,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4313,
+            "frequency": 237,
+            "trade": 0.0,
+            "wave": 236.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5323,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5223,
+            "frequency": 8,
+            "trade": 0.5,
+            "wave": 7.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5233,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4223,
+            "frequency": 231,
+            "trade": 12.5,
+            "wave": 217.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 5230,
+            "frequency": 58,
+            "trade": 5.0,
+            "wave": 51.0,
+            "tower": 0.0,
+            "back": 2.0
+        },
+        {
+            "stateID": 5135,
+            "frequency": 36,
+            "trade": 7.5,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5125,
+            "frequency": 155,
+            "trade": 15.0,
+            "wave": 139.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 6235,
+            "frequency": 123,
+            "trade": 2.0,
+            "wave": 120.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 7245,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7345,
+            "frequency": 41,
+            "trade": 0.0,
+            "wave": 41.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7445,
+            "frequency": 41,
+            "trade": 0.0,
+            "wave": 41.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7335,
+            "frequency": 38,
+            "trade": 0.5,
+            "wave": 37.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7130,
+            "frequency": 13,
+            "trade": 1.0,
+            "wave": 11.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7240,
+            "frequency": 25,
+            "trade": 0.0,
+            "wave": 25.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7120,
+            "frequency": 84,
+            "trade": 8.5,
+            "wave": 75.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7346,
+            "frequency": 26,
+            "trade": 0.5,
+            "wave": 25.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7336,
+            "frequency": 60,
+            "trade": 1.0,
+            "wave": 59.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7236,
+            "frequency": 24,
+            "trade": 0.5,
+            "wave": 23.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7226,
+            "frequency": 79,
+            "trade": 0.0,
+            "wave": 79.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6226,
+            "frequency": 167,
+            "trade": 5.5,
+            "wave": 161.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7326,
+            "frequency": 67,
+            "trade": 1.0,
+            "wave": 66.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7140,
+            "frequency": 13,
+            "trade": 1.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7157,
+            "frequency": 230,
+            "trade": 28.0,
+            "wave": 201.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6157,
+            "frequency": 163,
+            "trade": 19.0,
+            "wave": 144.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7056,
+            "frequency": 51,
+            "trade": 0.0,
+            "wave": 51.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6056,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6055,
+            "frequency": 27,
+            "trade": 0.0,
+            "wave": 27.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5055,
+            "frequency": 91,
+            "trade": 0.0,
+            "wave": 90.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5045,
+            "frequency": 93,
+            "trade": 0.0,
+            "wave": 93.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5035,
+            "frequency": 149,
+            "trade": 0.0,
+            "wave": 149.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5025,
+            "frequency": 387,
+            "trade": 0.0,
+            "wave": 386.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4025,
+            "frequency": 146,
+            "trade": 0.0,
+            "wave": 146.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4425,
+            "frequency": 13,
+            "trade": 0.0,
+            "wave": 13.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4415,
+            "frequency": 73,
+            "trade": 0.5,
+            "wave": 72.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4515,
+            "frequency": 66,
+            "trade": 0.0,
+            "wave": 66.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5525,
+            "frequency": 65,
+            "trade": 0.0,
+            "wave": 65.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4525,
+            "frequency": 35,
+            "trade": 0.0,
+            "wave": 35.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3225,
+            "frequency": 28,
+            "trade": 1.5,
+            "wave": 26.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3205,
+            "frequency": 7,
+            "trade": 0.5,
+            "wave": 6.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3303,
+            "frequency": 588,
+            "trade": 9.5,
+            "wave": 578.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2202,
+            "frequency": 300,
+            "trade": 13.0,
+            "wave": 274.6000061035156,
+            "tower": 10.400001525878907,
+            "back": 2.0
+        },
+        {
+            "stateID": 3202,
+            "frequency": 271,
+            "trade": 12.5,
+            "wave": 257.0,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 3302,
+            "frequency": 260,
+            "trade": 2.0,
+            "wave": 257.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 2221,
+            "frequency": 176,
+            "trade": 3.0,
+            "wave": 169.29998779296876,
+            "tower": 3.200000047683716,
+            "back": 0.5
+        },
+        {
+            "stateID": 3221,
+            "frequency": 47,
+            "trade": 1.5,
+            "wave": 44.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 3321,
+            "frequency": 98,
+            "trade": 0.0,
+            "wave": 98.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3332,
+            "frequency": 128,
+            "trade": 1.5,
+            "wave": 126.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3342,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4442,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4444,
+            "frequency": 118,
+            "trade": 0.0,
+            "wave": 118.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4124,
+            "frequency": 248,
+            "trade": 32.0,
+            "wave": 215.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4134,
+            "frequency": 96,
+            "trade": 12.0,
+            "wave": 81.5,
+            "tower": 0.0,
+            "back": 2.5
+        },
+        {
+            "stateID": 5134,
+            "frequency": 54,
+            "trade": 5.0,
+            "wave": 46.5,
+            "tower": 0.0,
+            "back": 2.5
+        },
+        {
+            "stateID": 4123,
+            "frequency": 47,
+            "trade": 4.5,
+            "wave": 41.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 4113,
+            "frequency": 16,
+            "trade": 2.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4213,
+            "frequency": 129,
+            "trade": 9.0,
+            "wave": 119.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 2302,
+            "frequency": 164,
+            "trade": 1.0,
+            "wave": 158.1999969482422,
+            "tower": 4.800000190734863,
+            "back": 0.0
+        },
+        {
+            "stateID": 2401,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1401,
+            "frequency": 19,
+            "trade": 0.0,
+            "wave": 10.199997901916504,
+            "tower": 8.80000114440918,
+            "back": 0.0
+        },
+        {
+            "stateID": 1411,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 8.799999237060547,
+            "tower": 7.200000762939453,
+            "back": 0.0
+        },
+        {
+            "stateID": 1011,
+            "frequency": 194,
+            "trade": 0.0,
+            "wave": 129.19989013671876,
+            "tower": 64.79995727539063,
+            "back": 0.0
+        },
+        {
+            "stateID": 1211,
+            "frequency": 221,
+            "trade": 0.0,
+            "wave": 157.89990234375,
+            "tower": 61.59996032714844,
+            "back": 1.5
+        },
+        {
+            "stateID": 2311,
+            "frequency": 125,
+            "trade": 0.0,
+            "wave": 93.79996490478516,
+            "tower": 31.199987411499025,
+            "back": 0.0
+        },
+        {
+            "stateID": 2321,
+            "frequency": 72,
+            "trade": 1.0,
+            "wave": 70.19999694824219,
+            "tower": 0.800000011920929,
+            "back": 0.0
+        },
+        {
+            "stateID": 3324,
+            "frequency": 82,
+            "trade": 0.0,
+            "wave": 82.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3334,
+            "frequency": 43,
+            "trade": 0.0,
+            "wave": 43.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3333,
+            "frequency": 225,
+            "trade": 2.5,
+            "wave": 222.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2203,
+            "frequency": 28,
+            "trade": 3.0,
+            "wave": 25.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2201,
+            "frequency": 1247,
+            "trade": 27.5,
+            "wave": 937.2032470703125,
+            "tower": 277.80035400390627,
+            "back": 4.699999809265137
+        },
+        {
+            "stateID": 2301,
+            "frequency": 364,
+            "trade": 3.5,
+            "wave": 286.699951171875,
+            "tower": 72.79998779296875,
+            "back": 1.0
+        },
+        {
+            "stateID": 3200,
+            "frequency": 103,
+            "trade": 7.0,
+            "wave": 95.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3100,
+            "frequency": 64,
+            "trade": 10.5,
+            "wave": 53.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4157,
+            "frequency": 18,
+            "trade": 4.0,
+            "wave": 13.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4057,
+            "frequency": 38,
+            "trade": 0.0,
+            "wave": 38.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4056,
+            "frequency": 50,
+            "trade": 0.0,
+            "wave": 50.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4045,
+            "frequency": 179,
+            "trade": 0.0,
+            "wave": 179.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4034,
+            "frequency": 276,
+            "trade": 0.0,
+            "wave": 276.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4024,
+            "frequency": 768,
+            "trade": 0.0,
+            "wave": 767.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4014,
+            "frequency": 1073,
+            "trade": 0.0,
+            "wave": 1072.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3014,
+            "frequency": 924,
+            "trade": 0.0,
+            "wave": 924.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3004,
+            "frequency": 183,
+            "trade": 0.0,
+            "wave": 183.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4003,
+            "frequency": 93,
+            "trade": 0.0,
+            "wave": 93.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3325,
+            "frequency": 43,
+            "trade": 0.0,
+            "wave": 43.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3335,
+            "frequency": 110,
+            "trade": 0.0,
+            "wave": 110.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3435,
+            "frequency": 38,
+            "trade": 0.5,
+            "wave": 37.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3224,
+            "frequency": 72,
+            "trade": 2.0,
+            "wave": 69.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 3214,
+            "frequency": 258,
+            "trade": 7.0,
+            "wave": 251.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7550,
+            "frequency": 99,
+            "trade": 0.0,
+            "wave": 99.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7540,
+            "frequency": 50,
+            "trade": 0.0,
+            "wave": 50.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5257,
+            "frequency": 130,
+            "trade": 6.0,
+            "wave": 123.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 7247,
+            "frequency": 35,
+            "trade": 4.0,
+            "wave": 31.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7237,
+            "frequency": 24,
+            "trade": 1.0,
+            "wave": 23.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7137,
+            "frequency": 9,
+            "trade": 0.5,
+            "wave": 8.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7127,
+            "frequency": 3,
+            "trade": 0.5,
+            "wave": 2.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7227,
+            "frequency": 42,
+            "trade": 1.0,
+            "wave": 40.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7217,
+            "frequency": 14,
+            "trade": 0.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7317,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7327,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7427,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7426,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4400,
+            "frequency": 100,
+            "trade": 0.0,
+            "wave": 100.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4457,
+            "frequency": 28,
+            "trade": 0.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4447,
+            "frequency": 66,
+            "trade": 0.0,
+            "wave": 66.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4547,
+            "frequency": 31,
+            "trade": 0.0,
+            "wave": 31.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3546,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3536,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3535,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3545,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4534,
+            "frequency": 58,
+            "trade": 1.0,
+            "wave": 57.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3414,
+            "frequency": 99,
+            "trade": 0.0,
+            "wave": 99.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3314,
+            "frequency": 216,
+            "trade": 0.0,
+            "wave": 216.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4414,
+            "frequency": 164,
+            "trade": 0.0,
+            "wave": 164.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4514,
+            "frequency": 176,
+            "trade": 0.0,
+            "wave": 176.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4304,
+            "frequency": 173,
+            "trade": 0.0,
+            "wave": 173.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3227,
+            "frequency": 29,
+            "trade": 3.0,
+            "wave": 25.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3327,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3336,
+            "frequency": 104,
+            "trade": 1.0,
+            "wave": 103.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3326,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4445,
+            "frequency": 106,
+            "trade": 0.0,
+            "wave": 106.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4114,
+            "frequency": 250,
+            "trade": 22.5,
+            "wave": 226.0,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 5114,
+            "frequency": 33,
+            "trade": 6.5,
+            "wave": 26.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5124,
+            "frequency": 82,
+            "trade": 8.0,
+            "wave": 72.0,
+            "tower": 0.0,
+            "back": 2.0
+        },
+        {
+            "stateID": 6124,
+            "frequency": 9,
+            "trade": 1.0,
+            "wave": 7.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6234,
+            "frequency": 17,
+            "trade": 1.5,
+            "wave": 15.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7234,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7235,
+            "frequency": 14,
+            "trade": 1.0,
+            "wave": 13.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6225,
+            "frequency": 183,
+            "trade": 3.0,
+            "wave": 180.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7225,
+            "frequency": 11,
+            "trade": 0.5,
+            "wave": 10.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7325,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6325,
+            "frequency": 138,
+            "trade": 0.0,
+            "wave": 138.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6215,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6320,
+            "frequency": 146,
+            "trade": 1.0,
+            "wave": 144.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 6310,
+            "frequency": 44,
+            "trade": 0.0,
+            "wave": 44.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4545,
+            "frequency": 41,
+            "trade": 0.0,
+            "wave": 41.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4535,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4524,
+            "frequency": 103,
+            "trade": 2.0,
+            "wave": 101.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5454,
+            "frequency": 36,
+            "trade": 0.0,
+            "wave": 36.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5354,
+            "frequency": 168,
+            "trade": 0.0,
+            "wave": 168.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4354,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4254,
+            "frequency": 25,
+            "trade": 3.5,
+            "wave": 21.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6156,
+            "frequency": 30,
+            "trade": 3.5,
+            "wave": 26.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5156,
+            "frequency": 63,
+            "trade": 7.0,
+            "wave": 56.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6255,
+            "frequency": 38,
+            "trade": 1.5,
+            "wave": 36.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5145,
+            "frequency": 31,
+            "trade": 5.0,
+            "wave": 26.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6334,
+            "frequency": 53,
+            "trade": 0.0,
+            "wave": 52.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6344,
+            "frequency": 41,
+            "trade": 0.0,
+            "wave": 41.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4300,
+            "frequency": 139,
+            "trade": 0.0,
+            "wave": 139.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4500,
+            "frequency": 79,
+            "trade": 0.0,
+            "wave": 79.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3500,
+            "frequency": 14,
+            "trade": 0.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3527,
+            "frequency": 14,
+            "trade": 0.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3526,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3525,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3534,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3514,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4504,
+            "frequency": 58,
+            "trade": 0.0,
+            "wave": 58.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3404,
+            "frequency": 39,
+            "trade": 1.0,
+            "wave": 38.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4404,
+            "frequency": 111,
+            "trade": 0.0,
+            "wave": 111.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4403,
+            "frequency": 61,
+            "trade": 0.0,
+            "wave": 61.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3101,
+            "frequency": 90,
+            "trade": 10.0,
+            "wave": 78.0,
+            "tower": 0.0,
+            "back": 2.0
+        },
+        {
+            "stateID": 3102,
+            "frequency": 87,
+            "trade": 13.0,
+            "wave": 74.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4202,
+            "frequency": 19,
+            "trade": 1.0,
+            "wave": 17.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 4143,
+            "frequency": 30,
+            "trade": 1.5,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7553,
+            "frequency": 139,
+            "trade": 0.0,
+            "wave": 139.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6450,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5440,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5320,
+            "frequency": 140,
+            "trade": 0.0,
+            "wave": 139.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7256,
+            "frequency": 55,
+            "trade": 3.0,
+            "wave": 52.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7246,
+            "frequency": 29,
+            "trade": 2.0,
+            "wave": 27.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6346,
+            "frequency": 39,
+            "trade": 1.0,
+            "wave": 38.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6336,
+            "frequency": 51,
+            "trade": 0.0,
+            "wave": 51.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6216,
+            "frequency": 30,
+            "trade": 2.0,
+            "wave": 27.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6116,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7010,
+            "frequency": 305,
+            "trade": 0.0,
+            "wave": 304.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7020,
+            "frequency": 62,
+            "trade": 0.0,
+            "wave": 62.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6010,
+            "frequency": 117,
+            "trade": 0.0,
+            "wave": 117.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6000,
+            "frequency": 44,
+            "trade": 0.0,
+            "wave": 44.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5000,
+            "frequency": 89,
+            "trade": 0.0,
+            "wave": 89.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5057,
+            "frequency": 243,
+            "trade": 0.0,
+            "wave": 243.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4046,
+            "frequency": 64,
+            "trade": 0.0,
+            "wave": 64.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3036,
+            "frequency": 58,
+            "trade": 0.0,
+            "wave": 58.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3035,
+            "frequency": 112,
+            "trade": 0.0,
+            "wave": 112.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4035,
+            "frequency": 92,
+            "trade": 0.0,
+            "wave": 92.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4424,
+            "frequency": 111,
+            "trade": 0.5,
+            "wave": 110.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4303,
+            "frequency": 105,
+            "trade": 0.5,
+            "wave": 104.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2211,
+            "frequency": 397,
+            "trade": 4.0,
+            "wave": 317.7000427246094,
+            "tower": 73.79999542236328,
+            "back": 1.7000000476837159
+        },
+        {
+            "stateID": 3121,
+            "frequency": 75,
+            "trade": 9.5,
+            "wave": 63.5,
+            "tower": 0.0,
+            "back": 2.0
+        },
+        {
+            "stateID": 3131,
+            "frequency": 50,
+            "trade": 6.5,
+            "wave": 42.0,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 3231,
+            "frequency": 76,
+            "trade": 1.5,
+            "wave": 74.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3235,
+            "frequency": 56,
+            "trade": 0.0,
+            "wave": 54.5,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 4245,
+            "frequency": 132,
+            "trade": 8.5,
+            "wave": 122.0,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 6247,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5247,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5246,
+            "frequency": 37,
+            "trade": 3.0,
+            "wave": 34.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5336,
+            "frequency": 15,
+            "trade": 1.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6236,
+            "frequency": 56,
+            "trade": 3.0,
+            "wave": 53.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6125,
+            "frequency": 8,
+            "trade": 0.5,
+            "wave": 7.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6115,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6015,
+            "frequency": 61,
+            "trade": 0.0,
+            "wave": 61.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6025,
+            "frequency": 123,
+            "trade": 0.0,
+            "wave": 123.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6014,
+            "frequency": 46,
+            "trade": 0.0,
+            "wave": 46.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5014,
+            "frequency": 89,
+            "trade": 0.0,
+            "wave": 89.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3043,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3513,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4103,
+            "frequency": 36,
+            "trade": 5.5,
+            "wave": 29.0,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 5253,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7457,
+            "frequency": 154,
+            "trade": 0.0,
+            "wave": 154.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6246,
+            "frequency": 36,
+            "trade": 2.0,
+            "wave": 34.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6345,
+            "frequency": 55,
+            "trade": 1.0,
+            "wave": 54.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6245,
+            "frequency": 32,
+            "trade": 1.0,
+            "wave": 31.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3025,
+            "frequency": 25,
+            "trade": 0.0,
+            "wave": 25.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3024,
+            "frequency": 118,
+            "trade": 0.0,
+            "wave": 118.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3504,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4503,
+            "frequency": 32,
+            "trade": 0.0,
+            "wave": 32.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3503,
+            "frequency": 44,
+            "trade": 0.0,
+            "wave": 44.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3403,
+            "frequency": 141,
+            "trade": 2.5,
+            "wave": 138.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3402,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2121,
+            "frequency": 27,
+            "trade": 4.0,
+            "wave": 22.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 3142,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4142,
+            "frequency": 8,
+            "trade": 2.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4153,
+            "frequency": 2,
+            "trade": 1.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4332,
+            "frequency": 17,
+            "trade": 1.5,
+            "wave": 15.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4120,
+            "frequency": 14,
+            "trade": 2.5,
+            "wave": 11.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4110,
+            "frequency": 40,
+            "trade": 2.0,
+            "wave": 36.5,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 4230,
+            "frequency": 22,
+            "trade": 0.0,
+            "wave": 21.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4340,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4450,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4437,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4427,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4417,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6555,
+            "frequency": 74,
+            "trade": 0.0,
+            "wave": 74.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5554,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5024,
+            "frequency": 120,
+            "trade": 0.0,
+            "wave": 119.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5034,
+            "frequency": 84,
+            "trade": 0.0,
+            "wave": 84.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5044,
+            "frequency": 28,
+            "trade": 0.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6044,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6034,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5030,
+            "frequency": 17,
+            "trade": 0.0,
+            "wave": 17.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6030,
+            "frequency": 22,
+            "trade": 0.0,
+            "wave": 22.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6040,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7040,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7030,
+            "frequency": 37,
+            "trade": 0.0,
+            "wave": 37.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6455,
+            "frequency": 55,
+            "trade": 0.0,
+            "wave": 55.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5324,
+            "frequency": 895,
+            "trade": 1.5,
+            "wave": 893.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7425,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7525,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7015,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7014,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7054,
+            "frequency": 14,
+            "trade": 0.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6054,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6053,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5053,
+            "frequency": 43,
+            "trade": 0.0,
+            "wave": 43.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4053,
+            "frequency": 23,
+            "trade": 0.0,
+            "wave": 23.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4023,
+            "frequency": 141,
+            "trade": 0.0,
+            "wave": 141.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2102,
+            "frequency": 80,
+            "trade": 7.0,
+            "wave": 65.80000305175781,
+            "tower": 7.200000762939453,
+            "back": 0.0
+        },
+        {
+            "stateID": 2100,
+            "frequency": 9,
+            "trade": 1.5,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 2200,
+            "frequency": 43,
+            "trade": 2.0,
+            "wave": 40.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 2227,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 10.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3137,
+            "frequency": 21,
+            "trade": 1.5,
+            "wave": 18.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 4246,
+            "frequency": 67,
+            "trade": 2.0,
+            "wave": 65.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4256,
+            "frequency": 32,
+            "trade": 1.5,
+            "wave": 30.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4255,
+            "frequency": 77,
+            "trade": 4.5,
+            "wave": 72.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5346,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5226,
+            "frequency": 23,
+            "trade": 0.0,
+            "wave": 23.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6326,
+            "frequency": 77,
+            "trade": 0.0,
+            "wave": 77.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7446,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7410,
+            "frequency": 81,
+            "trade": 0.5,
+            "wave": 80.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5456,
+            "frequency": 46,
+            "trade": 0.0,
+            "wave": 46.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6335,
+            "frequency": 186,
+            "trade": 1.0,
+            "wave": 184.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6430,
+            "frequency": 87,
+            "trade": 0.0,
+            "wave": 87.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5056,
+            "frequency": 98,
+            "trade": 0.0,
+            "wave": 98.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6045,
+            "frequency": 26,
+            "trade": 0.0,
+            "wave": 26.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6035,
+            "frequency": 52,
+            "trade": 0.0,
+            "wave": 51.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 4015,
+            "frequency": 784,
+            "trade": 0.0,
+            "wave": 784.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5515,
+            "frequency": 76,
+            "trade": 0.0,
+            "wave": 76.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5505,
+            "frequency": 19,
+            "trade": 0.0,
+            "wave": 19.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4505,
+            "frequency": 46,
+            "trade": 0.0,
+            "wave": 46.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4443,
+            "frequency": 94,
+            "trade": 0.0,
+            "wave": 94.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3123,
+            "frequency": 151,
+            "trade": 19.5,
+            "wave": 131.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4346,
+            "frequency": 88,
+            "trade": 0.0,
+            "wave": 87.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5155,
+            "frequency": 90,
+            "trade": 11.0,
+            "wave": 78.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4055,
+            "frequency": 35,
+            "trade": 0.0,
+            "wave": 35.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4013,
+            "frequency": 55,
+            "trade": 0.0,
+            "wave": 55.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3001,
+            "frequency": 39,
+            "trade": 0.0,
+            "wave": 38.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3431,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4441,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4551,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4555,
+            "frequency": 31,
+            "trade": 0.0,
+            "wave": 31.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4544,
+            "frequency": 24,
+            "trade": 0.0,
+            "wave": 24.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4434,
+            "frequency": 84,
+            "trade": 0.5,
+            "wave": 83.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3114,
+            "frequency": 115,
+            "trade": 8.0,
+            "wave": 107.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2224,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5433,
+            "frequency": 23,
+            "trade": 0.0,
+            "wave": 23.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5443,
+            "frequency": 19,
+            "trade": 0.0,
+            "wave": 19.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5543,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5423,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5424,
+            "frequency": 79,
+            "trade": 0.0,
+            "wave": 79.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5414,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5413,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5403,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5400,
+            "frequency": 32,
+            "trade": 0.0,
+            "wave": 32.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4357,
+            "frequency": 37,
+            "trade": 0.0,
+            "wave": 37.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4247,
+            "frequency": 35,
+            "trade": 1.5,
+            "wave": 33.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7250,
+            "frequency": 16,
+            "trade": 0.5,
+            "wave": 15.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7350,
+            "frequency": 55,
+            "trade": 0.0,
+            "wave": 55.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6240,
+            "frequency": 17,
+            "trade": 1.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5157,
+            "frequency": 69,
+            "trade": 10.0,
+            "wave": 59.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4005,
+            "frequency": 99,
+            "trade": 0.0,
+            "wave": 99.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4305,
+            "frequency": 20,
+            "trade": 0.0,
+            "wave": 20.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3305,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3304,
+            "frequency": 137,
+            "trade": 1.5,
+            "wave": 135.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3432,
+            "frequency": 28,
+            "trade": 0.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3442,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3434,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3433,
+            "frequency": 52,
+            "trade": 1.0,
+            "wave": 51.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3401,
+            "frequency": 28,
+            "trade": 0.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3400,
+            "frequency": 100,
+            "trade": 0.0,
+            "wave": 100.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3300,
+            "frequency": 187,
+            "trade": 1.5,
+            "wave": 185.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4557,
+            "frequency": 17,
+            "trade": 0.0,
+            "wave": 17.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4446,
+            "frequency": 61,
+            "trade": 0.0,
+            "wave": 61.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3436,
+            "frequency": 36,
+            "trade": 0.0,
+            "wave": 36.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3446,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3345,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5314,
+            "frequency": 129,
+            "trade": 1.0,
+            "wave": 128.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5310,
+            "frequency": 20,
+            "trade": 0.5,
+            "wave": 19.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7555,
+            "frequency": 144,
+            "trade": 0.0,
+            "wave": 144.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7420,
+            "frequency": 95,
+            "trade": 1.0,
+            "wave": 94.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7510,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5020,
+            "frequency": 24,
+            "trade": 0.0,
+            "wave": 23.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6020,
+            "frequency": 29,
+            "trade": 0.0,
+            "wave": 29.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7520,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4356,
+            "frequency": 44,
+            "trade": 0.0,
+            "wave": 44.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4355,
+            "frequency": 126,
+            "trade": 0.0,
+            "wave": 126.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5457,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5347,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6446,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7026,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6026,
+            "frequency": 119,
+            "trade": 0.0,
+            "wave": 119.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6016,
+            "frequency": 81,
+            "trade": 0.0,
+            "wave": 81.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7016,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4000,
+            "frequency": 111,
+            "trade": 0.0,
+            "wave": 111.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4047,
+            "frequency": 36,
+            "trade": 0.0,
+            "wave": 36.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4037,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3037,
+            "frequency": 25,
+            "trade": 0.0,
+            "wave": 25.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5210,
+            "frequency": 55,
+            "trade": 1.0,
+            "wave": 54.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5146,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7255,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5105,
+            "frequency": 23,
+            "trade": 4.5,
+            "wave": 18.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6400,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6500,
+            "frequency": 25,
+            "trade": 0.0,
+            "wave": 25.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5500,
+            "frequency": 47,
+            "trade": 0.0,
+            "wave": 46.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3127,
+            "frequency": 13,
+            "trade": 1.0,
+            "wave": 11.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3136,
+            "frequency": 10,
+            "trade": 1.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 3236,
+            "frequency": 56,
+            "trade": 0.0,
+            "wave": 56.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4236,
+            "frequency": 3,
+            "trade": 1.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4433,
+            "frequency": 22,
+            "trade": 0.0,
+            "wave": 22.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7455,
+            "frequency": 35,
+            "trade": 0.0,
+            "wave": 35.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7355,
+            "frequency": 39,
+            "trade": 0.0,
+            "wave": 39.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4242,
+            "frequency": 27,
+            "trade": 2.0,
+            "wave": 25.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7147,
+            "frequency": 3,
+            "trade": 1.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7337,
+            "frequency": 17,
+            "trade": 0.0,
+            "wave": 17.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7437,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7556,
+            "frequency": 34,
+            "trade": 0.0,
+            "wave": 34.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4135,
+            "frequency": 16,
+            "trade": 1.5,
+            "wave": 14.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5435,
+            "frequency": 29,
+            "trade": 0.0,
+            "wave": 29.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6435,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6445,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3124,
+            "frequency": 23,
+            "trade": 1.0,
+            "wave": 21.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 1202,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 0.20000000298023225,
+            "tower": 0.800000011920929,
+            "back": 0.0
+        },
+        {
+            "stateID": 4435,
+            "frequency": 28,
+            "trade": 0.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5357,
+            "frequency": 70,
+            "trade": 0.0,
+            "wave": 70.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4325,
+            "frequency": 61,
+            "trade": 0.0,
+            "wave": 61.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3346,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3245,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4145,
+            "frequency": 52,
+            "trade": 8.5,
+            "wave": 43.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5144,
+            "frequency": 14,
+            "trade": 1.0,
+            "wave": 12.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6144,
+            "frequency": 13,
+            "trade": 1.5,
+            "wave": 11.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5240,
+            "frequency": 5,
+            "trade": 1.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6324,
+            "frequency": 49,
+            "trade": 0.0,
+            "wave": 49.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6314,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6424,
+            "frequency": 13,
+            "trade": 0.0,
+            "wave": 13.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6456,
+            "frequency": 48,
+            "trade": 0.0,
+            "wave": 48.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5214,
+            "frequency": 77,
+            "trade": 1.5,
+            "wave": 75.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6024,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6023,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7023,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7022,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7011,
+            "frequency": 37,
+            "trade": 0.0,
+            "wave": 35.400001525878909,
+            "tower": 1.600000023841858,
+            "back": 0.0
+        },
+        {
+            "stateID": 6011,
+            "frequency": 22,
+            "trade": 0.0,
+            "wave": 20.399999618530275,
+            "tower": 1.600000023841858,
+            "back": 0.0
+        },
+        {
+            "stateID": 6051,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5051,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6351,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6251,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6551,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5551,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4554,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4330,
+            "frequency": 30,
+            "trade": 0.0,
+            "wave": 30.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7436,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7046,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7047,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7037,
+            "frequency": 24,
+            "trade": 0.0,
+            "wave": 24.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7027,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7017,
+            "frequency": 32,
+            "trade": 0.0,
+            "wave": 32.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6017,
+            "frequency": 29,
+            "trade": 0.0,
+            "wave": 29.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7526,
+            "frequency": 29,
+            "trade": 0.0,
+            "wave": 29.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7516,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6516,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6316,
+            "frequency": 14,
+            "trade": 0.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7316,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7216,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2111,
+            "frequency": 92,
+            "trade": 1.0,
+            "wave": 68.5,
+            "tower": 19.999998092651368,
+            "back": 2.5
+        },
+        {
+            "stateID": 6540,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7347,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7136,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7025,
+            "frequency": 90,
+            "trade": 0.0,
+            "wave": 90.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7024,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5010,
+            "frequency": 38,
+            "trade": 0.0,
+            "wave": 38.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3145,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3425,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3524,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2103,
+            "frequency": 10,
+            "trade": 1.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1102,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 4.199999809265137,
+            "tower": 0.800000011920929,
+            "back": 0.0
+        },
+        {
+            "stateID": 3237,
+            "frequency": 29,
+            "trade": 1.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3246,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6434,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3032,
+            "frequency": 42,
+            "trade": 0.0,
+            "wave": 42.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4042,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4257,
+            "frequency": 31,
+            "trade": 1.5,
+            "wave": 29.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6454,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6244,
+            "frequency": 35,
+            "trade": 0.5,
+            "wave": 34.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 6254,
+            "frequency": 14,
+            "trade": 0.5,
+            "wave": 13.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7254,
+            "frequency": 25,
+            "trade": 1.5,
+            "wave": 23.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7354,
+            "frequency": 19,
+            "trade": 0.5,
+            "wave": 18.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7454,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7444,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7156,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6146,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3005,
+            "frequency": 41,
+            "trade": 0.0,
+            "wave": 41.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4440,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5430,
+            "frequency": 36,
+            "trade": 0.0,
+            "wave": 36.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5254,
+            "frequency": 68,
+            "trade": 3.0,
+            "wave": 63.0,
+            "tower": 0.0,
+            "back": 2.0
+        },
+        {
+            "stateID": 5104,
+            "frequency": 13,
+            "trade": 1.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2300,
+            "frequency": 32,
+            "trade": 0.5,
+            "wave": 30.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 3437,
+            "frequency": 27,
+            "trade": 0.0,
+            "wave": 27.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3447,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7053,
+            "frequency": 24,
+            "trade": 0.0,
+            "wave": 24.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5153,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5553,
+            "frequency": 48,
+            "trade": 0.0,
+            "wave": 48.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4543,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2213,
+            "frequency": 13,
+            "trade": 0.0,
+            "wave": 12.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 3210,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3110,
+            "frequency": 10,
+            "trade": 2.0,
+            "wave": 7.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5120,
+            "frequency": 24,
+            "trade": 4.0,
+            "wave": 20.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5130,
+            "frequency": 24,
+            "trade": 2.5,
+            "wave": 21.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4231,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4241,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4322,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4432,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2304,
+            "frequency": 2,
+            "trade": 0.5,
+            "wave": 1.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4235,
+            "frequency": 44,
+            "trade": 2.5,
+            "wave": 40.5,
+            "tower": 0.0,
+            "back": 1.0
+        },
+        {
+            "stateID": 2011,
+            "frequency": 220,
+            "trade": 0.0,
+            "wave": 163.1998748779297,
+            "tower": 56.799964904785159,
+            "back": 0.0
+        },
+        {
+            "stateID": 2015,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 5.399999618530273,
+            "tower": 1.600000023841858,
+            "back": 0.0
+        },
+        {
+            "stateID": 2014,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 1.399999976158142,
+            "tower": 1.600000023841858,
+            "back": 0.0
+        },
+        {
+            "stateID": 2024,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5425,
+            "frequency": 60,
+            "trade": 0.0,
+            "wave": 60.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4131,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4121,
+            "frequency": 3,
+            "trade": 1.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4122,
+            "frequency": 5,
+            "trade": 0.5,
+            "wave": 4.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4222,
+            "frequency": 6,
+            "trade": 0.5,
+            "wave": 5.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4212,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4312,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5304,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4556,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4456,
+            "frequency": 19,
+            "trade": 0.0,
+            "wave": 19.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3337,
+            "frequency": 66,
+            "trade": 0.0,
+            "wave": 66.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3126,
+            "frequency": 5,
+            "trade": 1.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3135,
+            "frequency": 13,
+            "trade": 0.0,
+            "wave": 11.5,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 4320,
+            "frequency": 36,
+            "trade": 1.0,
+            "wave": 35.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4310,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6047,
+            "frequency": 32,
+            "trade": 0.0,
+            "wave": 32.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2217,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 9.899999618530274,
+            "tower": 1.600000023841858,
+            "back": 0.5
+        },
+        {
+            "stateID": 2117,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 9.899999618530274,
+            "tower": 1.600000023841858,
+            "back": 0.5
+        },
+        {
+            "stateID": 2127,
+            "frequency": 12,
+            "trade": 2.0,
+            "wave": 8.5,
+            "tower": 0.0,
+            "back": 1.5
+        },
+        {
+            "stateID": 3226,
+            "frequency": 23,
+            "trade": 0.5,
+            "wave": 22.0,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4136,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6134,
+            "frequency": 14,
+            "trade": 3.0,
+            "wave": 10.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7244,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6250,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6224,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7434,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7544,
+            "frequency": 32,
+            "trade": 0.0,
+            "wave": 32.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6004,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5003,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6136,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6126,
+            "frequency": 7,
+            "trade": 1.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6410,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6510,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4347,
+            "frequency": 23,
+            "trade": 0.0,
+            "wave": 23.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3347,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4146,
+            "frequency": 14,
+            "trade": 3.5,
+            "wave": 10.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4533,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5533,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5544,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3000,
+            "frequency": 81,
+            "trade": 0.0,
+            "wave": 81.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3027,
+            "frequency": 28,
+            "trade": 0.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3026,
+            "frequency": 17,
+            "trade": 0.0,
+            "wave": 17.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3424,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3422,
+            "frequency": 11,
+            "trade": 0.5,
+            "wave": 10.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2422,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2412,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 4.199999809265137,
+            "tower": 0.800000011920929,
+            "back": 0.0
+        },
+        {
+            "stateID": 2112,
+            "frequency": 36,
+            "trade": 0.0,
+            "wave": 29.60000228881836,
+            "tower": 6.40000057220459,
+            "back": 0.0
+        },
+        {
+            "stateID": 6420,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2003,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1016,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 2.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 2026,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 2.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4036,
+            "frequency": 13,
+            "trade": 0.0,
+            "wave": 13.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4026,
+            "frequency": 21,
+            "trade": 0.0,
+            "wave": 21.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2303,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4010,
+            "frequency": 28,
+            "trade": 0.0,
+            "wave": 28.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4020,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 8.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7000,
+            "frequency": 26,
+            "trade": 0.0,
+            "wave": 26.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6135,
+            "frequency": 19,
+            "trade": 1.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5033,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5023,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3502,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1111,
+            "frequency": 98,
+            "trade": 0.0,
+            "wave": 70.6500015258789,
+            "tower": 26.099992752075197,
+            "back": 1.350000023841858
+        },
+        {
+            "stateID": 1114,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 1.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 2114,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 0.25,
+            "tower": 0.5,
+            "back": 0.3499999940395355
+        },
+        {
+            "stateID": 2124,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 3.25,
+            "tower": 0.5,
+            "back": 0.3499999940395355
+        },
+        {
+            "stateID": 3234,
+            "frequency": 36,
+            "trade": 0.5,
+            "wave": 35.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5213,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2021,
+            "frequency": 24,
+            "trade": 0.0,
+            "wave": 24.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3021,
+            "frequency": 24,
+            "trade": 0.0,
+            "wave": 24.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5043,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3533,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5133,
+            "frequency": 6,
+            "trade": 2.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1311,
+            "frequency": 55,
+            "trade": 0.0,
+            "wave": 37.40000915527344,
+            "tower": 17.600000381469728,
+            "back": 0.0
+        },
+        {
+            "stateID": 1014,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1214,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 4.899999618530273,
+            "tower": 1.600000023841858,
+            "back": 0.5
+        },
+        {
+            "stateID": 2324,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5303,
+            "frequency": 12,
+            "trade": 0.5,
+            "wave": 11.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5203,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6203,
+            "frequency": 4,
+            "trade": 1.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6303,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2413,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 1.2000000476837159,
+            "tower": 0.800000011920929,
+            "back": 0.0
+        },
+        {
+            "stateID": 1412,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 4.400000095367432,
+            "tower": 1.600000023841858,
+            "back": 0.0
+        },
+        {
+            "stateID": 1422,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4401,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4501,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4423,
+            "frequency": 45,
+            "trade": 0.0,
+            "wave": 45.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4413,
+            "frequency": 59,
+            "trade": 0.0,
+            "wave": 59.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5326,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5216,
+            "frequency": 34,
+            "trade": 0.0,
+            "wave": 34.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5404,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3247,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4237,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5236,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7100,
+            "frequency": 16,
+            "trade": 3.0,
+            "wave": 13.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4155,
+            "frequency": 51,
+            "trade": 6.0,
+            "wave": 45.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4546,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4336,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7534,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5110,
+            "frequency": 41,
+            "trade": 4.0,
+            "wave": 37.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7545,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2226,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4335,
+            "frequency": 25,
+            "trade": 0.0,
+            "wave": 25.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6524,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6514,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5514,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6513,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6523,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7523,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6512,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5512,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5511,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5513,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5522,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5521,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4521,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4511,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4520,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4510,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4125,
+            "frequency": 16,
+            "trade": 3.0,
+            "wave": 13.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7546,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7536,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6526,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6416,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7034,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7033,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7043,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7032,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7021,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6021,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6001,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5001,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4001,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4051,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4041,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7055,
+            "frequency": 14,
+            "trade": 0.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3045,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7036,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6535,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6525,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5526,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5426,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5416,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4012,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4011,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1301,
+            "frequency": 35,
+            "trade": 0.0,
+            "wave": 19.799999237060548,
+            "tower": 15.200002670288086,
+            "back": 0.0
+        },
+        {
+            "stateID": 2215,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2225,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5036,
+            "frequency": 26,
+            "trade": 0.0,
+            "wave": 26.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4405,
+            "frequency": 22,
+            "trade": 0.0,
+            "wave": 22.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7551,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7051,
+            "frequency": 31,
+            "trade": 0.0,
+            "wave": 31.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6553,
+            "frequency": 45,
+            "trade": 0.0,
+            "wave": 45.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4553,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4430,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6350,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3405,
+            "frequency": 16,
+            "trade": 0.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6052,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5052,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5552,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4552,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4542,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3220,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7150,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5006,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5306,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5305,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3343,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3312,
+            "frequency": 73,
+            "trade": 0.0,
+            "wave": 73.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6436,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7315,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2325,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6425,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6315,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6354,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3147,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4101,
+            "frequency": 2,
+            "trade": 0.5,
+            "wave": 1.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4102,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6550,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5524,
+            "frequency": 19,
+            "trade": 0.0,
+            "wave": 19.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2234,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2204,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2423,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7050,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3046,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4154,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 4.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 2402,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5204,
+            "frequency": 19,
+            "trade": 2.0,
+            "wave": 17.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3125,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4422,
+            "frequency": 23,
+            "trade": 0.0,
+            "wave": 23.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3031,
+            "frequency": 33,
+            "trade": 0.0,
+            "wave": 33.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4031,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4453,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2027,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3444,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5420,
+            "frequency": 14,
+            "trade": 0.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5410,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3212,
+            "frequency": 45,
+            "trade": 0.5,
+            "wave": 44.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2327,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1221,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2214,
+            "frequency": 3,
+            "trade": 0.5,
+            "wave": 2.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3311,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 18.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3211,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4156,
+            "frequency": 11,
+            "trade": 1.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6243,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6253,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6534,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5534,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5154,
+            "frequency": 18,
+            "trade": 3.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2216,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2326,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2315,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7530,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4016,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4426,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2023,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3011,
+            "frequency": 30,
+            "trade": 0.0,
+            "wave": 30.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5116,
+            "frequency": 15,
+            "trade": 1.0,
+            "wave": 13.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7126,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2134,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5415,
+            "frequency": 19,
+            "trade": 0.0,
+            "wave": 19.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2123,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2313,
+            "frequency": 13,
+            "trade": 0.0,
+            "wave": 13.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2223,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3426,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4006,
+            "frequency": 25,
+            "trade": 0.0,
+            "wave": 25.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3505,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2113,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2013,
+            "frequency": 19,
+            "trade": 0.0,
+            "wave": 19.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5504,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3445,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5446,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6426,
+            "frequency": 15,
+            "trade": 0.0,
+            "wave": 15.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6415,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6515,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3412,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2025,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3241,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3341,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5540,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5453,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4337,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6155,
+            "frequency": 4,
+            "trade": 1.5,
+            "wave": 2.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7035,
+            "frequency": 18,
+            "trade": 0.0,
+            "wave": 17.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 7044,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6013,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6003,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5002,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4002,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3441,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5054,
+            "frequency": 32,
+            "trade": 0.0,
+            "wave": 31.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4301,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2000,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 9.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7435,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5250,
+            "frequency": 5,
+            "trade": 1.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5140,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2017,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3427,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6520,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3443,
+            "frequency": 1,
+            "trade": 0.5,
+            "wave": 0.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6443,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6333,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 2.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 4536,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2316,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4306,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4506,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2205,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3143,
+            "frequency": 3,
+            "trade": 0.5,
+            "wave": 2.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6005,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7535,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5017,
+            "frequency": 35,
+            "trade": 0.0,
+            "wave": 35.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5027,
+            "frequency": 23,
+            "trade": 0.0,
+            "wave": 23.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5007,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4007,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3523,
+            "frequency": 8,
+            "trade": 0.0,
+            "wave": 8.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2323,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7045,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3547,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2317,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4147,
+            "frequency": 20,
+            "trade": 4.0,
+            "wave": 16.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5530,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4540,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4550,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3550,
+            "frequency": 12,
+            "trade": 0.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4032,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3344,
+            "frequency": 4,
+            "trade": 0.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4454,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5143,
+            "frequency": 8,
+            "trade": 1.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1012,
+            "frequency": 25,
+            "trade": 0.0,
+            "wave": 16.5,
+            "tower": 8.000000953674317,
+            "back": 0.5
+        },
+        {
+            "stateID": 3112,
+            "frequency": 13,
+            "trade": 1.0,
+            "wave": 12.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4351,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4251,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3522,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2522,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6140,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6130,
+            "frequency": 5,
+            "trade": 1.5,
+            "wave": 3.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6027,
+            "frequency": 14,
+            "trade": 0.0,
+            "wave": 14.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5106,
+            "frequency": 8,
+            "trade": 1.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4451,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 7.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7344,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1213,
+            "frequency": 7,
+            "trade": 0.0,
+            "wave": 4.600000381469727,
+            "tower": 2.4000000953674318,
+            "back": 0.0
+        },
+        {
+            "stateID": 1223,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 1.2000000476837159,
+            "tower": 0.800000011920929,
+            "back": 0.0
+        },
+        {
+            "stateID": 1112,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2502,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 4.199999809265137,
+            "tower": 0.800000011920929,
+            "back": 0.0
+        },
+        {
+            "stateID": 2501,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 8.59999942779541,
+            "tower": 2.4000000953674318,
+            "back": 0.0
+        },
+        {
+            "stateID": 1501,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 7.400000095367432,
+            "tower": 1.600000023841858,
+            "back": 0.0
+        },
+        {
+            "stateID": 2411,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 6.799999713897705,
+            "tower": 3.200000047683716,
+            "back": 0.0
+        },
+        {
+            "stateID": 4201,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4302,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5302,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6145,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4252,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 1.5,
+            "tower": 0.0,
+            "back": 0.5
+        },
+        {
+            "stateID": 5352,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5547,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5546,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5436,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4436,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4326,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3105,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3501,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6347,
+            "frequency": 11,
+            "trade": 0.0,
+            "wave": 11.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3042,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3052,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 3051,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 2051,
+            "frequency": 23,
+            "trade": 0.0,
+            "wave": 16.599998474121095,
+            "tower": 6.40000057220459,
+            "back": 0.0
+        },
+        {
+            "stateID": 5147,
+            "frequency": 5,
+            "trade": 1.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5545,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5535,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1312,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 3.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 1212,
+            "frequency": 3,
+            "trade": 0.0,
+            "wave": 1.399999976158142,
+            "tower": 1.600000023841858,
+            "back": 0.0
+        },
+        {
+            "stateID": 1115,
+            "frequency": 9,
+            "trade": 0.0,
+            "wave": 5.800000190734863,
+            "tower": 3.200000047683716,
+            "back": 0.0
+        },
+        {
+            "stateID": 1215,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4132,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5103,
+            "frequency": 3,
+            "trade": 1.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7334,
+            "frequency": 6,
+            "trade": 0.0,
+            "wave": 6.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 7447,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6337,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6237,
+            "frequency": 5,
+            "trade": 0.5,
+            "wave": 4.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6227,
+            "frequency": 6,
+            "trade": 0.5,
+            "wave": 5.5,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6217,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 4412,
+            "frequency": 10,
+            "trade": 0.0,
+            "wave": 10.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 5136,
+            "frequency": 5,
+            "trade": 1.0,
+            "wave": 4.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6545,
+            "frequency": 5,
+            "trade": 0.0,
+            "wave": 5.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6327,
+            "frequency": 2,
+            "trade": 0.0,
+            "wave": 2.0,
+            "tower": 0.0,
+            "back": 0.0
+        },
+        {
+            "stateID": 6317,
+            "frequency": 1,
+            "trade": 0.0,
+            "wave": 1.0,
+            "tower": 0.0,
+            "back": 0.0
+        }
+    ]
+}

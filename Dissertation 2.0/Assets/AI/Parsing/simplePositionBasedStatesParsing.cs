@@ -355,6 +355,16 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                         bool towerAction = false;
                         bool playerAction = false;
 
+                        if(log.redMinionsAlive > 0)
+                        {
+                            enemyHasWave = true;
+                        }
+
+                        if (log.blueMinionsAlive > 0)
+                        {
+                            hasWave = true;
+                        }
+
                         float towerHealthDifference = log.redTowerData.health - lastLog.redTowerData.health;
 
                         if (towerHealthDifference > towerDamageThreshold && hasWave)
@@ -384,7 +394,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
 
                         float playerHealthDifference = log.redPlayerData.health - lastLog.redPlayerData.health;
 
-                        if (playerHealthDifference > towerDamageThreshold && log.redPlayerData.isAlive)
+                        if (playerHealthDifference > playerDamageThreshold && log.redPlayerData.isAlive)
                         {
                             playerAction = true;
                         }

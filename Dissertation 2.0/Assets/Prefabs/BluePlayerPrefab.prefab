@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efff56446ce7f942aa9990cca82a1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AI_PickAction
-  statesDataFile: 
+  statesDataFile: \ConfigData\combinedStatesData.json
   checkStateFrequency: 0
   blueTowerPosition: {x: -16.5, y: -16.5}
   redTowerPosition: {x: 16.5, y: 16.5}
@@ -1485,6 +1485,12 @@ MonoBehaviour:
   playerAbilityCastRangePlayer: 10
   bluePlayerSpawn: {x: -19.2, y: -19.2}
   redPlayerSpawn: {x: 19.2, y: 19.2}
+  blueMinionCentre: {x: 0, y: 0}
+  redMinionCentre: {x: 0, y: 0}
+  bluePlayerPosition: {x: 0, y: 0}
+  redPlayerPosition: {x: 0, y: 0}
+  blueFrontMinionCluster: []
+  redFrontMinionCluster: []
 --- !u!1 &3869682917775190698
 GameObject:
   m_ObjectHideFlags: 0

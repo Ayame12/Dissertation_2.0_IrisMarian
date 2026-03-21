@@ -45,12 +45,13 @@ public class MenuSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(string.IsNullOrEmpty(playerIdentifier.text))
-        {
-            hostGameButton.GetComponent<Button>().enabled = false;
-            joinGameButton.GetComponent<Button>().enabled = false;
-        }
-        else
+        //button dissabling off for open day build
+        //if(string.IsNullOrEmpty(playerIdentifier.text))
+        //{
+        //    hostGameButton.GetComponent<Button>().enabled = false;
+        //    joinGameButton.GetComponent<Button>().enabled = false;
+        //}
+        //else
         {
             hostGameButton.GetComponent<Button>().enabled = true;
             joinGameButton.GetComponent<Button>().enabled = true;
