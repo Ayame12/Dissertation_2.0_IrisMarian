@@ -1385,15 +1385,13 @@ MonoBehaviour:
   bluePlayerRespawnCooldown: 15
   redPlayerRespawnCooldown: 15
   respawnIncrement: 1
-  blueWins: 0
   gameDone: 0
-  winnerText: {fileID: 0}
-  logGame: 0
-  logHostOnly: 0
+  logGame: 1
+  logHostOnly: 1
   prettyPrinting: 1
-  saveFilePath: 
+  saveFilePath: E:\DefaultFolders\Documents\DissertationData\testDataWithInput
   writeFrequency: 5
-  serializeLogFrequency: 0.25
+  serializeLogFrequency: 1
   playerIdentifier: {fileID: 1021641442}
 --- !u!1 &1021641440
 GameObject:

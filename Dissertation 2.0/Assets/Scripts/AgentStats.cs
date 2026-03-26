@@ -165,14 +165,6 @@ public class AgentStats : NetworkBehaviour
             {
                 GameManagerScript.LoadNetwork(GameManagerScript.Scene.GameEnd);
 
-                if (friendlyLayer == 9)
-                {
-                    GameManagerScript.Instance.blueWins = true;
-                }
-                else
-                {
-                    GameManagerScript.Instance.blueWins = false;
-                }
                 GameManagerScript.Instance.gameDone = true;
                 
             }

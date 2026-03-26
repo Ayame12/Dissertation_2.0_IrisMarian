@@ -102,9 +102,7 @@ public class GameManagerScript : NetworkBehaviour
     private float redPlayerRespawnTimer;
     public float respawnIncrement;
 
-    public bool blueWins;
     public bool gameDone;
-    public Text winnerText;
 
     public bool logGame = true;
     public bool logHostOnly = true;
@@ -222,24 +220,6 @@ public class GameManagerScript : NetworkBehaviour
                         logGame = false;
                     }
 
-                }
-            }
-        }
-
-        if (gameDone)
-        {
-            if(GameObject.FindGameObjectWithTag("winnerText") != null)
-            {
-                GameObject textObj = GameObject.FindGameObjectWithTag("winnerText");
-                winnerText = textObj.GetComponent<Text>();
-
-                if (blueWins)
-                {
-                    winnerText.text = "Blue Wins!";
-                }
-                else
-                {
-                    winnerText.text = "Red Wins!";
                 }
             }
         }

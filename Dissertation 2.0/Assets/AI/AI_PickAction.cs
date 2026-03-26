@@ -25,6 +25,7 @@ public class AI_PickAction : MonoBehaviour
     private float[] distanceIncrementsPlayerToPlayer = { 6, 10, 15, 20 };
     private float[] distanceIncrementsPlayerToEnemyWave = { 6, 10, 15, 20 };
     private float[] distanceIncrementsWaveToEnemyTower = { 6, 10, 18, 27, 35, 40 };
+    private int[] playerHealthIncrements = { 200, 400 };
 
     private AI_BehavorTree behaviorTree;
 
@@ -162,11 +163,50 @@ public class AI_PickAction : MonoBehaviour
                 blueWaveToRedTowerDistanceIndex = index;
             }
 
+            int bluePlayerHealthIncrementIndex = playerHealthIncrements.Length;
+            int redPlayerHealthIncrementIndex = playerHealthIncrements.Length;
+
+            for (int i = 0; i < playerHealthIncrements.Length; ++i)
+            {
+                if (GetComponent<AgentStats>().isAlive)
+                {
+                    if (GetComponent<AgentStats>().health < playerHealthIncrements[i])
+                    {
+                        bluePlayerHealthIncrementIndex = i + 1;
+                        break;
+                    }
+                }
+                else
+                {
+                    bluePlayerHealthIncrementIndex = 0;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < playerHealthIncrements.Length; ++i)
+            {
+                if (redPlayer.GetComponent<AgentStats>().isAlive)
+                {
+                    if (redPlayer.GetComponent<AgentStats>().health < playerHealthIncrements[i])
+                    {
+                        redPlayerHealthIncrementIndex = i + 1;
+                        break;
+                    }
+                }
+                else
+                {
+                    redPlayerHealthIncrementIndex = 0;
+                    break;
+                }
+            }
+
             int stateID = 0;
-            stateID += bluePlayerToRedTowerDistanceIndex * 1000;
-            stateID += playersDistanceIndex * 100;
-            stateID += bluePlayerToRedWaveDistanceIndex * 10;
-            stateID += blueWaveToRedTowerDistanceIndex;
+            stateID += bluePlayerToRedTowerDistanceIndex * 100000;
+            stateID += playersDistanceIndex * 10000;
+            stateID += bluePlayerToRedWaveDistanceIndex * 1000;
+            stateID += blueWaveToRedTowerDistanceIndex * 100;
+            stateID += bluePlayerHealthIncrementIndex * 10;
+            stateID += redPlayerHealthIncrementIndex * 1;
 
             float playerActionVal = 0;
             float clearActionVal = 0;

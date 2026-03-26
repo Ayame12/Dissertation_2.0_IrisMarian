@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[Serializable]
 public class PlayerInputSerializedData
 {
     public bool isBlue = false;

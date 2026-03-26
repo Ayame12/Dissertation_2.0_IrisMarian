@@ -23,6 +23,7 @@ public class PlayerSerializedData
     public bool isStunned = false;
     public bool isSlowed = false;
     public float stunRemaining = 0;
+    public PlayerInputSerializedData playerInput;
 }
 
 [Serializable]
