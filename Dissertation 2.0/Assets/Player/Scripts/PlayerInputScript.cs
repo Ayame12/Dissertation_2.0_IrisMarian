@@ -17,6 +17,7 @@ public class PlayerInputSerializedData
     public bool isHoveringTower = false;
     public bool isHoveringMinion = false;
     public bool isHoveringGround = false;
+    public int target = 0;
 }
 public class PlayerInputScript : MonoBehaviour
 {
@@ -43,14 +44,23 @@ public class PlayerInputScript : MonoBehaviour
     public bool ability2 = false;
     public bool ability3 = false;
 
+    public float rootRange;
+    public float ultRange;
+    public float rootTargetingDistanceThreshold;
+    public float ultTargetingDistanceThreshold;
+
     public bool newInput = false;
 
     public GameObject target;
+
+    private GameObject enemyPlayer;
 
     private AgentStats stats;
     private AI_InputSript ai_input;
 
     public PlayerInputSerializedData serializedData;
+
+    private PlayerMovement playerMovement;
 
     void Start()
     {
@@ -60,6 +70,7 @@ public class PlayerInputScript : MonoBehaviour
         cam = Camera.main;
 
         stats = GetComponent<AgentStats>();
+        playerMovement = GetComponent<PlayerMovement>();
         serializedData = new PlayerInputSerializedData();
         mousePosInGame.x = 0;
         mousePosInGame.y = 0;
@@ -82,6 +93,15 @@ public class PlayerInputScript : MonoBehaviour
     // Update is called once per frame
     public void tickUpdate()
     {
+        if (!enemyPlayer)
+        {
+            enemyPlayer = GameObject.FindGameObjectWithTag(stats.enemyPlayerTag);
+            if (!enemyPlayer)
+            {
+                return;
+            }
+        }
+
         move = false;
         attack = false;
         ability1 = false;
@@ -101,6 +121,7 @@ public class PlayerInputScript : MonoBehaviour
             serializedData.isHoveringTower = false;
             serializedData.isHoveringMinion = false;
             serializedData.isHoveringGround = false;
+            serializedData.target = 0;
 
             Vector2 currentMousePos = Mouse.current.position.ReadValue();
 
@@ -147,7 +168,6 @@ public class PlayerInputScript : MonoBehaviour
                             //    tempTarget = hit.transform.gameObject;
                             //}
                             tempTarget = hit.transform.root.gameObject;
-
                         }
 
                         //lastRightClick = mousePosInGame;
@@ -214,6 +234,114 @@ public class PlayerInputScript : MonoBehaviour
                 serializedData.mousePosInGame.x = mousePosInGame.x;
                 serializedData.mousePosInGame.y = mousePosInGame.y;
                 serializedData.mousePosInGame.z = mousePosInGame.z;
+
+                if (target)
+                {
+                    if (target.GetComponent<PlayerManager>())
+                    {
+                        serializedData.target = 1;
+                    }
+                    else if (target.GetComponent<TowerScript>())
+                    {
+                        serializedData.target = 2;
+                    }
+                    else
+                    {
+                        serializedData.target = 3;
+                    }
+                }
+                else
+                {
+                    if (playerMovement.targetEnemy)
+                    {
+                        if (playerMovement.targetEnemy.GetComponent<PlayerManager>())
+                        {
+                            serializedData.target = 1;
+                        }
+                        else if (playerMovement.targetEnemy.GetComponent<TowerScript>())
+                        {
+                            serializedData.target = 2;
+                        }
+                        else 
+                        {
+                            serializedData.target = 3;
+                        }
+                    }
+                }
+                
+                if (ability1)
+                {
+                    Vector2 enemyPos = new Vector2(enemyPlayer.transform.position.x, enemyPlayer.transform.position.z);
+                    Vector2 thisPos = new Vector2(transform.position.x, transform.position.z);
+                    Vector2 mouse2D = new Vector2(mousePosInGame.x, mousePosInGame.z);
+
+                    if (Vector2.Distance(thisPos, enemyPos) < rootRange + 1)
+                    {
+
+                        Vector2 distanceBetweenPlayers = enemyPos - thisPos;
+                        Vector2 dir = (mouse2D - thisPos).normalized;
+
+                        float t = Vector3.Dot(distanceBetweenPlayers, dir);
+
+                        float shortestDistance = 0;
+
+                        if (t >= 0)
+                        {
+                            // Use perpendicular distance
+                            shortestDistance = Vector3.Cross(distanceBetweenPlayers, dir).magnitude;
+
+                            if (shortestDistance < rootTargetingDistanceThreshold)
+                            {
+                                serializedData.target = 1;
+                            }
+                            else
+                            {
+                                serializedData.target = 3;
+                            }
+                        }
+                        else
+                        {
+                            serializedData.target = 3;
+                        }
+                    }
+                }
+
+                if (ability3)
+                {
+                    Vector2 enemyPos = new Vector2(enemyPlayer.transform.position.x, enemyPlayer.transform.position.z);
+                    Vector2 thisPos = new Vector2(transform.position.x, transform.position.z);
+                    Vector2 mouse2D = new Vector2(mousePosInGame.x, mousePosInGame.z);
+
+                    if (Vector2.Distance(thisPos, enemyPos) < ultRange + 1)
+                    {
+
+                        Vector2 distanceBetweenPlayers = enemyPos - thisPos;
+                        Vector2 dir = mouse2D - thisPos;
+
+                        float t = Vector3.Dot(distanceBetweenPlayers, dir);
+
+                        float shortestDistance;
+
+                        if (t >= 0)
+                        {
+                            // Use perpendicular distance
+                            shortestDistance = Vector3.Cross(distanceBetweenPlayers, dir).magnitude;
+
+                            if (shortestDistance < ultTargetingDistanceThreshold)
+                            {
+                                serializedData.target = 1;
+                            }
+                            else
+                            {
+                                serializedData.target = 3;
+                            }
+                        }
+                        else
+                        {
+                            serializedData.target = 3;
+                        }
+                    }
+                }
 
                 if (tempTarget != null)
                 {

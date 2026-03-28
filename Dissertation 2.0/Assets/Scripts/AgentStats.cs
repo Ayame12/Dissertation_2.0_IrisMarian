@@ -26,9 +26,6 @@ public class AgentStats : NetworkBehaviour
     public int enemyLayer;
     public int friendlyLayer;
 
-    //public GameObject enemyPlayer;
-    //public GameObject enemyTower;
-
     public string enemyTowerTag;
     public string enemyMinionTag;
     public string enemyPlayerTag;

@@ -166,6 +166,7 @@ public class PlayerManager : NetworkBehaviour
         serializedPlayer.isStunned = stats.isStunned;
         serializedPlayer.isSlowed = stats.isSlowed;
         serializedPlayer.stunRemaining = stats.stunTimer;
+        serializedPlayer.playerInput = playerInput.serializedData;
     }
 
     public void resetPlayerComponents()

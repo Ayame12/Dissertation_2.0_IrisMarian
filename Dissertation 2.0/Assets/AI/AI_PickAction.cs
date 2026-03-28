@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AI_PickAction : MonoBehaviour
@@ -12,10 +14,17 @@ public class AI_PickAction : MonoBehaviour
 
     private bool checkState = false;
 
-    public Vector2 blueTowerPosition = new Vector2(-16.5f, -16.5f);
-    public Vector2 redTowerPosition = new Vector2(16.5f, 16.5f);
+    //private GameObject redPlayer;
+    //private GameObject bluePlayer;
 
-    private GameObject redPlayer;
+    private GameObject enemyPlayer;
+    private GameObject enemyTower;
+    private GameObject friendlyTower;
+    private Vector2 enemyTowerPos;
+    private Vector2 friendlyTowerPos;
+    private string friendlyMinionTag;
+    private string enemyMinionTag;
+
     //Vector2 bluePlayerSpawn;
     //Vector2 redPlayerSpawn;
 
@@ -28,6 +37,9 @@ public class AI_PickAction : MonoBehaviour
     private int[] playerHealthIncrements = { 200, 400 };
 
     private AI_BehavorTree behaviorTree;
+
+    public Vector2 towerReactionTime = new Vector2(0.1f, 0.2f);
+    private float towerReactionTimer = 0.1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,10 +58,42 @@ public class AI_PickAction : MonoBehaviour
     // Update is called once per frame
     public void tickUpdate()
     {
-        if (!redPlayer)
+        if(!enemyPlayer)
         {
-            redPlayer = GameObject.FindGameObjectWithTag("RedPlayer");
-            if (!redPlayer)
+            if (gameObject.tag == "RedPlayer")
+            {
+                enemyPlayer = GameObject.FindGameObjectWithTag("BluePlayer");
+
+                if (!enemyPlayer)
+                {
+                    return;
+                }
+
+                enemyTower = GameObject.FindGameObjectWithTag("BlueTower");
+                friendlyTower = GameObject.FindGameObjectWithTag("RedTower");
+                enemyTowerPos = new Vector2(-16.5f, -16.5f);
+                friendlyTowerPos = new Vector2(16.5f, 16.5f);
+                friendlyMinionTag = "RedMinion";
+                enemyMinionTag = "BlueMinion";
+            }
+            else
+            {
+                enemyPlayer = GameObject.FindGameObjectWithTag("RedPlayer");
+
+                if (!enemyPlayer)
+                {
+                    return;
+                }
+
+                enemyTower = GameObject.FindGameObjectWithTag("RedTower");
+                friendlyTower = GameObject.FindGameObjectWithTag("BlueTower");
+                enemyTowerPos = new Vector2(16.5f, 16.5f);
+                friendlyTowerPos = new Vector2(-16.5f, -16.5f);
+                friendlyMinionTag = "BlueMinion";
+                enemyMinionTag = "RedMinion";
+            }
+
+            if (!enemyPlayer)
             {
                 return;
             }
@@ -66,22 +110,120 @@ public class AI_PickAction : MonoBehaviour
         {
             checkState = false;
 
-            int bluePlayerToRedTowerDistanceIndex;
-            int playersDistanceIndex;
-            int bluePlayerToRedWaveDistanceIndex;
-            int blueWaveToRedTowerDistanceIndex;
+            Vector2 friendlyPlayerPos = new Vector2(transform.position.x, transform.position.z);
+            Vector2 enemyPlayerPos = new Vector2(enemyPlayer.transform.position.x, enemyPlayer.transform.position.z);
 
-            float bluePlayerToRedTowerDistance = Vector2.Distance(behaviorTree.bluePlayerPosition, redTowerPosition);
-            float playersDistance = Vector2.Distance(behaviorTree.bluePlayerPosition, behaviorTree.redPlayerPosition);
-            float bluePlayerToRedWaveDistance = Vector2.Distance(behaviorTree.bluePlayerPosition, behaviorTree.redMinionCentre);
-            float blueWaveToRedTowerDistance = Vector2.Distance(behaviorTree.blueMinionCentre, redTowerPosition);
+            Vector2 friendlyMinionCentre = new Vector2(0, 0);
+            Vector2 enemyMinionCentre = new Vector2(0, 0);
+
+            List<GameObject> friendlyFrontMinionCluster = new List<GameObject>();
+            List<GameObject> enemyFrontMinionCluster = new List<GameObject>();
+
+            {
+                GameObject[] friendlyMinions = GameObject.FindGameObjectsWithTag(friendlyMinionTag);
+                GameObject[] enemyMinions = GameObject.FindGameObjectsWithTag(enemyMinionTag);
+
+                GameObject friendlyFrontMinion;
+                GameObject enemyFrontMinion;
+
+                float shortestFriendlyMinionDistanceToTower = Vector2.Distance(friendlyTowerPos, enemyPlayerPos);
+                float shortestEnemyMinionDistanceToTower = Vector2.Distance(friendlyTowerPos, enemyPlayerPos);
+
+                //friendly minion wave
+                foreach (GameObject minion in friendlyMinions)
+                {
+                    Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);
+
+                    float distanceToTower = Vector2.Distance(enemyTowerPos, minionPos);
+                    if (distanceToTower < shortestFriendlyMinionDistanceToTower)
+                    {
+                        shortestFriendlyMinionDistanceToTower = distanceToTower;
+                        friendlyFrontMinion = minion;
+                        friendlyMinionCentre = new Vector2(friendlyFrontMinion.transform.position.x, friendlyFrontMinion.transform.position.z);
+                    }
+                }
+
+                foreach (GameObject minion in friendlyMinions)
+                {
+                    Vector2 minionPosition = new Vector2(minion.transform.position.x, minion.transform.position.z);
+                    float distanceFromCentre = Vector2.Distance(friendlyMinionCentre, minionPosition);
+                    if (distanceFromCentre < maxMinionClusterDistance)
+                    {
+                        friendlyFrontMinionCluster.Add(minion);
+
+                        float xCentre = 0;
+                        float zCentre = 0;
+
+                        foreach (GameObject minionInList in friendlyFrontMinionCluster)
+                        {
+                            xCentre += minionInList.transform.position.x;
+                            zCentre += minionInList.transform.position.z;
+                        }
+
+                        xCentre = xCentre / friendlyFrontMinionCluster.Count;
+                        zCentre = zCentre / friendlyFrontMinionCluster.Count;
+
+                        friendlyMinionCentre.x = xCentre;
+                        friendlyMinionCentre.y = zCentre;
+                    }
+                }
+
+                //red minion wave
+                foreach (GameObject minion in enemyMinions)
+                {
+                    Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);
+
+                    float distanceToTower = Vector2.Distance(friendlyTowerPos, minionPos);
+                    if (distanceToTower < shortestEnemyMinionDistanceToTower)
+                    {
+                        shortestEnemyMinionDistanceToTower = distanceToTower;
+                        enemyFrontMinion = minion;
+                        enemyMinionCentre = new Vector2(enemyFrontMinion.transform.position.x, enemyFrontMinion.transform.position.z);
+                    }
+                }
+
+                foreach (GameObject minion in enemyMinions)
+                {
+                    Vector2 minionPosition = new Vector2(minion.transform.position.x, minion.transform.position.z);
+                    float distanceFromCentre = Vector2.Distance(enemyMinionCentre, minionPosition);
+                    if (distanceFromCentre < maxMinionClusterDistance)
+                    {
+                        enemyFrontMinionCluster.Add(minion);
+
+                        float xCentre = 0;
+                        float zCentre = 0;
+
+                        foreach (GameObject minionInList in enemyFrontMinionCluster)
+                        {
+                            xCentre += minionInList.transform.position.x;
+                            zCentre += minionInList.transform.position.z;
+                        }
+
+                        xCentre = xCentre / enemyFrontMinionCluster.Count;
+                        zCentre = zCentre / enemyFrontMinionCluster.Count;
+
+                        enemyMinionCentre.x = xCentre;
+                        enemyMinionCentre.y = zCentre;
+                    }
+                }
+            }
+
+            int playerToEnemyTowerDistanceIndex;
+            int playersDistanceIndex;
+            int playerToEnemyWaveDistanceIndex;
+            int waveToEnemyTowerDistanceIndex;
+
+            float playerToEnemyTowerDistance = Vector2.Distance(friendlyPlayerPos, enemyTowerPos);
+            float playersDistance = Vector2.Distance(friendlyPlayerPos, enemyPlayerPos);
+            float playerToEnemyWaveDistance = Vector2.Distance(friendlyPlayerPos, enemyMinionCentre);
+            float waveToEnemyTowerDistance = Vector2.Distance(friendlyMinionCentre, enemyTowerPos);
 
             {
                 int index = 0;
                 for (int i = 0; i < distanceIncrementsPlayerToEnemyTower.Length; ++i)
                 {
                     index = i;
-                    if (bluePlayerToRedTowerDistance < distanceIncrementsPlayerToEnemyTower[i])
+                    if (playerToEnemyTowerDistance < distanceIncrementsPlayerToEnemyTower[i])
                     {
                         break;
                     }
@@ -91,10 +233,10 @@ public class AI_PickAction : MonoBehaviour
                     }
                 }
                 ++index;
-                bluePlayerToRedTowerDistanceIndex = index;
+                playerToEnemyTowerDistanceIndex = index;
             }
 
-            if (!redPlayer.GetComponent<AgentStats>().isAlive)
+            if (!enemyPlayer.GetComponent<AgentStats>().isAlive)
             {
                 playersDistanceIndex = 0;
             }
@@ -117,9 +259,9 @@ public class AI_PickAction : MonoBehaviour
                 playersDistanceIndex = index;
             }
 
-            if (behaviorTree.redFrontMinionCluster.Count == 0)
+            if (enemyFrontMinionCluster.Count == 0)
             {
-                bluePlayerToRedWaveDistanceIndex = 0;
+                playerToEnemyWaveDistanceIndex = 0;
             }
             else
             {
@@ -127,7 +269,7 @@ public class AI_PickAction : MonoBehaviour
                 for (int i = 0; i < distanceIncrementsPlayerToEnemyWave.Length; ++i)
                 {
                     index = i;
-                    if (bluePlayerToRedWaveDistance < distanceIncrementsPlayerToEnemyWave[i])
+                    if (playerToEnemyWaveDistance < distanceIncrementsPlayerToEnemyWave[i])
                     {
                         break;
                     }
@@ -137,12 +279,12 @@ public class AI_PickAction : MonoBehaviour
                     }
                 }
                 ++index;
-                bluePlayerToRedWaveDistanceIndex = index;
+                playerToEnemyWaveDistanceIndex = index;
             }
 
-            if (behaviorTree.blueFrontMinionCluster.Count == 0)
+            if (friendlyFrontMinionCluster.Count == 0)
             {
-                blueWaveToRedTowerDistanceIndex = 0;
+                waveToEnemyTowerDistanceIndex = 0;
             }
             else
             {
@@ -150,7 +292,7 @@ public class AI_PickAction : MonoBehaviour
                 for (int i = 0; i < distanceIncrementsWaveToEnemyTower.Length; ++i)
                 {
                     index = i;
-                    if (blueWaveToRedTowerDistance < distanceIncrementsWaveToEnemyTower[i])
+                    if (waveToEnemyTowerDistance < distanceIncrementsWaveToEnemyTower[i])
                     {
                         break;
                     }
@@ -160,7 +302,7 @@ public class AI_PickAction : MonoBehaviour
                     }
                 }
                 ++index;
-                blueWaveToRedTowerDistanceIndex = index;
+                waveToEnemyTowerDistanceIndex = index;
             }
 
             int bluePlayerHealthIncrementIndex = playerHealthIncrements.Length;
@@ -185,9 +327,9 @@ public class AI_PickAction : MonoBehaviour
 
             for (int i = 0; i < playerHealthIncrements.Length; ++i)
             {
-                if (redPlayer.GetComponent<AgentStats>().isAlive)
+                if (enemyPlayer.GetComponent<AgentStats>().isAlive)
                 {
-                    if (redPlayer.GetComponent<AgentStats>().health < playerHealthIncrements[i])
+                    if (enemyPlayer.GetComponent<AgentStats>().health < playerHealthIncrements[i])
                     {
                         redPlayerHealthIncrementIndex = i + 1;
                         break;
@@ -201,10 +343,10 @@ public class AI_PickAction : MonoBehaviour
             }
 
             int stateID = 0;
-            stateID += bluePlayerToRedTowerDistanceIndex * 100000;
+            stateID += playerToEnemyTowerDistanceIndex * 100000;
             stateID += playersDistanceIndex * 10000;
-            stateID += bluePlayerToRedWaveDistanceIndex * 1000;
-            stateID += blueWaveToRedTowerDistanceIndex * 100;
+            stateID += playerToEnemyWaveDistanceIndex * 1000;
+            stateID += waveToEnemyTowerDistanceIndex * 100;
             stateID += bluePlayerHealthIncrementIndex * 10;
             stateID += redPlayerHealthIncrementIndex * 1;
 
@@ -229,13 +371,15 @@ public class AI_PickAction : MonoBehaviour
 
             if (stateFound)
             {
+                
+
                 float r = Random.Range(0.0f, 1.0f);
 
-                if (behaviorTree.redFrontMinionCluster.Count == 0)
+                if (enemyFrontMinionCluster.Count == 0)
                 {
-                    if(!redPlayer.activeInHierarchy)
+                    if(!enemyPlayer.activeInHierarchy)
                     {
-                        if(behaviorTree.blueFrontMinionCluster.Count == 0)
+                        if(friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
                         {
                             playerActionVal = 0;
                             clearActionVal = 0;
@@ -253,7 +397,7 @@ public class AI_PickAction : MonoBehaviour
                     }
                     else
                     {
-                        if (behaviorTree.blueFrontMinionCluster.Count == 0)
+                        if (friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
                         {
                             float n = clearActionVal + towerActionVal;
                             playerActionVal += n / 2;
@@ -273,9 +417,9 @@ public class AI_PickAction : MonoBehaviour
                 }
                 else
                 {
-                    if (!redPlayer.activeInHierarchy)
+                    if (!enemyPlayer.activeInHierarchy)
                     {
-                        if (behaviorTree.blueFrontMinionCluster.Count == 0)
+                        if (friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
                         {
                             float n = playerActionVal + towerActionVal;
                             playerActionVal = 0;
@@ -294,7 +438,7 @@ public class AI_PickAction : MonoBehaviour
                     }
                     else
                     {
-                        if (behaviorTree.blueFrontMinionCluster.Count == 0)
+                        if (friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
                         {
                             float n = towerActionVal;
                             playerActionVal += n / 3;
@@ -335,7 +479,7 @@ public class AI_PickAction : MonoBehaviour
             }
             else
             {
-                if (behaviorTree.redFrontMinionCluster.Count == 0)
+                if (enemyFrontMinionCluster.Count == 0)
                 {
                     float r = Random.Range(0.0f, 1.0f);
 
@@ -378,5 +522,27 @@ public class AI_PickAction : MonoBehaviour
                 }
             }
         }
+
+        if(enemyTower.GetComponent<TowerScript>().currentTarget == gameObject)
+        {
+            towerReactionTimer -= Time.deltaTime;
+            if (towerReactionTimer <= 0)
+            {
+                towerReactionTimer = Random.Range(towerReactionTime.x, towerReactionTime.y);
+                behaviorTree.currentAction = ActionType.back;
+            }
+        }
+    }
+
+    private bool isSafeToTower()
+    {
+        TowerScript enemyTowerComp = enemyTower.GetComponent<TowerScript>();
+
+        if(enemyTowerComp.currentTarget == null || enemyTowerComp.currentTarget == gameObject)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

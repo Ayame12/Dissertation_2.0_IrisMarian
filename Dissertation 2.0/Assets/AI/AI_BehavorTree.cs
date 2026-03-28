@@ -14,34 +14,38 @@ public enum ActionType
 public class AI_BehavorTree : MonoBehaviour
 {
     public ActionType currentAction = ActionType.clear;
-    ActionType lastAction = ActionType.clear;
+    private ActionType lastAction = ActionType.clear;
 
     public float playerAbilityCastRangeWave = 8;
     public float playerAbilityCastRangePlayer = 10;
+    public float maxMinionClusterDistance = 2;
 
-    private float maxMinionClusterDistance = 2;
+    private Vector2 friendlyTowerPos;
+    private Vector2 enemyTowerPos;
 
-    private Vector2 blueTowerPosition = new Vector2(-16.5f, -16.5f);
-    private Vector2 redTowerPosition = new Vector2(16.5f, 16.5f);
+    private Vector2 friendlyPlayerSpawn = new Vector2(-19.2f, -19.2f);
+    private Vector2 enemyPlayerSpawn = new Vector2(19.2f, 19.2f);
 
-    public Vector2 bluePlayerSpawn = new Vector2(-19.2f, -19.2f);
-    public Vector2 redPlayerSpawn = new Vector2(19.2f, 19.2f);
+    private Vector2 friendlyMinionCentre = new Vector2(0, 0);
+    private Vector2 enemyMinionCentre = new Vector2(0, 0);
 
-    public Vector2 blueMinionCentre = new Vector2(0, 0);
-    public Vector2 redMinionCentre = new Vector2(0, 0);
+    private Vector2 friendlyPlayerPos = new Vector2(0, 0);
+    private Vector2 enemyPlayerPos = new Vector2(0, 0);
+    private Vector3 friendlyPlayerPos3D = new Vector3(0, 0);
+    private Vector3 enemyPlayerPos3D = new Vector3(0, 0);
 
-    public Vector2 bluePlayerPosition = new Vector2(0, 0);
-    public Vector2 redPlayerPosition = new Vector2(0, 0);
+    private Vector2 ultDestination = new Vector2(0, 0);
 
-    //private Vector3 bluePlayerPosition3D = new Vector3(0, 0);
-    private Vector3 redPlayerPosition3D = new Vector3(0, 0);
+    private List<GameObject> friendlyFrontMinionCluster = new List<GameObject>();
+    private List<GameObject> enemyFrontMinionCluster = new List<GameObject>();
 
-    Vector2 ultDestination = new Vector2(0, 0);
+    private GameObject enemyPlayer;
+    private GameObject enemyTower;
+    private GameObject friendlyTower;
+    private string enemyMinionTag;
+    private string friendlyMinionTag;
 
-    private GameObject redTower;
-    private GameObject redPlayer;
-    public List<GameObject> blueFrontMinionCluster = new List<GameObject>();
-    public List<GameObject> redFrontMinionCluster = new List<GameObject>();
+    private string ultTag;
 
     private PlayerInputScript playerInput;
     private PlayerAttackScript playerAttack;
@@ -51,11 +55,34 @@ public class AI_BehavorTree : MonoBehaviour
     {
         maxMinionClusterDistance = gameObject.GetComponent<AI_PickAction>().maxMinionClusterDistance;
 
-        blueTowerPosition = gameObject.GetComponent<AI_PickAction>().blueTowerPosition;
-        redTowerPosition = gameObject.GetComponent<AI_PickAction>().redTowerPosition;
+        if(gameObject.tag == "BluePlayer")
+        {
+            enemyTowerPos = new Vector2(16.5f, 16.5f);
+            friendlyTowerPos = new Vector2(-16.5f, -16.5f);
+            
+            friendlyTower = GameObject.FindGameObjectWithTag("BlueTower");
+            enemyTower = GameObject.FindGameObjectWithTag("RedTower");
+            friendlyMinionTag = "BlueMinion";
+            enemyMinionTag = "RedMinion";
+            friendlyPlayerSpawn = new Vector2(-19.2f, -19.2f);
+            enemyPlayerSpawn = new Vector2(19.2f, 19.2f);
+            ultTag = "BlueUlt";
+        }
+        else
+        {
+            enemyTowerPos = new Vector2(-16.5f, -16.5f);
+            friendlyTowerPos = new Vector2(16.5f, 16.5f);
+
+            friendlyTower = GameObject.FindGameObjectWithTag("RedTower");
+            enemyTower = GameObject.FindGameObjectWithTag("BlueTower");
+            friendlyMinionTag = "RedMinion";
+            enemyMinionTag = "BlueMinion";
+            friendlyPlayerSpawn = new Vector2(19.2f, 19.2f);
+            enemyPlayerSpawn = new Vector2(-19.2f, -19.2f);
+            ultTag = "RedUlt";
+        }
 
         playerInput = gameObject.GetComponent<PlayerInputScript>();
-        redTower = GameObject.FindGameObjectWithTag("RedTower");
         playerAttack = GetComponent<PlayerAttackScript>();
 
         calculateStateValues();
@@ -90,112 +117,120 @@ public class AI_BehavorTree : MonoBehaviour
 
     private void calculateStateValues()
     {
-        if (!redPlayer)
+        if (!enemyPlayer)
         {
-            redPlayer = GameObject.FindGameObjectWithTag("RedPlayer");
-            if (!redPlayer)
+            if (gameObject.tag == "RedPlayer")
+            {
+                enemyPlayer = GameObject.FindGameObjectWithTag("BluePlayer");
+            }
+            else
+            {
+                enemyPlayer = GameObject.FindGameObjectWithTag("RedPlayer");
+            }
+
+            if (!enemyPlayer)
             {
                 return;
             }
         }
 
-        bluePlayerPosition.x = transform.position.x;
-        bluePlayerPosition.y = transform.position.z;
+        friendlyPlayerPos.x = transform.position.x;
+        friendlyPlayerPos.y = transform.position.z;
 
-        redPlayerPosition.x = redPlayer.transform.position.x;
-        redPlayerPosition.y = redPlayer.transform.position.z;
+        enemyPlayerPos.x = enemyPlayer.transform.position.x;
+        enemyPlayerPos.y = enemyPlayer.transform.position.z;
 
-        //bluePlayerPosition3D = transform.position;
-        redPlayerPosition3D = redPlayer.transform.position;
+        //friendlyPlayerPosition3D = transform.position;
+        enemyPlayerPos3D = enemyPlayer.transform.position;
 
-        GameObject[] blueMinions = GameObject.FindGameObjectsWithTag("BlueMinion");
-        GameObject[] redMinions = GameObject.FindGameObjectsWithTag("RedMinion");
-
-        blueFrontMinionCluster.Clear();
-        redFrontMinionCluster.Clear();
+        friendlyFrontMinionCluster.Clear();
+        enemyFrontMinionCluster.Clear();
 
         {
-            GameObject blueFrontMinion;
-            GameObject redFrontMinion;
+            GameObject[] friendlyMinions = GameObject.FindGameObjectsWithTag(friendlyMinionTag);
+            GameObject[] enemyMinions = GameObject.FindGameObjectsWithTag(enemyMinionTag);
 
-            float shortestBlueMinionDistanceToTower = Vector2.Distance(blueTowerPosition, redTowerPosition);
-            float shortestRedMinionDistanceToTower = Vector2.Distance(blueTowerPosition, redTowerPosition);
+            GameObject friendlyFrontMinion;
+            GameObject enemyFrontMinion;
 
-            //blue minion wave
-            foreach (GameObject minion in blueMinions)
+            float shortestFriendlyMinionDistanceToTower = Vector2.Distance(friendlyTowerPos, enemyTowerPos);
+            float shortestEnemyMinionDistanceToTower = Vector2.Distance(friendlyTowerPos, enemyTowerPos);
+
+            //friendly minion wave
+            foreach (GameObject minion in friendlyMinions)
             {
                 Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);
 
-                float distanceToTower = Vector2.Distance(redTowerPosition, minionPos);
-                if (distanceToTower < shortestBlueMinionDistanceToTower)
+                float distanceToTower = Vector2.Distance(enemyTowerPos, minionPos);
+                if (distanceToTower < shortestFriendlyMinionDistanceToTower)
                 {
-                    shortestBlueMinionDistanceToTower = distanceToTower;
-                    blueFrontMinion = minion;
-                    blueMinionCentre = new Vector2(blueFrontMinion.transform.position.x, blueFrontMinion.transform.position.z);
+                    shortestFriendlyMinionDistanceToTower = distanceToTower;
+                    friendlyFrontMinion = minion;
+                    friendlyMinionCentre = new Vector2(friendlyFrontMinion.transform.position.x, friendlyFrontMinion.transform.position.z);
                 }
             }
 
-            foreach (GameObject minion in blueMinions)
+            foreach (GameObject minion in friendlyMinions)
             {
                 Vector2 minionPosition = new Vector2(minion.transform.position.x, minion.transform.position.z);
-                float distanceFromCentre = Vector2.Distance(blueMinionCentre, minionPosition);
+                float distanceFromCentre = Vector2.Distance(friendlyMinionCentre, minionPosition);
                 if (distanceFromCentre < maxMinionClusterDistance)
                 {
-                    blueFrontMinionCluster.Add(minion);
+                    friendlyFrontMinionCluster.Add(minion);
 
                     float xCentre = 0;
                     float zCentre = 0;
 
-                    foreach (GameObject minionInList in blueFrontMinionCluster)
+                    foreach (GameObject minionInList in friendlyFrontMinionCluster)
                     {
                         xCentre += minionInList.transform.position.x;
                         zCentre += minionInList.transform.position.z;
                     }
 
-                    xCentre = xCentre / blueFrontMinionCluster.Count;
-                    zCentre = zCentre / blueFrontMinionCluster.Count;
+                    xCentre = xCentre / friendlyFrontMinionCluster.Count;
+                    zCentre = zCentre / friendlyFrontMinionCluster.Count;
 
-                    blueMinionCentre.x = xCentre;
-                    blueMinionCentre.y = zCentre;
+                    friendlyMinionCentre.x = xCentre;
+                    friendlyMinionCentre.y = zCentre;
                 }
             }
 
-            //red minion wave
-            foreach (GameObject minion in redMinions)
+            //enemy minion wave
+            foreach (GameObject minion in enemyMinions)
             {
                 Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);
 
-                float distanceToTower = Vector2.Distance(blueTowerPosition, minionPos);
-                if (distanceToTower < shortestRedMinionDistanceToTower)
+                float distanceToTower = Vector2.Distance(friendlyTowerPos, minionPos);
+                if (distanceToTower < shortestEnemyMinionDistanceToTower)
                 {
-                    shortestRedMinionDistanceToTower = distanceToTower;
-                    redFrontMinion = minion;
-                    redMinionCentre = new Vector2(redFrontMinion.transform.position.x, redFrontMinion.transform.position.z);
+                    shortestEnemyMinionDistanceToTower = distanceToTower;
+                    enemyFrontMinion = minion;
+                    enemyMinionCentre = new Vector2(enemyFrontMinion.transform.position.x, enemyFrontMinion.transform.position.z);
                 }
             }
 
-            foreach (GameObject minion in redMinions)
+            foreach (GameObject minion in enemyMinions)
             {
                 Vector2 minionPosition = new Vector2(minion.transform.position.x, minion.transform.position.z);
-                float distanceFromCentre = Vector2.Distance(redMinionCentre, minionPosition);
+                float distanceFromCentre = Vector2.Distance(enemyMinionCentre, minionPosition);
                 if (distanceFromCentre < maxMinionClusterDistance)
                 {
-                    redFrontMinionCluster.Add(minion);
+                    enemyFrontMinionCluster.Add(minion);
 
                     float xCentre = 0;
                     float zCentre = 0;
 
-                    foreach (GameObject minionInList in redFrontMinionCluster)
+                    foreach (GameObject minionInList in enemyFrontMinionCluster)
                     {
                         xCentre += minionInList.transform.position.x;
                         zCentre += minionInList.transform.position.z;
                     }
 
-                    xCentre = xCentre / redFrontMinionCluster.Count;
-                    zCentre = zCentre / redFrontMinionCluster.Count;
+                    xCentre = xCentre / enemyFrontMinionCluster.Count;
+                    zCentre = zCentre / enemyFrontMinionCluster.Count;
 
-                    redMinionCentre.x = xCentre;
-                    redMinionCentre.y = zCentre;
+                    enemyMinionCentre.x = xCentre;
+                    enemyMinionCentre.y = zCentre;
                 }
             }
         }
@@ -203,16 +238,16 @@ public class AI_BehavorTree : MonoBehaviour
 
     void tradeAction()
     {
-        if (!redPlayer.activeInHierarchy)
+        if (!enemyPlayer.activeInHierarchy)
         {
             return;
         }
 
-        if (Vector2.Distance(bluePlayerPosition, redPlayerPosition) > playerAbilityCastRangePlayer)
+        if (Vector2.Distance(friendlyPlayerPos, enemyPlayerPos) > playerAbilityCastRangePlayer)
         {
-            Vector2 direction = (redPlayerPosition - bluePlayerPosition).normalized;
+            Vector2 direction = (enemyPlayerPos - friendlyPlayerPos).normalized;
             float rotY = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-            Vector2 targetPos = redPlayerPosition + direction * playerAbilityCastRangePlayer;
+            Vector2 targetPos = enemyPlayerPos + direction * playerAbilityCastRangePlayer;
 
             Vector3 targetPos3D = new Vector3(targetPos.x, -1, targetPos.y);
 
@@ -224,28 +259,28 @@ public class AI_BehavorTree : MonoBehaviour
             if (playerAttack.rootIsAvailable)
             {
                 playerInput.ability1 = true;
-                playerInput.mousePosInGame = redPlayerPosition3D;
+                playerInput.mousePosInGame = enemyPlayerPos3D;
             }
-            else if (playerAttack.ultIsAvailable && redPlayer.GetComponent<AgentStats>().isStunned)
+            else if (playerAttack.ultIsAvailable && enemyPlayer.GetComponent<AgentStats>().isStunned)
             {
                 playerInput.ability3 = true;
-                playerInput.mousePosInGame = redPlayerPosition3D;
-                ultDestination = redPlayerPosition;
+                playerInput.mousePosInGame = enemyPlayerPos3D;
+                ultDestination = enemyPlayerPos;
             }
             else
             {
-                if (GameObject.FindGameObjectWithTag("BlueUlt"))
+                if (GameObject.FindGameObjectWithTag(ultTag))
                 {
-                    Vector2 ultPos = new Vector2(GameObject.FindGameObjectWithTag("BlueUlt").transform.position.x, GameObject.FindGameObjectWithTag("BlueUlt").transform.position.z);
+                    Vector2 ultPos = new Vector2(GameObject.FindGameObjectWithTag(ultTag).transform.position.x, GameObject.FindGameObjectWithTag(ultTag).transform.position.z);
                     if (Vector2.Distance(ultPos, ultDestination) < 0.1f)
                     {
-                        GameObject.FindGameObjectWithTag("BlueUlt").GetComponent<UltProjectile>().RecastRpc();
+                        GameObject.FindGameObjectWithTag(ultTag).GetComponent<UltProjectile>().RecastRpc();
                     }
                 }
                 else
                 {
                     playerInput.attack = true;
-                    playerInput.target = redPlayer;
+                    playerInput.target = enemyPlayer;
                 }
             }
         }
@@ -253,7 +288,7 @@ public class AI_BehavorTree : MonoBehaviour
 
     void clearAction()
     {
-        if(redFrontMinionCluster.Count == 0)
+        if(enemyFrontMinionCluster.Count == 0)
         {
             return;
         }
@@ -264,11 +299,11 @@ public class AI_BehavorTree : MonoBehaviour
         playerInput.ability2 = false;
         playerInput.ability3 = false;
 
-        if (Vector2.Distance(bluePlayerPosition, redMinionCentre) > playerAbilityCastRangeWave)
+        if (Vector2.Distance(friendlyPlayerPos, enemyMinionCentre) > playerAbilityCastRangeWave)
         {
-            Vector2 direction = (redMinionCentre - bluePlayerPosition).normalized;
+            Vector2 direction = (enemyMinionCentre - friendlyPlayerPos).normalized;
             float rotY = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-            Vector2 targetPos = redMinionCentre + direction * playerAbilityCastRangeWave;
+            Vector2 targetPos = enemyMinionCentre + direction * playerAbilityCastRangeWave;
 
             Vector3 targetPos3D = new Vector3(targetPos.x, -1, targetPos.y);
 
@@ -277,42 +312,42 @@ public class AI_BehavorTree : MonoBehaviour
         }
         else
         {
-            if (playerAttack.rootIsAvailable && redFrontMinionCluster.Count > 1)
+            if (playerAttack.rootIsAvailable && enemyFrontMinionCluster.Count > 1)
             {
                 playerInput.ability1 = true;
-                playerInput.mousePosInGame = new Vector3(redMinionCentre.x, -1, redMinionCentre.y);
+                playerInput.mousePosInGame = new Vector3(enemyMinionCentre.x, -1, enemyMinionCentre.y);
             }
-            else if (playerAttack.ultIsAvailable && redFrontMinionCluster.Count > 4)
+            else if (playerAttack.ultIsAvailable && enemyFrontMinionCluster.Count > 4)
             {
                 playerInput.ability3 = true;
-                playerInput.mousePosInGame = new Vector3(redMinionCentre.x, -1, redMinionCentre.y);
-                ultDestination = redMinionCentre;
+                playerInput.mousePosInGame = new Vector3(enemyMinionCentre.x, -1, enemyMinionCentre.y);
+                ultDestination = enemyMinionCentre;
             }
             else
             {
-                if (GameObject.FindGameObjectWithTag("BlueUlt"))
+                if (GameObject.FindGameObjectWithTag(ultTag))
                 {
-                    Vector2 ultPos = new Vector2(GameObject.FindGameObjectWithTag("BlueUlt").transform.position.x, GameObject.FindGameObjectWithTag("BlueUlt").transform.position.z);
+                    Vector2 ultPos = new Vector2(GameObject.FindGameObjectWithTag(ultTag).transform.position.x, GameObject.FindGameObjectWithTag(ultTag).transform.position.z);
                     if (Vector2.Distance(ultPos, ultDestination) < 0.1f)
                     {
-                        GameObject.FindGameObjectWithTag("BlueUlt").GetComponent<UltProjectile>().RecastRpc();
+                        GameObject.FindGameObjectWithTag(ultTag).GetComponent<UltProjectile>().RecastRpc();
                     }
                 }
                 else
                 {
-                    GameObject closestMinion = redFrontMinionCluster[0];
+                    GameObject closestMinion = enemyFrontMinionCluster[0];
                     Vector2 nextMinionPos = new Vector2(closestMinion.transform.position.x, closestMinion.transform.position.z);
-                    float shortestDistanceToMinion = Vector2.Distance(bluePlayerPosition, nextMinionPos);
+                    float shortestDistanceToMinion = Vector2.Distance(friendlyPlayerPos, nextMinionPos);
 
-                    foreach (GameObject minion in redFrontMinionCluster)
+                    foreach (GameObject minion in enemyFrontMinionCluster)
                     {
                         nextMinionPos.x = minion.transform.position.x;
                         nextMinionPos.y = minion.transform.position.z;
 
-                        if (Vector2.Distance(nextMinionPos, bluePlayerPosition) < shortestDistanceToMinion)
+                        if (Vector2.Distance(nextMinionPos, friendlyPlayerPos) < shortestDistanceToMinion)
                         {
                             closestMinion = minion;
-                            shortestDistanceToMinion = Vector2.Distance(nextMinionPos, bluePlayerPosition);
+                            shortestDistanceToMinion = Vector2.Distance(nextMinionPos, friendlyPlayerPos);
                         }
                     }
 
@@ -326,16 +361,16 @@ public class AI_BehavorTree : MonoBehaviour
     void towerAction()
     {
         playerInput.attack = true;
-        playerInput.target = redTower;
+        playerInput.target = enemyTower;
     }
 
     void backAction()
     {
         if (lastAction != ActionType.back)
         {
-            Vector2 direction = (bluePlayerPosition - redMinionCentre).normalized;
+            Vector2 direction = (friendlyPlayerPos - friendlyPlayerSpawn).normalized;
             float rotY = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-            Vector2 targetPos = bluePlayerPosition + direction * playerAbilityCastRangeWave;
+            Vector2 targetPos = friendlyPlayerPos + direction * playerAbilityCastRangeWave;
 
             Vector3 targetPos3D = new Vector3(targetPos.x, 0, targetPos.y);
 

@@ -581,7 +581,23 @@ MonoBehaviour:
     isStunned: 0
     isSlowed: 0
     stunRemaining: 0
-  isAI: 0
+    playerInput:
+      isBlue: 0
+      move: 0
+      attack: 0
+      ability1: 0
+      ability2: 0
+      ability3: 0
+      mousePosInGame:
+        x: 0
+        y: 0
+        z: 0
+      isHoveringPlayer: 0
+      isHoveringTower: 0
+      isHoveringMinion: 0
+      isHoveringGround: 0
+      target: 0
+  isAI: 1
   creepScore: 0
   creepScoreUi: {fileID: 5180114173188804606}
   uiCanvas: {fileID: 2551071925232754022}
@@ -609,8 +625,28 @@ MonoBehaviour:
   ability1: 0
   ability2: 0
   ability3: 0
+  rootRange: 10
+  ultRange: 10
+  rootTargetingDistanceThreshold: 1
+  ultTargetingDistanceThreshold: 1.5
   newInput: 0
   target: {fileID: 0}
+  serializedData:
+    isBlue: 0
+    move: 0
+    attack: 0
+    ability1: 0
+    ability2: 0
+    ability3: 0
+    mousePosInGame:
+      x: 0
+      y: 0
+      z: 0
+    isHoveringPlayer: 0
+    isHoveringTower: 0
+    isHoveringMinion: 0
+    isHoveringGround: 0
+    target: 0
 --- !u!114 &5052290202309406829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,9 +1501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AI_PickAction
   statesDataFile: \ConfigData\combinedStatesData.json
   checkStateFrequency: 0
-  blueTowerPosition: {x: -16.5, y: -16.5}
-  redTowerPosition: {x: 16.5, y: 16.5}
   maxMinionClusterDistance: 2
+  towerReactionTime: {x: 0.1, y: 0.2}
 --- !u!114 &427882359237658880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,14 +1518,7 @@ MonoBehaviour:
   currentAction: 0
   playerAbilityCastRangeWave: 8
   playerAbilityCastRangePlayer: 10
-  bluePlayerSpawn: {x: -19.2, y: -19.2}
-  redPlayerSpawn: {x: 19.2, y: 19.2}
-  blueMinionCentre: {x: 0, y: 0}
-  redMinionCentre: {x: 0, y: 0}
-  bluePlayerPosition: {x: 0, y: 0}
-  redPlayerPosition: {x: 0, y: 0}
-  blueFrontMinionCluster: []
-  redFrontMinionCluster: []
+  maxMinionClusterDistance: 2
 --- !u!1 &3869682917775190698
 GameObject:
   m_ObjectHideFlags: 0
