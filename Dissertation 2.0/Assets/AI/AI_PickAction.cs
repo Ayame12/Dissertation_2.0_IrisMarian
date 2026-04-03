@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class AI_PickAction : MonoBehaviour
@@ -25,6 +26,9 @@ public class AI_PickAction : MonoBehaviour
     private string friendlyMinionTag;
     private string enemyMinionTag;
 
+    private int minionsAggroed = 0;
+    public int minionsAggroThreshold = 3;
+
     //Vector2 bluePlayerSpawn;
     //Vector2 redPlayerSpawn;
 
@@ -37,6 +41,11 @@ public class AI_PickAction : MonoBehaviour
     private int[] playerHealthIncrements = { 200, 400 };
 
     private AI_BehavorTree behaviorTree;
+
+    public float backActionDuration = 0.75f;
+    public float tradeActionDuration = 2f;
+    public float clearActionDuration = 1.5f;
+    public float towerActionDuration = 1.5f;
 
     public Vector2 towerReactionTime = new Vector2(0.1f, 0.2f);
     private float towerReactionTimer = 0.1f;
@@ -119,6 +128,8 @@ public class AI_PickAction : MonoBehaviour
             List<GameObject> friendlyFrontMinionCluster = new List<GameObject>();
             List<GameObject> enemyFrontMinionCluster = new List<GameObject>();
 
+            minionsAggroed = 0;
+
             {
                 GameObject[] friendlyMinions = GameObject.FindGameObjectsWithTag(friendlyMinionTag);
                 GameObject[] enemyMinions = GameObject.FindGameObjectsWithTag(enemyMinionTag);
@@ -168,7 +179,7 @@ public class AI_PickAction : MonoBehaviour
                     }
                 }
 
-                //red minion wave
+                //enemy minion wave
                 foreach (GameObject minion in enemyMinions)
                 {
                     Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);
@@ -179,6 +190,11 @@ public class AI_PickAction : MonoBehaviour
                         shortestEnemyMinionDistanceToTower = distanceToTower;
                         enemyFrontMinion = minion;
                         enemyMinionCentre = new Vector2(enemyFrontMinion.transform.position.x, enemyFrontMinion.transform.position.z);
+                    }
+
+                    if(minion.GetComponent<MinionManager>().playerAggro)
+                    {
+                        ++minionsAggroed;
                     }
                 }
 
@@ -377,25 +393,7 @@ public class AI_PickAction : MonoBehaviour
 
                 if (enemyFrontMinionCluster.Count == 0)
                 {
-                    if(!enemyPlayer.activeInHierarchy)
-                    {
-                        if(friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
-                        {
-                            playerActionVal = 0;
-                            clearActionVal = 0;
-                            towerActionVal = 0;
-                            backActionVal = 1;
-                        }
-                        else
-                        {
-                            float n = playerActionVal + clearActionVal;
-                            playerActionVal = 0;
-                            clearActionVal = 0;
-                            towerActionVal += n / 2;
-                            backActionVal += n / 2;
-                        }
-                    }
-                    else
+                    if(enemyPlayer.activeInHierarchy && isSafeToTrade())
                     {
                         if (friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
                         {
@@ -414,10 +412,39 @@ public class AI_PickAction : MonoBehaviour
                             backActionVal += n / 3;
                         }
                     }
+                    else
+                    {
+                        if (friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
+                        {
+                            playerActionVal = 0;
+                            clearActionVal = 0;
+                            towerActionVal = 0;
+                            backActionVal = 1;
+                        }
+                        else
+                        {
+                            float n = playerActionVal + clearActionVal;
+                            playerActionVal = 0;
+                            clearActionVal = 0;
+                            towerActionVal += n / 2;
+                            backActionVal += n / 2;
+                        }
+                    }
                 }
                 else
                 {
-                    if (!enemyPlayer.activeInHierarchy)
+                    if (enemyPlayer.activeInHierarchy && isSafeToTrade())
+                    {
+                        if (friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
+                        {
+                            float n = towerActionVal;
+                            playerActionVal += n / 3;
+                            clearActionVal += n / 3;
+                            towerActionVal = 0;
+                            backActionVal += n / 3;
+                        }
+                    }
+                    else
                     {
                         if (friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
                         {
@@ -436,45 +463,34 @@ public class AI_PickAction : MonoBehaviour
                             backActionVal += n / 3;
                         }
                     }
-                    else
-                    {
-                        if (friendlyFrontMinionCluster.Count == 0 || !isSafeToTower())
-                        {
-                            float n = towerActionVal;
-                            playerActionVal += n / 3;
-                            clearActionVal += n / 3;
-                            towerActionVal = 0;
-                            backActionVal += n / 3;
-                        }
-                    }
                 }
 
                 if (r < playerActionVal)
                 {
 
                     behaviorTree.currentAction = ActionType.trade;
-                    checkStateTimer = 2f;
-                    Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                    checkStateTimer = tradeActionDuration;
+                    //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                     return;
                 }
                 if (r < playerActionVal + clearActionVal)
                 {
                     behaviorTree.currentAction = ActionType.clear;
-                    checkStateTimer = 2.5f;
-                    Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                    checkStateTimer = clearActionDuration;
+                    //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                     return;
                 }
                 if(r < playerActionVal + clearActionVal + towerActionVal)
                 {
                     behaviorTree.currentAction = ActionType.tower;
-                    checkStateTimer = 1f;
-                    Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                    checkStateTimer = towerActionDuration;
+                    //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                     return;
                 }
                 
                 behaviorTree.currentAction = ActionType.back;
-                checkStateTimer = 1f;
-                Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                checkStateTimer = backActionDuration;
+                //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                 return;
             }
             else
@@ -483,41 +499,41 @@ public class AI_PickAction : MonoBehaviour
                 {
                     float r = Random.Range(0.0f, 1.0f);
 
-                    if (r < 0.5f)
+                    if (r < 0.5f || isSafeToTrade())
                     {
                         behaviorTree.currentAction = ActionType.trade;
-                        checkStateTimer = 2f;
-                        Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                        checkStateTimer = tradeActionDuration;
+                        //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                         return;
                     }
 
                     behaviorTree.currentAction = ActionType.back;
-                    checkStateTimer = 1f;
-                    Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                    checkStateTimer = backActionDuration;
+                    //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                     return;
                 }
                 else
                 {
                     float r = Random.Range(0.0f, 1.0f);
 
-                    if (r < 0.2f)
+                    if (r < 0.2f || isSafeToTrade())
                     {
                         behaviorTree.currentAction = ActionType.trade;
-                        checkStateTimer = 2f;
-                        Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                        checkStateTimer = tradeActionDuration;
+                        //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                         return;
                     }
                     if (r < 0.3f)
                     {
                         behaviorTree.currentAction = ActionType.back;
-                        checkStateTimer = 1f;
-                        Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                        checkStateTimer = backActionDuration;
+                        //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                         return;
                     }
 
                     behaviorTree.currentAction = ActionType.clear;
-                    checkStateTimer = 2.5f;
-                    Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                    checkStateTimer = clearActionDuration;
+                    //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                     return;
                 }
             }
@@ -530,7 +546,16 @@ public class AI_PickAction : MonoBehaviour
             {
                 towerReactionTimer = Random.Range(towerReactionTime.x, towerReactionTime.y);
                 behaviorTree.currentAction = ActionType.back;
+                checkStateTimer = backActionDuration;
+                //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                //Debug.Log("Dropping Agro");
             }
+        }
+
+        if(minionsAggroed >= minionsAggroThreshold)
+        {
+            behaviorTree.currentAction = ActionType.back;
+            checkStateTimer = backActionDuration;
         }
     }
 
@@ -539,6 +564,25 @@ public class AI_PickAction : MonoBehaviour
         TowerScript enemyTowerComp = enemyTower.GetComponent<TowerScript>();
 
         if(enemyTowerComp.currentTarget == null || enemyTowerComp.currentTarget == gameObject)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool isSafeToTrade()
+    {
+        TowerScript enemyTowerComp = enemyTower.GetComponent<TowerScript>();
+
+        if (enemyTowerComp.currentTarget == null || enemyTowerComp.currentTarget == gameObject)
+        {
+            return false;
+        }
+
+        Vector2 enemypos = new Vector2(enemyPlayer.transform.position.x, enemyPlayer.transform.position.z);
+
+        if (Vector2.Distance(enemypos, friendlyTowerPos) > 41 || Vector2.Distance(enemypos, enemyTowerPos) <= 4)
         {
             return false;
         }

@@ -597,7 +597,7 @@ MonoBehaviour:
       isHoveringMinion: 0
       isHoveringGround: 0
       target: 0
-  isAI: 1
+  isAI: 0
   creepScore: 0
   creepScoreUi: {fileID: 5180114173188804606}
   uiCanvas: {fileID: 2551071925232754022}
@@ -1502,6 +1502,10 @@ MonoBehaviour:
   statesDataFile: \ConfigData\combinedStatesData.json
   checkStateFrequency: 0
   maxMinionClusterDistance: 2
+  backActionDuration: 0.5
+  tradeActionDuration: 2
+  clearActionDuration: 1.5
+  towerActionDuration: 1.5
   towerReactionTime: {x: 0.1, y: 0.2}
 --- !u!114 &427882359237658880
 MonoBehaviour:

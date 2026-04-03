@@ -46,9 +46,13 @@ public class AI_BehavorTree : MonoBehaviour
     private string friendlyMinionTag;
 
     private string ultTag;
+    private string enemyRootTag;
+    private string enemyUltTag;
+    public float dodgeDistance = 7;
 
     private PlayerInputScript playerInput;
     private PlayerAttackScript playerAttack;
+    private PlayerMovement playerMovement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,6 +71,8 @@ public class AI_BehavorTree : MonoBehaviour
             friendlyPlayerSpawn = new Vector2(-19.2f, -19.2f);
             enemyPlayerSpawn = new Vector2(19.2f, 19.2f);
             ultTag = "BlueUlt";
+            enemyRootTag = "RedRoot";
+            enemyUltTag = "RedUlt";
         }
         else
         {
@@ -80,10 +86,13 @@ public class AI_BehavorTree : MonoBehaviour
             friendlyPlayerSpawn = new Vector2(19.2f, 19.2f);
             enemyPlayerSpawn = new Vector2(-19.2f, -19.2f);
             ultTag = "RedUlt";
+            enemyRootTag = "BlueRoot";
+            enemyUltTag = "BlueUlt";
         }
 
         playerInput = gameObject.GetComponent<PlayerInputScript>();
         playerAttack = GetComponent<PlayerAttackScript>();
+        playerMovement = GetComponent<PlayerMovement>();
 
         calculateStateValues();
     }
@@ -91,21 +100,43 @@ public class AI_BehavorTree : MonoBehaviour
     // Update is called once per frame
     public void tickUpdate()
     {
+        playerInput.move = false;
+        playerInput.attack = false;
+        playerInput.ability1 = false;
+        playerInput.ability2 = false;
+        playerInput.ability3 = false;
+
         calculateStateValues();
 
         //currentAction = ActionType.trade;
         switch (currentAction)
         {
             case ActionType.trade:
+                if (currentAction != lastAction)
+                {
+                    Debug.Log("ATTACK");
+                }
                 tradeAction();
                 break;
             case ActionType.clear:
+                if (currentAction != lastAction)
+                {
+                    Debug.Log("CLEAR");
+                }
                 clearAction();
                 break;
             case ActionType.tower:
+                if (currentAction != lastAction)
+                {
+                    Debug.Log("TOWER");
+                }
                 towerAction();
                 break;
             case ActionType.back:
+                if (currentAction != lastAction)
+                {
+                    Debug.Log("BACK");
+                }
                 backAction();
                 break;
             default:
@@ -113,6 +144,26 @@ public class AI_BehavorTree : MonoBehaviour
                 break;
         }
         lastAction = currentAction;
+
+        if (GameObject.FindGameObjectWithTag(enemyRootTag))
+        {
+            //GameObject enemyRoot = GameObject.FindGameObjectWithTag(enemyRootTag);
+            //Vector2 enemyRootPos = new Vector2(enemyRoot.transform.position.x, enemyRoot.transform.position.z);
+            //if (Vector2.Distance(friendlyPlayerPos, enemyRootPos) <= dodgeDistance)
+            //{
+            if (currentAction == ActionType.trade)
+            {
+
+            }
+            else
+            {
+
+            }
+            Vector3 spawn3D = new Vector3(friendlyPlayerSpawn.x, 0, friendlyPlayerSpawn.y);
+            playerInput.mousePosInGame = spawn3D;
+            playerInput.ability2 = true;
+            //}
+        }
     }
 
     private void calculateStateValues()
@@ -243,7 +294,7 @@ public class AI_BehavorTree : MonoBehaviour
             return;
         }
 
-        if (Vector2.Distance(friendlyPlayerPos, enemyPlayerPos) > playerAbilityCastRangePlayer)
+        if(Vector2.Distance(friendlyPlayerPos, enemyPlayerPos) > playerAbilityCastRangePlayer + 5)
         {
             Vector2 direction = (enemyPlayerPos - friendlyPlayerPos).normalized;
             float rotY = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
@@ -253,6 +304,20 @@ public class AI_BehavorTree : MonoBehaviour
 
             playerInput.move = true;
             playerInput.mousePosInGame = targetPos3D;
+
+            playerInput.ability2 = true;
+        }
+        else if (Vector2.Distance(friendlyPlayerPos, enemyPlayerPos) > playerAbilityCastRangePlayer)
+        {
+            Vector2 direction = (enemyPlayerPos - friendlyPlayerPos).normalized;
+            float rotY = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            Vector2 targetPos = enemyPlayerPos + direction * playerAbilityCastRangePlayer;
+
+            Vector3 targetPos3D = new Vector3(targetPos.x, -1, targetPos.y);
+
+            playerInput.move = true;
+            playerInput.mousePosInGame = targetPos3D;
+            
         }
         else
         {
@@ -280,6 +345,7 @@ public class AI_BehavorTree : MonoBehaviour
                 else
                 {
                     playerInput.attack = true;
+                    playerInput.move = false;
                     playerInput.target = enemyPlayer;
                 }
             }
@@ -292,12 +358,6 @@ public class AI_BehavorTree : MonoBehaviour
         {
             return;
         }
-
-        playerInput.move = false;
-        playerInput.attack = false;
-        playerInput.ability1 = false;
-        playerInput.ability2 = false;
-        playerInput.ability3 = false;
 
         if (Vector2.Distance(friendlyPlayerPos, enemyMinionCentre) > playerAbilityCastRangeWave)
         {
@@ -368,13 +428,15 @@ public class AI_BehavorTree : MonoBehaviour
     {
         if (lastAction != ActionType.back)
         {
-            Vector2 direction = (friendlyPlayerPos - friendlyPlayerSpawn).normalized;
+            Vector2 direction = (friendlyPlayerSpawn - friendlyPlayerPos).normalized;
             float rotY = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Vector2 targetPos = friendlyPlayerPos + direction * playerAbilityCastRangeWave;
 
             Vector3 targetPos3D = new Vector3(targetPos.x, 0, targetPos.y);
 
             playerInput.move = true;
+            playerInput.attack = false;
+            playerMovement.targetEnemy = null;
             playerInput.mousePosInGame = targetPos3D;
         }
         //playerInput.move = true;

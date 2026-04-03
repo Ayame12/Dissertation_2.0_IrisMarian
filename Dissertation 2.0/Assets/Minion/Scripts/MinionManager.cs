@@ -40,6 +40,7 @@ public class MinionManager : NetworkBehaviour
     private AgentStats stats;
 
     public int uniqueIdentifier;
+    public bool playerAggro = false;
 
     public MinionSerializationData serializedMinion;
 
@@ -157,6 +158,18 @@ public class MinionManager : NetworkBehaviour
         serializedMinion.position.x = transform.position.x;
         serializedMinion.position.y = transform.position.y;
         serializedMinion.position.z = transform.position.z;
+
+        if(currentTarget)
+        {
+            if (currentTarget.GetComponent<PlayerManager>())
+            {
+                hittingPlayerRpc(true);
+            }
+            else
+            {
+                hittingPlayerRpc(false);
+            }
+        }
     }
 
     private void faceTarget()
@@ -236,5 +249,11 @@ public class MinionManager : NetworkBehaviour
     public void setIdentifierRpc(int identifier)
     {
         uniqueIdentifier = identifier;
+    }
+
+    [Rpc(SendTo.Everyone)]
+    public void hittingPlayerRpc(bool b)
+    {
+        playerAggro = b;
     }
 }
