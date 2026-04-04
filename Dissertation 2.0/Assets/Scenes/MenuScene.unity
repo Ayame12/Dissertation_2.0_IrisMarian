@@ -1386,7 +1386,7 @@ MonoBehaviour:
   redPlayerRespawnCooldown: 15
   respawnIncrement: 1
   gameDone: 0
-  logGame: 1
+  logGame: 0
   logHostOnly: 1
   prettyPrinting: 1
   saveFilePath: E:\DefaultFolders\Documents\DissertationData\testDataWithInput

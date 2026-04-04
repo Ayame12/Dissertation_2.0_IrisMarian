@@ -597,7 +597,7 @@ MonoBehaviour:
       isHoveringMinion: 0
       isHoveringGround: 0
       target: 0
-  isAI: 0
+  isAI: 1
   creepScore: 0
   creepScoreUi: {fileID: 5180114173188804606}
   uiCanvas: {fileID: 2551071925232754022}
@@ -1501,6 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AI_PickAction
   statesDataFile: \ConfigData\combinedStatesData.json
   checkStateFrequency: 0
+  minionsAggroThreshold: 3
   maxMinionClusterDistance: 2
   backActionDuration: 0.5
   tradeActionDuration: 2
@@ -1523,6 +1524,7 @@ MonoBehaviour:
   playerAbilityCastRangeWave: 8
   playerAbilityCastRangePlayer: 10
   maxMinionClusterDistance: 2
+  dodgeDistance: 6.5
 --- !u!1 &3869682917775190698
 GameObject:
   m_ObjectHideFlags: 0

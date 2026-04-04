@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &671571979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +164,53 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.612, y: 0, z: -8.35671}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1257875154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257875156}
+  - component: {fileID: 1257875155}
+  m_Layer: 0
+  m_Name: ImproovedTargetingScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1257875155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257875154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f7f2b3cd6bcde42bdc7e556df24a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImproovedTargetingScript
+  fileFolder: C:\Users\2200147\Documents\DissertationData\improved parsing data
+  saveFolder: C:\Users\2200147\Documents\DissertationData\improved states
+  actionDuration: 2
+--- !u!4 &1257875156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257875154}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.612, y: 0, z: -11.12799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -326,9 +373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmendPlayerDeath
   fileFolder: C:\Users\2200147\Documents\DissertationData\Reserializing\Player00
-    - Copy
+    data improved - copy
   saveFolder: C:\Users\2200147\Documents\DissertationData\Reserializing\Player00
-    - Rewrite
+    data improved - rewrite
 --- !u!4 &1738039804
 Transform:
   m_ObjectHideFlags: 0
@@ -489,3 +536,4 @@ SceneRoots:
   - {fileID: 1565400734}
   - {fileID: 1738039804}
   - {fileID: 671571980}
+  - {fileID: 1257875156}
