@@ -145,16 +145,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 671571978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8abac5d86bc8fd547b4ca2d0b6556a33, type: 3}
+  m_Script: {fileID: 11500000, guid: 832a7f39c64765940961b43b7b6ce37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::simplePositionBasedStatesParsing
-  fileFolder: E:\DefaultFolders\Documents\DissertationData\PlayerDataToParse
-  saveFolder: E:\DefaultFolders\Documents\DissertationData\StatesData
-  actionDuration: 3
-  towerDamageThreshold: 19
-  playerDamageThreshold: 30
-  backDistanceThreshold: 1.5
-  mouseProximityThreshold: 0
+  fileFolder: C:\Users\2200147\Documents\DissertationData\parsing data
+  saveFolder: C:\Users\2200147\Documents\DissertationData\statesFiles
+  actionDuration: 2
+  towerDamageThreshold: 50
+  playerDamageThreshold: 50
+  backDistanceThreshold: 1
 --- !u!4 &671571980
 Transform:
   m_ObjectHideFlags: 0
@@ -326,8 +325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80af9ce7a336f95429086321253f101d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmendPlayerDeath
-  fileFolder: E:\DefaultFolders\Documents\DissertationData\BadData
-  saveFolder: E:\DefaultFolders\Documents\DissertationData\Rewrite
+  fileFolder: C:\Users\2200147\Documents\DissertationData\Reserializing\Player00
+    - Copy
+  saveFolder: C:\Users\2200147\Documents\DissertationData\Reserializing\Player00
+    - Rewrite
 --- !u!4 &1738039804
 Transform:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class AI_PickAction : MonoBehaviour
 {
     public string statesDataFile;
 
-    private StatesList states;
+    private GameStatesList states;
 
     public float checkStateFrequency;
     private float checkStateTimer;
@@ -59,7 +59,7 @@ public class AI_PickAction : MonoBehaviour
 
         string rawData = File.ReadAllText(s);
 
-        states = JsonUtility.FromJson<StatesList>(rawData);
+        states = JsonUtility.FromJson<GameStatesList>(rawData);
 
         behaviorTree = GetComponent<AI_BehavorTree>();
     }
@@ -372,7 +372,7 @@ public class AI_PickAction : MonoBehaviour
             float backActionVal = 0;
 
             bool stateFound = false;
-            foreach(State s in states.states)
+            foreach(GameState s in states.states)
             {
                 if(s.stateID == stateID)
                 {

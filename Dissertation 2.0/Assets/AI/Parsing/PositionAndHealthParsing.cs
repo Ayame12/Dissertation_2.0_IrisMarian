@@ -1,31 +1,12 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 
-[Serializable]
-public class State
+public class PositionAndHealthParsing : MonoBehaviour
 {
-    public int stateID;
-    public int frequency = 1;
-    public float trade = 0;
-    public float wave = 0;
-    public float tower = 0;
-    public float back = 0;
-}
-
-[Serializable]
-public class StatesList
-{
-    public State[] states;
-}
-
-public class SimplePositionBasedStatesParsing : MonoBehaviour
-{
-    List<State> states = new List<State>();
-    StatesList statesData = new StatesList();
+    List<GameState> states = new List<GameState>();
+    GameStatesList statesData = new GameStatesList();
 
     public string fileFolder;
     public string saveFolder;
@@ -34,7 +15,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
     public float towerDamageThreshold;
     public float playerDamageThreshold;
     public float backDistanceThreshold;
-    public float mouseProximityThreshold;
+    //public float mouseProximityThreshold;
 
     Vector2 blueTowerPosition = new Vector2(-16.5f, -16.5f);
     Vector2 redTowerPosition = new Vector2(16.5f, 16.5f);
@@ -45,7 +26,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
 
     private float[] distanceIncrementsPlayerToEnemyTower = { 6, 10, 18, 27, 35, 40 };
     private float[] distanceIncrementsPlayerToPlayer = { 6, 10, 15, 20 };
-    private float[] distanceIncrementsPlayerToEnemyWave = { 6, 10, 15,20 };
+    private float[] distanceIncrementsPlayerToEnemyWave = { 6, 10, 15, 20 };
     private float[] distanceIncrementsWaveToEnemyTower = { 6, 10, 18, 27, 35, 40 };
     private int[] playerHealthIncrements = { 200, 400 };
 
@@ -364,7 +345,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
 
                             int diff = secondsDiff * 1000 + milisecondsDiff;
 
-                            if(diff < smallestDifference)
+                            if (diff < smallestDifference)
                             {
                                 smallestDifference = diff;
 
@@ -395,7 +376,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                         bool towerAction = false;
                         bool playerAction = false;
 
-                        if(log.redMinionsAlive > 0)
+                        if (log.redMinionsAlive > 0)
                         {
                             enemyHasWave = true;
                         }
@@ -419,7 +400,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                             Vector2 pos = new Vector2(data.logs[stateItt].bluePlayerData.position.x, data.logs[stateItt].bluePlayerData.position.z);
                             float dist = Vector2.Distance(blueTowerPosition, pos);
 
-                            if(dist < closestDistanceToBlueTower)
+                            if (dist < closestDistanceToBlueTower)
                             {
                                 closestDistanceToBlueTower = dist;
                             }
@@ -427,7 +408,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
 
                         float backedOff = Vector2.Distance(bluePlayerPosition, blueTowerPosition) - closestDistanceToBlueTower;
 
-                        if(backedOff > backDistanceThreshold)
+                        if (backedOff > backDistanceThreshold)
                         {
                             backAction = true;
                         }
@@ -442,13 +423,13 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
 
                         if (backAction)
                         {
-                            if(towerAction)
+                            if (towerAction)
                             {
                                 backActionVal = 0.35f;
                                 towerActionVal = 0.5f;
                                 actionDistribution = 0.25f;
                             }
-                            else if(playerAction)
+                            else if (playerAction)
                             {
                                 playerActionVal = 0.5f;
                                 backActionVal = 0.5f;
@@ -460,12 +441,12 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                                 actionDistribution = 0.5f;
                             }
                         }
-                        else if(towerAction)
+                        else if (towerAction)
                         {
                             towerActionVal = 0.8f;
                             actionDistribution = 0.2f;
                         }
-                        else if(playerAction)
+                        else if (playerAction)
                         {
                             playerActionVal = 0.5f;
                             actionDistribution = 0.5f;
@@ -523,7 +504,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                     }
 
                     bool foundState = false;
-                    foreach (State s in states)
+                    foreach (GameState s in states)
                     {
                         if (s.stateID == stateID)
                         {
@@ -541,7 +522,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
                     }
                     if (!foundState)
                     {
-                        State currentState = new State();
+                        GameState currentState = new GameState();
                         currentState.stateID = stateID;
 
                         currentState.trade += playerActionVal;
@@ -581,6 +562,7 @@ public class SimplePositionBasedStatesParsing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
+
