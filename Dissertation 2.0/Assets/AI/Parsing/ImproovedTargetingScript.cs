@@ -462,26 +462,26 @@ public class ImproovedTargetingScript : MonoBehaviour
 
                         if (towerAction)
                         {
-                            if(playerAction && clearAction)
-                            {
-                                towerActionVal = 0.75f;
-                                playerActionVal = 0.1f;
-                                clearActionVal = 0.15f;
-                            }
-                            else if(playerAction)
-                            {
-                                towerActionVal = 0.85f;
-                                playerActionVal = 0.15f;
-                            }
-                            else if(clearAction)
-                            {
-                                towerActionVal = 0.75f;
-                                clearActionVal = 0.25f;
-                            }
-                            else
-                            {
+                            //if(playerAction && clearAction)
+                            //{
+                            //    towerActionVal = 0.75f;
+                            //    playerActionVal = 0.1f;
+                            //    clearActionVal = 0.15f;
+                            //}
+                            //else if(playerAction)
+                            //{
+                            //    towerActionVal = 0.85f;
+                            //    playerActionVal = 0.15f;
+                            //}
+                            //else if(clearAction)
+                            //{
+                            //    towerActionVal = 0.75f;
+                            //    clearActionVal = 0.25f;
+                            //}
+                            //else
+                            //{
                                 towerActionVal = 1f;
-                            }
+                            //}
                         }
                         else
                         {
