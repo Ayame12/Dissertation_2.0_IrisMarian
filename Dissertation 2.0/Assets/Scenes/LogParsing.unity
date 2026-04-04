@@ -150,10 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::simplePositionBasedStatesParsing
   fileFolder: C:\Users\2200147\Documents\DissertationData\parsing data
   saveFolder: C:\Users\2200147\Documents\DissertationData\statesFiles
-  actionDuration: 2
+  actionDuration: 2.5
   towerDamageThreshold: 50
-  playerDamageThreshold: 50
-  backDistanceThreshold: 1
+  playerDamageThreshold: 40
+  backDistanceThreshold: 1.5
 --- !u!4 &671571980
 Transform:
   m_ObjectHideFlags: 0

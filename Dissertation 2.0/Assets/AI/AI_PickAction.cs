@@ -26,7 +26,6 @@ public class AI_PickAction : MonoBehaviour
     private string friendlyMinionTag;
     private string enemyMinionTag;
 
-    private int minionsAggroed = 0;
     public int minionsAggroThreshold = 3;
 
     //Vector2 bluePlayerSpawn;
@@ -115,6 +114,8 @@ public class AI_PickAction : MonoBehaviour
             checkState = true;
         }
 
+        GameObject[] enemyMinions = GameObject.FindGameObjectsWithTag(enemyMinionTag);
+
         if (checkState)
         {
             checkState = false;
@@ -128,12 +129,9 @@ public class AI_PickAction : MonoBehaviour
             List<GameObject> friendlyFrontMinionCluster = new List<GameObject>();
             List<GameObject> enemyFrontMinionCluster = new List<GameObject>();
 
-            minionsAggroed = 0;
-
             {
                 GameObject[] friendlyMinions = GameObject.FindGameObjectsWithTag(friendlyMinionTag);
-                GameObject[] enemyMinions = GameObject.FindGameObjectsWithTag(enemyMinionTag);
-
+                
                 GameObject friendlyFrontMinion;
                 GameObject enemyFrontMinion;
 
@@ -190,11 +188,6 @@ public class AI_PickAction : MonoBehaviour
                         shortestEnemyMinionDistanceToTower = distanceToTower;
                         enemyFrontMinion = minion;
                         enemyMinionCentre = new Vector2(enemyFrontMinion.transform.position.x, enemyFrontMinion.transform.position.z);
-                    }
-
-                    if(minion.GetComponent<MinionManager>().playerAggro)
-                    {
-                        ++minionsAggroed;
                     }
                 }
 
@@ -465,6 +458,14 @@ public class AI_PickAction : MonoBehaviour
                     }
                 }
 
+                if(!enemyPlayer.activeInHierarchy && isSafeToTower())
+                {
+                    behaviorTree.currentAction = ActionType.tower;
+                    checkStateTimer = towerActionDuration;
+                    //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
+                    return;
+                }
+
                 if (r < playerActionVal)
                 {
 
@@ -552,7 +553,19 @@ public class AI_PickAction : MonoBehaviour
             }
         }
 
-        if(minionsAggroed >= minionsAggroThreshold)
+        int minionsAggroed = 0;
+
+        foreach (GameObject minion in enemyMinions)
+        {
+            Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);
+
+            if (minion.GetComponent<MinionManager>().playerAggro)
+            {
+                ++minionsAggroed;
+            }
+        }
+
+        if (minionsAggroed >= minionsAggroThreshold)
         {
             behaviorTree.currentAction = ActionType.back;
             checkStateTimer = backActionDuration;
@@ -575,7 +588,7 @@ public class AI_PickAction : MonoBehaviour
     {
         TowerScript enemyTowerComp = enemyTower.GetComponent<TowerScript>();
 
-        if (enemyTowerComp.currentTarget == null || enemyTowerComp.currentTarget == gameObject)
+        if (enemyTowerComp.currentTarget == gameObject)
         {
             return false;
         }

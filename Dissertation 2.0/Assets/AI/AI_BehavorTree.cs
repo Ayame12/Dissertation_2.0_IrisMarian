@@ -48,7 +48,7 @@ public class AI_BehavorTree : MonoBehaviour
     private string ultTag;
     private string enemyRootTag;
     private string enemyUltTag;
-    public float dodgeDistance = 7;
+    public float dodgeDistance = 9;
 
     private PlayerInputScript playerInput;
     private PlayerAttackScript playerAttack;
@@ -147,22 +147,28 @@ public class AI_BehavorTree : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag(enemyRootTag))
         {
-            //GameObject enemyRoot = GameObject.FindGameObjectWithTag(enemyRootTag);
-            //Vector2 enemyRootPos = new Vector2(enemyRoot.transform.position.x, enemyRoot.transform.position.z);
-            //if (Vector2.Distance(friendlyPlayerPos, enemyRootPos) <= dodgeDistance)
-            //{
-            if (currentAction == ActionType.trade)
-            {
+            GameObject enemyRoot = GameObject.FindGameObjectWithTag(enemyRootTag);
+            Vector2 enemyRootPos = new Vector2(enemyRoot.transform.position.x, enemyRoot.transform.position.z);
 
-            }
-            else
+            if (Vector2.Distance(friendlyPlayerPos, enemyRootPos) <= dodgeDistance)
             {
-
+                Vector3 spawn3D = new Vector3(friendlyPlayerSpawn.x, 0, friendlyPlayerSpawn.y);
+                playerInput.mousePosInGame = spawn3D;
+                playerInput.ability2 = true;
             }
-            Vector3 spawn3D = new Vector3(friendlyPlayerSpawn.x, 0, friendlyPlayerSpawn.y);
-            playerInput.mousePosInGame = spawn3D;
-            playerInput.ability2 = true;
-            //}
+        }
+
+        if (GameObject.FindGameObjectWithTag(enemyUltTag))
+        {
+            GameObject enemyUlt = GameObject.FindGameObjectWithTag(enemyUltTag);
+            Vector2 enemyUltPos = new Vector2(enemyUlt.transform.position.x, enemyUlt.transform.position.z);
+
+            if (Vector2.Distance(friendlyPlayerPos, enemyUltPos) <= dodgeDistance)
+            {
+                Vector3 spawn3D = new Vector3(friendlyPlayerSpawn.x, 0, friendlyPlayerSpawn.y);
+                playerInput.mousePosInGame = spawn3D;
+                playerInput.ability2 = true;
+            }
         }
     }
 
