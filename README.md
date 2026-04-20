@@ -2,6 +2,6 @@
 
 CONTROLLS:
 
-Right Click  -    Move
-Right Click  -   Attack
+Right Click  -    Move,
+Right Click  -   Attack,
 Q, W, E    -  Abilities
