@@ -4,15 +4,13 @@ using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
+//this script reqrites the initial json file to be able to be read in an array
+
 public class RewriteNewData : MonoBehaviour
 {
     public string fileFolder;
     public string saveFolder;
 
-    //private string savePath;
-    //private string filePath;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         string[] files = Directory.GetFiles(fileFolder);

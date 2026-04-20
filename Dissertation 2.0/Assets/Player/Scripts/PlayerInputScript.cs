@@ -56,7 +56,6 @@ public class PlayerInputScript : MonoBehaviour
     private GameObject enemyPlayer;
 
     private AgentStats stats;
-    private AI_InputSript ai_input;
 
     public PlayerInputSerializedData serializedData;
 
@@ -82,11 +81,6 @@ public class PlayerInputScript : MonoBehaviour
         else
         {
             serializedData.isBlue = false;
-        }
-
-        if(GetComponent<AI_InputSript>())
-        {
-            ai_input = GetComponent<AI_InputSript>();
         }
     }
 
@@ -366,16 +360,6 @@ public class PlayerInputScript : MonoBehaviour
                     serializedData.isHoveringGround = true;
                 }
             }
-        }
-        else
-        {
-            move = ai_input.move;
-            attack = ai_input.attack;
-            ability1 = ai_input.ability1;
-            ability2 = ai_input.ability2;
-            ability3 = ai_input.ability3;
-            target = ai_input.target;
-            mousePosInGame = ai_input.mousePos;
         }
     }
 

@@ -12,15 +12,8 @@ public class ImproovedTargetingScript : MonoBehaviour
     public string saveFolder;
     public float actionDuration;
 
-    //public float towerDamageThreshold;
-    //public float playerDamageThreshold;
-    //public float backDistanceThreshold;
-    //public float mouseProximityThreshold;
-
     Vector2 blueTowerPosition = new Vector2(-16.5f, -16.5f);
     Vector2 redTowerPosition = new Vector2(16.5f, 16.5f);
-    //Vector2 bluePlayerSpawn;
-    //Vector2 redPlayerSpawn;
 
     float maxMinionClusterDistance = 2;
 
@@ -30,7 +23,6 @@ public class ImproovedTargetingScript : MonoBehaviour
     private float[] distanceIncrementsWaveToEnemyTower = { 6, 10, 18, 27, 35, 40 };
     private int[] playerHealthIncrements = { 200, 400 };
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         string[] files = Directory.GetFiles(fileFolder);
@@ -102,6 +94,8 @@ public class ImproovedTargetingScript : MonoBehaviour
                         }
                     }
 
+                    //find minions within 2 units of the minion wave centre (at first the fron minion position)
+                    //and recalculate centre
                     foreach (MinionSerializationData minion in log.blueMinions)
                     {
                         Vector2 minionPosition = new Vector2(minion.position.x, minion.position.z);
@@ -145,6 +139,8 @@ public class ImproovedTargetingScript : MonoBehaviour
                         }
                     }
 
+                    //find minions within 2 units of the minion wave centre (at first the fron minion position)
+                    //and recalculate centre
                     foreach (MinionSerializationData minion in log.redMinions)
                     {
                         Vector2 minionPosition = new Vector2(minion.position.x, minion.position.z);
@@ -173,6 +169,7 @@ public class ImproovedTargetingScript : MonoBehaviour
 
                 if (isBlueLog)
                 {
+                    //calculateing relevant distances for determining StateID
                     int bluePlayerToRedTowerDistanceIndex;
                     int playersDistanceIndex;
                     int bluePlayerToRedWaveDistanceIndex;
@@ -183,6 +180,7 @@ public class ImproovedTargetingScript : MonoBehaviour
                     float bluePlayerToRedWaveDistance = Vector2.Distance(bluePlayerPosition, redMinionCentre);
                     float blueWaveToRedTowerDistance = Vector2.Distance(blueMinionCentre, redTowerPosition);
 
+                    //determning indexes from distances calculated and player health
                     {
                         int index = 0;
                         for (int i = 0; i < distanceIncrementsPlayerToEnemyTower.Length; ++i)
@@ -307,6 +305,8 @@ public class ImproovedTargetingScript : MonoBehaviour
                         }
                     }
 
+                    //composing StateID
+
                     int stateID = 0;
                     stateID += bluePlayerToRedTowerDistanceIndex * 100000;
                     stateID += playersDistanceIndex * 10000;
@@ -368,9 +368,6 @@ public class ImproovedTargetingScript : MonoBehaviour
 
                         //calculating difference health for ENEMY player, minions and tower
 
-                        //float actionDistribution = 1;
-
-                        //bool backAction = false;
                         bool towerAction = false;
                         bool playerAction = false;
                         bool clearAction = false;
@@ -440,48 +437,11 @@ public class ImproovedTargetingScript : MonoBehaviour
                             clearAction = true;
                         }
 
-                        //float closestDistanceToBlueTower = Vector2.Distance(blueTowerPosition, bluePlayerPosition);
-
-                        //for (int stateItt = logItt; stateItt < lastLogIndex; ++stateItt)
-                        //{
-                        //    Vector2 pos = new Vector2(data.logs[stateItt].bluePlayerData.position.x, data.logs[stateItt].bluePlayerData.position.z);
-                        //    float dist = Vector2.Distance(blueTowerPosition, pos);
-
-                        //    if (dist < closestDistanceToBlueTower)
-                        //    {
-                        //        closestDistanceToBlueTower = dist;
-                        //    }
-                        //}
-
-                        //float backedOff = Vector2.Distance(bluePlayerPosition, blueTowerPosition) - closestDistanceToBlueTower;
-
-                        //if (backedOff > backDistanceThreshold)
-                        //{
-                        //    backAction = true;
-                        //}
-
+                       //setting action values
                         if (towerAction)
                         {
-                            //if(playerAction && clearAction)
-                            //{
-                            //    towerActionVal = 0.75f;
-                            //    playerActionVal = 0.1f;
-                            //    clearActionVal = 0.15f;
-                            //}
-                            //else if(playerAction)
-                            //{
-                            //    towerActionVal = 0.85f;
-                            //    playerActionVal = 0.15f;
-                            //}
-                            //else if(clearAction)
-                            //{
-                            //    towerActionVal = 0.75f;
-                            //    clearActionVal = 0.25f;
-                            //}
-                            //else
-                            //{
+                            
                                 towerActionVal = 1f;
-                            //}
                         }
                         else
                         {
@@ -499,91 +459,9 @@ public class ImproovedTargetingScript : MonoBehaviour
                                 clearActionVal = 1f;
                             }
                         }
-
-                        //// rework this
-
-                        //if (backAction)
-                        //{
-                        //    if (towerAction)
-                        //    {
-                        //        backActionVal = 0.35f;
-                        //        towerActionVal = 0.5f;
-                        //        actionDistribution = 0.25f;
-                        //    }
-                        //    else if (playerAction)
-                        //    {
-                        //        playerActionVal = 0.5f;
-                        //        backActionVal = 0.5f;
-                        //        actionDistribution = 0;
-                        //    }
-                        //    else
-                        //    {
-                        //        backActionVal = 0.5f;
-                        //        actionDistribution = 0.5f;
-                        //    }
-                        //}
-                        //else if (towerAction)
-                        //{
-                        //    towerActionVal = 0.8f;
-                        //    actionDistribution = 0.2f;
-                        //}
-                        //else if (playerAction)
-                        //{
-                        //    playerActionVal = 0.5f;
-                        //    actionDistribution = 0.5f;
-                        //}
-
-                        //clearActionVal = actionDistribution;
-
-
-                        //float minionCurrentHealth = 0;
-                        //foreach (MinionSerializationData min in log.redMinions)
-                        //{
-                        //    minionCurrentHealth += min.health;
-                        //}
-
-                        //float minionLastHealth = 0;
-                        //foreach (MinionSerializationData min in lastLog.redMinions)
-                        //{
-                        //    minionLastHealth += min.health;
-                        //}
-
-                        //float minionHealthDifference = minionCurrentHealth - minionLastHealth;
-
-                        //float playerPercentageHealthLost = (float)log.redPlayerData.health / playerHealthDifference;
-                        //float minionsPercentageHealthLost = minionCurrentHealth / minionHealthDifference;
-                        ////float towerPercentageHealthLost = (float)log.redTowerData.health / towerHealthDifference;
-
-                        //bool targettingTower = false;
-                        //bool targetingPlayer = false;
-                        //bool targetingwave = false;
-
-                        //if(playerPercentageHealthLost > minionsPercentageHealthLost / 2 )
-                        //{
-
-                        //}
-
-                        //_________________________________________________________________________________________________________
-
-                        //for (int stateItt = logItt; stateItt < lastLogIndex; ++stateItt)
-                        //{
-                        //    SerializedGameData nLog = data.logs[stateItt];
-
-                        //    if(nLog.logType == "log")
-                        //    {
-                        //        continue;
-                        //    }
-
-                        //    float mouseToPlayer = Vector2.Distance(nLog.mo);
-                        //    float mouseToWave = 0;
-                        //    float mouseToTower = 0;
-                        //    float mouseToAllyTower = 0;
-
-
-                        //}
-
                     }
 
+                    //adding action values to existing state or create new state
                     bool foundState = false;
                     foreach (GameState s in states)
                     {
@@ -591,7 +469,6 @@ public class ImproovedTargetingScript : MonoBehaviour
                         {
                             ++s.frequency;
 
-                            //more stuff abt the action
                             s.trade += playerActionVal;
                             s.wave += clearActionVal;
                             s.tower += towerActionVal;
@@ -615,10 +492,6 @@ public class ImproovedTargetingScript : MonoBehaviour
 
                     }
                 }
-                else
-                {
-
-                }
             }
         }
 
@@ -638,12 +511,6 @@ public class ImproovedTargetingScript : MonoBehaviour
         {
             Debug.LogError("Error saving states");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
 

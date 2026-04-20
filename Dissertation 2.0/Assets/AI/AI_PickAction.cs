@@ -15,9 +15,6 @@ public class AI_PickAction : MonoBehaviour
 
     private bool checkState = false;
 
-    //private GameObject redPlayer;
-    //private GameObject bluePlayer;
-
     private GameObject enemyPlayer;
     private GameObject enemyTower;
     private GameObject friendlyTower;
@@ -27,9 +24,6 @@ public class AI_PickAction : MonoBehaviour
     private string enemyMinionTag;
 
     public int minionsAggroThreshold = 3;
-
-    //Vector2 bluePlayerSpawn;
-    //Vector2 redPlayerSpawn;
 
     public float maxMinionClusterDistance = 2;
 
@@ -49,7 +43,6 @@ public class AI_PickAction : MonoBehaviour
     public Vector2 towerReactionTime = new Vector2(0.1f, 0.2f);
     private float towerReactionTimer = 0.1f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         string exeFolder = Directory.GetParent(Application.dataPath).FullName;
@@ -63,9 +56,9 @@ public class AI_PickAction : MonoBehaviour
         behaviorTree = GetComponent<AI_BehavorTree>();
     }
 
-    // Update is called once per frame
     public void tickUpdate()
     {
+        //making sure references to other GameObjects are set
         if(!enemyPlayer)
         {
             if (gameObject.tag == "RedPlayer")
@@ -107,6 +100,7 @@ public class AI_PickAction : MonoBehaviour
             }
         }
 
+        //timer used to check before needing to pick the next action
         checkStateTimer -= Time.deltaTime;
 
         if(checkStateTimer < 0)
@@ -116,6 +110,7 @@ public class AI_PickAction : MonoBehaviour
 
         GameObject[] enemyMinions = GameObject.FindGameObjectsWithTag(enemyMinionTag);
 
+        //checking the state and determining StateID to search through states file
         if (checkState)
         {
             checkState = false;
@@ -138,7 +133,7 @@ public class AI_PickAction : MonoBehaviour
                 float shortestFriendlyMinionDistanceToTower = Vector2.Distance(friendlyTowerPos, enemyPlayerPos);
                 float shortestEnemyMinionDistanceToTower = Vector2.Distance(friendlyTowerPos, enemyPlayerPos);
 
-                //friendly minion wave
+                //finding the front-most minion for the friendly wave
                 foreach (GameObject minion in friendlyMinions)
                 {
                     Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);
@@ -152,6 +147,7 @@ public class AI_PickAction : MonoBehaviour
                     }
                 }
 
+                //finding all the minions in proximity to the first minion to get the front of the friendly wave centre
                 foreach (GameObject minion in friendlyMinions)
                 {
                     Vector2 minionPosition = new Vector2(minion.transform.position.x, minion.transform.position.z);
@@ -177,7 +173,7 @@ public class AI_PickAction : MonoBehaviour
                     }
                 }
 
-                //enemy minion wave
+                //finding the front-most minion for the enemy wave
                 foreach (GameObject minion in enemyMinions)
                 {
                     Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);
@@ -191,6 +187,7 @@ public class AI_PickAction : MonoBehaviour
                     }
                 }
 
+                //finding all the minions in proximity to the first minion to get the front of the enemy wave centre
                 foreach (GameObject minion in enemyMinions)
                 {
                     Vector2 minionPosition = new Vector2(minion.transform.position.x, minion.transform.position.z);
@@ -217,6 +214,7 @@ public class AI_PickAction : MonoBehaviour
                 }
             }
 
+            //calculating all the distances required for determining the StateID
             int playerToEnemyTowerDistanceIndex;
             int playersDistanceIndex;
             int playerToEnemyWaveDistanceIndex;
@@ -227,6 +225,7 @@ public class AI_PickAction : MonoBehaviour
             float playerToEnemyWaveDistance = Vector2.Distance(friendlyPlayerPos, enemyMinionCentre);
             float waveToEnemyTowerDistance = Vector2.Distance(friendlyMinionCentre, enemyTowerPos);
 
+            //comparing distances and player health to set indexes to determine StateID
             {
                 int index = 0;
                 for (int i = 0; i < distanceIncrementsPlayerToEnemyTower.Length; ++i)
@@ -351,6 +350,7 @@ public class AI_PickAction : MonoBehaviour
                 }
             }
 
+            //constructing StateID
             int stateID = 0;
             stateID += playerToEnemyTowerDistanceIndex * 100000;
             stateID += playersDistanceIndex * 10000;
@@ -364,6 +364,7 @@ public class AI_PickAction : MonoBehaviour
             float towerActionVal = 0;
             float backActionVal = 0;
 
+            //retreaving action distribution from the state if found
             bool stateFound = false;
             foreach(GameState s in states.states)
             {
@@ -378,12 +379,9 @@ public class AI_PickAction : MonoBehaviour
                 }
             }
 
+            //redistributing action probability based on if action is safe to do
             if (stateFound)
             {
-                
-
-                float r = Random.Range(0.0f, 1.0f);
-
                 if (enemyFrontMinionCluster.Count == 0)
                 {
                     if(enemyPlayer.activeInHierarchy && isSafeToTrade())
@@ -457,7 +455,7 @@ public class AI_PickAction : MonoBehaviour
                         }
                     }
                 }
-
+                //if it is safe to hit the tower (the friendly wave is hitting it) hit the tower
                 if(!enemyPlayer.activeInHierarchy && isSafeToTower())
                 {
                     behaviorTree.currentAction = ActionType.tower;
@@ -466,6 +464,9 @@ public class AI_PickAction : MonoBehaviour
                     return;
                 }
 
+                float r = Random.Range(0.0f, 1.0f);
+
+                //picking the action based on probabilities
                 if (r < playerActionVal)
                 {
 
@@ -494,6 +495,7 @@ public class AI_PickAction : MonoBehaviour
                 //Debug.Log("Action : " + behaviorTree.currentAction.ToString() + " for " + checkStateTimer.ToString());
                 return;
             }
+            //decision making if state is not found
             else
             {
                 if (enemyFrontMinionCluster.Count == 0)
@@ -540,6 +542,7 @@ public class AI_PickAction : MonoBehaviour
             }
         }
 
+        //getting out of tower aggro
         if(enemyTower.GetComponent<TowerScript>().currentTarget == gameObject)
         {
             towerReactionTimer -= Time.deltaTime;
@@ -555,6 +558,7 @@ public class AI_PickAction : MonoBehaviour
 
         int minionsAggroed = 0;
 
+        //getting away from minion aggro
         foreach (GameObject minion in enemyMinions)
         {
             Vector2 minionPos = new Vector2(minion.transform.position.x, minion.transform.position.z);

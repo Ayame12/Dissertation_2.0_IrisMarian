@@ -14,15 +14,13 @@ public class deathTimeStamp
     public int milisecond;
 }
 
+
+//this script will rewrite data from my old data (didnt contain the bool for player is alive) to the new data
 public class AmmendPlayerDeath : MonoBehaviour
 {
     public string fileFolder;
     public string saveFolder;
 
-    //private string savePath;
-    //private string filePath;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         string[] files = Directory.GetFiles(fileFolder);
@@ -42,6 +40,8 @@ public class AmmendPlayerDeath : MonoBehaviour
 
             SerializedGameDataList newData = new SerializedGameDataList();
 
+
+            //json parsing
             try
             {
                 string raw = File.ReadAllText(filePath).Trim();
@@ -67,25 +67,9 @@ public class AmmendPlayerDeath : MonoBehaviour
                 Debug.LogError("JSON PARSE ERROR:\n" + e);
             }
 
+            //copying data from old format
             foreach (SerializedGameDataOld log in oldLogs)
             {
-                /*
-                    public string logType = "log";
-                    public int minutesElapsed = 0;
-                    public int secondsElapsed = 0;
-                    public int milisecondsElapsed = 0;
-
-                    public int blueMinionsAlive = 0;
-                    public int redMinionsAlive = 0;
-
-                    public PlayerSerializedData bluePlayerData;
-                    public PlayerSerializedData redPlayerData;
-                    public TowerSerializationData blueTowerData;
-                    public TowerSerializationData redTowerData;
-
-                    public List<MinionSerializationData> blueMinions;
-                    public List<MinionSerializationData> redMinions;
-                 */
 
                 SerializedGameData newLog = new SerializedGameData();
 
@@ -115,6 +99,7 @@ public class AmmendPlayerDeath : MonoBehaviour
                 newLog.bluePlayerData.isSlowed = log.bluePlayerData.isSlowed;
                 newLog.bluePlayerData.stunRemaining = log.bluePlayerData.stunRemaining;
 
+                //finding where the player hp resets and tracing back to closeste matching log to write the isAlive bool
                 if (blueLookFor650)
                 {
                     if (newLog.bluePlayerData.health == 650)
@@ -172,6 +157,7 @@ public class AmmendPlayerDeath : MonoBehaviour
                 newLog.redPlayerData.isSlowed = log.redPlayerData.isSlowed;
                 newLog.redPlayerData.stunRemaining = log.redPlayerData.stunRemaining;
 
+                //finding where the player hp resets and tracing back to closeste matching log to write the isAlive bool
                 if (redLookFor650)
                 {
                     if (newLog.redPlayerData.health == 650)
@@ -210,8 +196,6 @@ public class AmmendPlayerDeath : MonoBehaviour
                         redLookFor650 = true;
                     }
                 }
-
-                //---------------
 
                 newLog.blueTowerData = log.blueTowerData;
                 newLog.redTowerData = log.redTowerData;
